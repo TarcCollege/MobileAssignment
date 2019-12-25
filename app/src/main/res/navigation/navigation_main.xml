@@ -9,7 +9,26 @@
         android:id="@+id/homeFragment"
         android:name="com.example.drugassignment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_donation_Main"
+            app:destination="@id/donation_Main" />
+        <action
+            android:id="@+id/action_homeFragment_to_contactMain"
+            app:destination="@id/contactMain" />
+        <action
+            android:id="@+id/action_homeFragment_to_quiz_Main"
+            app:destination="@id/quiz_Main" />
+        <action
+            android:id="@+id/action_homeFragment_to_information_Main"
+            app:destination="@id/information_Main" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_profile_Activity"
+            app:destination="@id/profile_Activity" />
+    </fragment>
     <fragment
         android:id="@+id/donation_Main"
         android:name="com.example.drugassignment.Donation_Module.Donation_Main"
