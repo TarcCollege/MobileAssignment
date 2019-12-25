@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.drugassignment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/donation_Main"
+        android:name="com.example.drugassignment.Donation_Module.Donation_Main"
+        android:label="fragment_donation__main"
+        tools:layout="@layout/fragment_donation__main" />
+    <fragment
+        android:id="@+id/contactMain"
+        android:name="com.example.drugassignment.Help_Module.ContactMain"
+        android:label="fragment_contact__main"
+        tools:layout="@layout/fragment_contact__main" />
+    <fragment
+        android:id="@+id/quiz_Main"
+        android:name="com.example.drugassignment.Quiz_Module.Quiz_Main"
+        android:label="fragment_quiz__main"
+        tools:layout="@layout/fragment_quiz__main" />
+    <fragment
+        android:id="@+id/information_Main"
+        android:name="com.example.drugassignment.Information_Module.Information_Main"
+        android:label="fragment_information__main"
+        tools:layout="@layout/fragment_information__main" />
+    <activity
+        android:id="@+id/profile_Activity"
+        android:name="com.example.drugassignment.Profile_Module.Profile_Activity"
+        android:label="Profile_Activity" />
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.example.drugassignment.Map_Module.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
+</navigation>
