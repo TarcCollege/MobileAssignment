@@ -58,4 +58,5 @@
         android:name="com.example.drugassignment.Map_Module.MapsActivity"
         android:label="activity_maps"
         tools:layout="@layout/activity_maps" />
+
 </navigation>

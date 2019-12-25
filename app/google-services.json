@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "377735669243",
+    "firebase_url": "https://drugassignment-829da.firebaseio.com",
+    "project_id": "drugassignment-829da",
+    "storage_bucket": "drugassignment-829da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377735669243:android:921e02e71280bd50fa575e",
+        "android_client_info": {
+          "package_name": "com.example.drugassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377735669243-egu80fhhe9rdmopqtl3l7s4t7c8mq36u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.drugassignment",
+            "certificate_hash": "8acb79cd53946568113e544cd7af73841034a740"
+          }
+        },
+        {
+          "client_id": "377735669243-navunl2u6vcteavbkkna960s479nmvr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVERQFa-jpWSbcvtpXBSwNscT76mgIJDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377735669243-navunl2u6vcteavbkkna960s479nmvr0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

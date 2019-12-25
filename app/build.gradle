@@ -4,7 +4,14 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+//firebase dependencies
+apply plugin: 'com.google.gms.google-services'
+
 android {
+
+    dataBinding {
+        enabled = true
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     compileOptions {
@@ -46,4 +53,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+
+    //firebase dependencies
+    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
 }

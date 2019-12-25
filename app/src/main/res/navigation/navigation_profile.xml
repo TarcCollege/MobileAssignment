@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_profile"
+    app:startDestination="@id/profileMain">
+
+    <fragment
+        android:id="@+id/profileMain"
+        android:name="com.example.drugassignment.Profile_Module.ProfileMain"
+        android:label="fragment_profile_main"
+        tools:layout="@layout/fragment_profile_main" >
+        <action
+            android:id="@+id/action_profileMain_to_login"
+            app:destination="@id/login"
+            app:popUpTo="@+id/navigation_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.drugassignment.Login_Registration.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_registration"
+            app:destination="@id/registration"
+            app:popUpTo="@+id/navigation_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.example.drugassignment.Login_Registration.Registration"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" />
+</navigation>
