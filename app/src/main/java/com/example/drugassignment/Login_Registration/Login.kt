@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.fragment_profile_main.*
 
 /**
  * A simple [Fragment] subclass.
@@ -44,6 +45,10 @@ class Login : Fragment() {
             loginFlow()
         }
 
+        binding.btnReset.setOnClickListener {
+            it.findNavController().navigate(R.id.action_login_to_resetPassword)
+        }
+
         return binding.root
     }
 
@@ -61,8 +66,19 @@ class Login : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("Game", "signInWithEmail:success")
 
-                    findNavController().navigate(R.id.profileMain)
+                    val user = FirebaseAuth.getInstance().currentUser
 
+                    user?.let {
+                        if(!user.isEmailVerified) {
+                            FirebaseAuth.getInstance().signOut()
+                            Toast.makeText(activity, " Not Verified",
+                                Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(activity, "Verified",
+                                Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.profileMain)
+                        }
+                    }
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Game", "signInWithEmail:failure", task.exception)

@@ -26,10 +26,19 @@
             app:destination="@id/registration"
             app:popUpTo="@+id/navigation_main"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_to_resetPassword"
+            app:destination="@id/resetPassword"
+            app:popUpTo="@+id/login"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registration"
         android:name="com.example.drugassignment.Login_Registration.Registration"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/resetPassword"
+        android:name="com.example.drugassignment.Login_Registration.ResetPassword"
+        android:label="ResetPassword" />
 </navigation>
