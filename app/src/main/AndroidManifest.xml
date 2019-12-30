@@ -15,8 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Profile_Module.Profile_Activity"
-            android:parentActivityName="com.example.drugassignment.MainActivity" ></activity>
+        <activity android:name=".nav_header2"></activity>
+        <activity
+            android:name=".Profile_Module.Profile_Activity"
+            android:parentActivityName=".MainActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -29,6 +31,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name=".MainHeaderActivity" />
         <activity
             android:name=".Map_Module.MapsActivity"
             android:label="@string/title_activity_maps">
@@ -36,7 +39,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.drugassignment.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
