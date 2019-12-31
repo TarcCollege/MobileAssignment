@@ -13,6 +13,7 @@ import kotlin.random.Random
 class LoginViewModel : ViewModel() {
 
     lateinit var user : UserLog
+    var login = false
 
     enum class AuthenticationState {
         AUTHENTICATED, UNAUTHENTICATED, INVALID_AUTHENTICATION
@@ -21,11 +22,14 @@ class LoginViewModel : ViewModel() {
     val authenticationState: LiveData<AuthenticationState>? = Transformations.map(FirebaseUserLiveData()) {
         if (it != null && it.isEmailVerified) {
             user = UserLog(it)
+            login = true
             AuthenticationState.AUTHENTICATED
         } else {
+            login = false
             AuthenticationState.UNAUTHENTICATED
         }
     }
+
 
 
 }

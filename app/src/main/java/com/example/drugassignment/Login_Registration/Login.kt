@@ -10,15 +10,17 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.drugassignment.Profile_Module.ProfileViewModel
 import com.example.drugassignment.R
-import com.example.drugassignment.databinding.ActivityProfileBinding
 import com.example.drugassignment.databinding.FragmentLoginBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.activity_profile.*
+import android.text.method.TextKeyListener.clear
+import android.view.Menu
+
 
 /**
  * A simple [Fragment] subclass.
@@ -28,6 +30,13 @@ class Login : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var auth: FirebaseAuth
 
+
+    companion object {
+        fun newInstance() = Login()
+    }
+
+    private lateinit var viewModel: ProfileViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,17 +44,17 @@ class Login : Fragment() {
         // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_login, container, false
+            inflater, com.example.drugassignment.R.layout.fragment_login, container, false
         )
 
-        val fab: FloatingActionButton? = activity?.findViewById(R.id.fab2)
+        val fab: FloatingActionButton? = activity?.findViewById(com.example.drugassignment.R.id.fab2)
         fab?.isVisible = false
 
 
         auth = FirebaseAuth.getInstance()
 
         binding.btnRegistration.setOnClickListener {
-            it.findNavController().navigate(R.id.action_login_to_registration)
+            it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_registration)
         }
 
         binding.btnLogin.setOnClickListener {
@@ -53,10 +62,30 @@ class Login : Fragment() {
         }
 
         binding.btnReset.setOnClickListener {
-            it.findNavController().navigate(R.id.action_login_to_resetPassword)
+            it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_resetPassword)
         }
+        setHasOptionsMenu(true)
+
+
 
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.clear()
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        activity?.run {
+            viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
+        } ?: throw Throwable("invalid activity")
+        viewModel.updateActionBarTitle("Custom Title From Fragment")
     }
 
     private fun loginFlow() {
@@ -66,8 +95,6 @@ class Login : Fragment() {
     private fun login() {
         val email = binding.editEmail.text.toString()
         val password = binding.editPassword.text.toString()
-
-
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
@@ -89,7 +116,7 @@ class Login : Fragment() {
                                 activity, "Verified",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            findNavController().navigate(R.id.profileMain)
+                            findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
                         }
                     }
                 } else {

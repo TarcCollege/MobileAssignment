@@ -4,6 +4,7 @@ package com.example.drugassignment.Login_Registration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -36,6 +37,7 @@ class Registration : Fragment() {
 
         val fab: FloatingActionButton? = activity?.findViewById(R.id.fab2)
         fab?.isVisible = false
+        setHasOptionsMenu(false)
 
         //observeAuthenticationState()
         // initilize firebase instance
@@ -50,6 +52,16 @@ class Registration : Fragment() {
 
     private fun registrationFlow() {
         regiser()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.clear()
     }
 
     private fun regiser() {
