@@ -1,29 +1,31 @@
 package com.example.drugassignment.Login_Registration
 
 
-import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavOptions
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.drugassignment.R
+import com.example.drugassignment.databinding.ActivityProfileBinding
 import com.example.drugassignment.databinding.FragmentLoginBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_profile_main.*
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_profile.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class Login : Fragment() {
 
-    private lateinit var binding : FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -33,7 +35,12 @@ class Login : Fragment() {
         // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_login, container, false)
+            inflater, R.layout.fragment_login, container, false
+        )
+
+        val fab: FloatingActionButton? = activity?.findViewById(R.id.fab2)
+        fab?.isVisible = false
+
 
         auth = FirebaseAuth.getInstance()
 
@@ -60,6 +67,8 @@ class Login : Fragment() {
         val email = binding.editEmail.text.toString()
         val password = binding.editPassword.text.toString()
 
+
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -69,13 +78,17 @@ class Login : Fragment() {
                     val user = FirebaseAuth.getInstance().currentUser
 
                     user?.let {
-                        if(!user.isEmailVerified) {
+                        if (!user.isEmailVerified) {
                             FirebaseAuth.getInstance().signOut()
-                            Toast.makeText(activity, " Not Verified",
-                                Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                activity, " Not Verified",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         } else {
-                            Toast.makeText(activity, "Verified",
-                                Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                activity, "Verified",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             findNavController().navigate(R.id.profileMain)
                         }
                     }
@@ -83,8 +96,10 @@ class Login : Fragment() {
                     // If sign in fails, display a message to the user.
                     Log.w("Game", "signInWithEmail:failure", task.exception)
 
-                    Toast.makeText(activity, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        activity, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
                 }
 

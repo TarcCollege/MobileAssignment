@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentRegistrationBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 
@@ -31,6 +33,9 @@ class Registration : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_registration, container, false
         )
+
+        val fab: FloatingActionButton? = activity?.findViewById(R.id.fab2)
+        fab?.isVisible = false
 
         //observeAuthenticationState()
         // initilize firebase instance

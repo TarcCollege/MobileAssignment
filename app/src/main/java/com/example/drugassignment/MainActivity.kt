@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = this.findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
 //        val fab: FloatingActionButton = findViewById(R.id.fab)
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         // get the Nav view from the layout
         val navView : NavigationView = findViewById(R.id.nav_view)
         // get the header view
-        val headerView  =
+        var headerView  =
             LayoutInflater.from(this).inflate(R.layout.activity_nav_header2, null)
 
         viewModel.authenticationState?.observe(this, Observer { authenticationState ->
