@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profile_Activity"
             app:destination="@id/profile_Activity" />
+        <action
+            android:id="@+id/action_homeFragment_to_login"
+            app:destination="@id/login" />
     </fragment>
     <fragment
         android:id="@+id/donation_Main"
@@ -58,5 +61,35 @@
         android:name="com.example.drugassignment.Map_Module.MapsActivity"
         android:label="activity_maps"
         tools:layout="@layout/activity_maps" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.drugassignment.Login_Registration.Login"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_registration"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_login_to_resetPassword"
+            app:destination="@id/resetPassword" />
+        <action
+            android:id="@+id/action_login_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.example.drugassignment.Login_Registration.Registration"
+        android:label="Registration" />
+    <fragment
+        android:id="@+id/resetPassword"
+        android:name="com.example.drugassignment.Login_Registration.ResetPassword"
+        android:label="ResetPassword" />
+    <fragment
+        android:id="@+id/profileMain2"
+        android:name="com.example.drugassignment.Profile_Module.ProfileMain"
+        android:label="ProfileMain" >
+        <action
+            android:id="@+id/action_profileMain2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>

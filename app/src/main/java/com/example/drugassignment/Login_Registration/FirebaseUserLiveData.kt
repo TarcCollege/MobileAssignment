@@ -1,6 +1,7 @@
 package com.example.drugassignment.Login_Registration
 
 import androidx.lifecycle.LiveData
+import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -15,6 +16,7 @@ class FirebaseUserLiveData : LiveData<FirebaseUser?>() {
         // point into the Firebase Authentication SDK the app is using.
         // With an instance of the FirebaseAuth class, you can now query for the current user.
         value = firebaseAuth.currentUser
+
     }
 
     // When this object has an active observer, start observing the FirebaseAuth state to see if

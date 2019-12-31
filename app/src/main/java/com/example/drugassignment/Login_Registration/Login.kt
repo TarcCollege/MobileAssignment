@@ -1,29 +1,41 @@
 package com.example.drugassignment.Login_Registration
 
 
-import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavOptions
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.drugassignment.Profile_Module.ProfileViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentLoginBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import android.text.method.TextKeyListener.clear
+import android.view.Menu
+
 
 /**
  * A simple [Fragment] subclass.
  */
 class Login : Fragment() {
 
-    private lateinit var binding : FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var auth: FirebaseAuth
+
+
+    companion object {
+        fun newInstance() = Login()
+    }
+
+    private lateinit var viewModel: ProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,19 +44,48 @@ class Login : Fragment() {
         // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_login, container, false)
+            inflater, com.example.drugassignment.R.layout.fragment_login, container, false
+        )
+
+        val fab: FloatingActionButton? = activity?.findViewById(com.example.drugassignment.R.id.fab2)
+        fab?.isVisible = false
+
 
         auth = FirebaseAuth.getInstance()
 
         binding.btnRegistration.setOnClickListener {
-            it.findNavController().navigate(R.id.action_login_to_registration)
+            it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_registration)
         }
 
         binding.btnLogin.setOnClickListener {
             loginFlow()
         }
 
+        binding.btnReset.setOnClickListener {
+            it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_resetPassword)
+        }
+        setHasOptionsMenu(true)
+
+
+
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.clear()
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        activity?.run {
+            viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
+        } ?: throw Throwable("invalid activity")
+        viewModel.updateActionBarTitle("Custom Title From Fragment")
     }
 
     private fun loginFlow() {
@@ -61,14 +102,31 @@ class Login : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("Game", "signInWithEmail:success")
 
-                    findNavController().navigate(R.id.profileMain)
+                    val user = FirebaseAuth.getInstance().currentUser
 
+                    user?.let {
+                        if (!user.isEmailVerified) {
+                            FirebaseAuth.getInstance().signOut()
+                            Toast.makeText(
+                                activity, " Not Verified",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                activity, "Verified",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
+                        }
+                    }
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Game", "signInWithEmail:failure", task.exception)
 
-                    Toast.makeText(activity, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        activity, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
                 }
 
