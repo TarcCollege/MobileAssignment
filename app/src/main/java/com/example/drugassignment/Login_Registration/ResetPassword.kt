@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.drugassignment.R
-import com.example.drugassignment.databinding.FragmentProfileMainBinding
 import com.example.drugassignment.databinding.FragmentResetPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 

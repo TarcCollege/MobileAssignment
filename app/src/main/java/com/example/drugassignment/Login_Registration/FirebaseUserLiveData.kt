@@ -1,7 +1,6 @@
 package com.example.drugassignment.Login_Registration
 
 import androidx.lifecycle.LiveData
-import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 

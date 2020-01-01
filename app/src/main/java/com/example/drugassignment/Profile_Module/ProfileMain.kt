@@ -8,13 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentProfileMainBinding
-import com.firebase.ui.auth.AuthUI
 
 /**
  * A simple [Fragment] subclass.

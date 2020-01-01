@@ -14,11 +14,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.drugassignment.Profile_Module.ProfileViewModel
-import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentLoginBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import android.text.method.TextKeyListener.clear
 import android.view.Menu
 
 

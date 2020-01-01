@@ -3,7 +3,6 @@ package com.example.drugassignment
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -15,7 +14,6 @@ import androidx.navigation.ui.*
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
