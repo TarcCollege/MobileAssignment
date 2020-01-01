@@ -16,10 +16,25 @@
     </fragment>
 
     <activity
+        android:id="@+id/profile_Activity"
+        android:name="com.example.drugassignment.Profile_Module.ProfileMain"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main">
+    </activity>
+
+    <activity
         android:id="@+id/mainActivity"
         android:name="com.example.drugassignment.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/editProgile"
+        android:name="com.example.drugassignment.Profile_Module.EditProgile"
+        android:label="fragment_edit_progile"
+        tools:layout="@layout/fragment_edit_progile" >
+        <action
+            android:id="@+id/action_editProgile_to_profile_Activity"
+            app:destination="@id/profile_Activity" />
+    </fragment>
 
-    <include app:graph="@navigation/navigation_main" />
 </navigation>
