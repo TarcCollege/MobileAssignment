@@ -115,7 +115,7 @@ class Registration : Fragment() {
                         }
 
 
-                    findNavController().navigate(R.id.profileMain)
+                    findNavController().navigate(R.id.action_registration_to_homeFragment)
 
                 } else {
                     // If sign in fails, display a message to the user.
