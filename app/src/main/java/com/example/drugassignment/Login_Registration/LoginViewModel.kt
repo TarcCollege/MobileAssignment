@@ -10,14 +10,23 @@ import com.example.drugassignment.Class.UserLog
 class LoginViewModel : ViewModel() {
 
     lateinit var user : UserLog
-    var login = false
+    var login : Boolean
 
     enum class AuthenticationState {
         AUTHENTICATED, UNAUTHENTICATED, INVALID_AUTHENTICATION
     }
 
     val authenticationState: LiveData<AuthenticationState>? = Transformations.map(FirebaseUserLiveData()) {
-        if (it != null && it.isEmailVerified) {
+//        if (it != null && it.isEmailVerified) {
+//            user = UserLog(it)
+//            login = true
+//            AuthenticationState.AUTHENTICATED
+//        } else {
+//            login = false
+//            AuthenticationState.UNAUTHENTICATED
+//        }
+
+        if (it != null) {
             user = UserLog(it)
             login = true
             AuthenticationState.AUTHENTICATED
@@ -25,6 +34,11 @@ class LoginViewModel : ViewModel() {
             login = false
             AuthenticationState.UNAUTHENTICATED
         }
+
+    }
+
+    init {
+        login = false
     }
 
 

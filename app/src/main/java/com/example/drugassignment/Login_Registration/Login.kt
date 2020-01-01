@@ -18,6 +18,7 @@ import com.example.drugassignment.databinding.FragmentLoginBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import android.view.Menu
+import androidx.fragment.app.viewModels
 
 
 /**
@@ -34,6 +35,7 @@ class Login : Fragment() {
     }
 
     private lateinit var viewModel: ProfileViewModel
+    private val viewModel2 by viewModels<LoginViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -100,23 +102,26 @@ class Login : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("Game", "signInWithEmail:success")
 
-                    val user = FirebaseAuth.getInstance().currentUser
+                    //val user = FirebaseAuth.getInstance().currentUser
 
-                    user?.let {
-                        if (!user.isEmailVerified) {
-                            FirebaseAuth.getInstance().signOut()
-                            Toast.makeText(
-                                activity, " Not Verified",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            Toast.makeText(
-                                activity, "Verified",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
-                        }
-                    }
+                    findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
+
+//                    user?.let {
+//                        if (!user.isEmailVerified) {
+//                            FirebaseAuth.getInstance().signOut()
+//                            Toast.makeText(
+//                                activity, " Not Verified",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+//                        } else {
+//                            Toast.makeText(
+//                                activity, "Verified",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+//                            viewModel2.login = true
+//                            findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
+//                        }
+//                    }
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Game", "signInWithEmail:failure", task.exception)

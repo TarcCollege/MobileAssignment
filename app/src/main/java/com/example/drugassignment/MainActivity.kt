@@ -83,6 +83,24 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_homeFragment_to_profile_Activity -> {
             // User chose the "Settings" item, show the app settings UI...
+//            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
+//                when (authenticationState) {
+//                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
+//                        item.onNavDestinationSelected(navController)
+//                    }
+//                    else -> {
+//                        Log.i("Navigat", "fail")
+//                        navController.navigate(R.id.action_homeFragment_to_login)
+//                    }
+//
+//                }
+//            })
+//            true
+
+//
+//
+//
+//
             if (viewModel.login) {
                 //item.onNavDestinationSelected(navController)
                  item.onNavDestinationSelected(navController)
@@ -98,6 +116,7 @@ class MainActivity : AppCompatActivity() {
         else -> {
             // If we got here, the user's action was not recognized.
             // Invoke the superclass to handle it.
+            Log.i("somethigasd", "fail")
             super.onOptionsItemSelected(item)
         }
     }

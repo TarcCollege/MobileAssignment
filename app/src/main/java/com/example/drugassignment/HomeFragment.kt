@@ -2,6 +2,7 @@ package com.example.drugassignment
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -40,6 +41,7 @@ class HomeFragment : Fragment() {
 
     private fun observeAuthenticationState(){
         // get the Nav view from the layout
+        Log.i("Register", "Start")
         val navView : NavigationView = activity!!.findViewById(R.id.nav_view)
         // get the header view
 //        val headerView  =
