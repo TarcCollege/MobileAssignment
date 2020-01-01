@@ -2,10 +2,7 @@ package com.example.drugassignment
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -114,22 +111,40 @@ class MainActivity : AppCompatActivity() {
         // get the Nav view from the layout
         val navView : NavigationView = findViewById(R.id.nav_view)
         // get the header view
-        val headerView  =
-            LayoutInflater.from(this).inflate(R.layout.activity_nav_header2, null)
+//        val headerView  =
+//            LayoutInflater.from(this).inflate(R.layout.activity_nav_header2, null)
+
+        val headerView = navView.getHeaderView(0)
+        val drawerLayout : DrawerLayout = findViewById(R.id.drawer_layout)
 
         viewModel.authenticationState?.observe(this, Observer { authenticationState ->
             when (authenticationState) {
                 LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-                    navView.removeHeaderView(headerView)
+                    //navView.removeHeaderView(headerView)
                     headerView.textViewDisplayName.text = viewModel.user.displayName
                     headerView.textViewHeaderEmail.text = viewModel.user.email
-                    navView.addHeaderView(headerView)
+                    headerView.setOnClickListener {
+
+                        // closing with animation
+                        // rawerLayout.closeDrawers()
+
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                    }
+
+
+                    //navView.addHeaderView(headerView)
                 }
                 else -> {
-                    navView.removeHeaderView(headerView)
+                   // navView.removeHeaderView(headerView)
                     headerView.textViewDisplayName.text = "Name"
                     headerView.textViewHeaderEmail.text = "Email"
-                    navView.addHeaderView(headerView)
+                    headerView.setOnClickListener {
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navController.navigate(R.id.action_homeFragment_to_login)
+                    }
+
+                  //  navView.addHeaderView(headerView)
                 }
 
             }
