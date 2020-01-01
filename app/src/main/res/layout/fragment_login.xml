@@ -9,39 +9,76 @@
         android:orientation="vertical"
         tools:context=".Login_Registration.Login">
 
-
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editEmail"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:ems="10"
             android:hint="Email : "
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
 
-        <EditText
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPassword"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:ems="10"
             android:hint="Password : "
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login" />
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="@drawable/custom_button"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            />
+
+        <View style="@style/Divider.Horizontal"/>
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Registration"
+            android:background="@drawable/button_design"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnRegistration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registration" />
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Sign Up"
+            android:background="@drawable/button_design"
+            android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btnReset"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Reset" />
+
     </LinearLayout>
 </layout>

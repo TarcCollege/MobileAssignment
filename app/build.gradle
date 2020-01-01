@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.google.android.gms:play-services-auth'
+
 //firebase dependencies
 apply plugin: 'com.google.gms.google-services'
 
@@ -54,7 +56,11 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
 
+
     //firebase dependencies
     implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    //google sign in
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.android.material:material:<version>'
 }
