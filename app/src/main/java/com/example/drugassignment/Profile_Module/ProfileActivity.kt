@@ -12,10 +12,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.ActivityProfileBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
 import kotlinx.android.synthetic.main.activity_profile.*
@@ -45,13 +48,22 @@ class Profile_Activity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
-        var list = arrayListOf<String>()
-        for (i in 0..100)
-            list.add("Item $i")
-        val adapter = Adapter(list)
-        recyclerView.layoutManager = LinearLayoutManager(this@Profile_Activity, RecyclerView.VERTICAL,
-            false)
-        recyclerView.adapter = adapter
+        val viewPager2 : ViewPager2 = findViewById(R.id.viewPager)
+        viewPager2.adapter = ViewPagerAdapter(this)
+
+        val tabLayout : TabLayout = findViewById(R.id.tabLayout)
+
+        tabLayout.setupWithViewPager(viewPager, listOf("Progression", "Reminder", "Notification", "Mentee"))
+
+
+
+//        var list = arrayListOf<String>()
+//        for (i in 0..100)
+//            list.add("Item $i")
+//        val adapter = Adapter(list)
+//        recyclerView.layoutManager = LinearLayoutManager(this@Profile_Activity, RecyclerView.VERTICAL,
+//            false)
+//        recyclerView.adapter = adapter
 
 
     }
@@ -91,6 +103,17 @@ class Profile_Activity : AppCompatActivity() {
             binding.titleText.title = loginViewModel.user.displayName
             binding.progressionText.text = loginViewModel.user.email
         })
+    }
+
+    fun TabLayout.setupWithViewPager(viewPager: ViewPager2, labels: List<String>) {
+
+        if (labels.size != viewPager.adapter?.itemCount)
+            throw Exception("The size of list and the tab count should be equal!")
+
+        TabLayoutMediator(this, viewPager,
+            TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+                tab.text = labels[position]
+            }).attach()
     }
 }
 
