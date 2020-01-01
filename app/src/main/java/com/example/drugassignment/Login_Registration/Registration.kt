@@ -69,6 +69,11 @@ class Registration : Fragment() {
         val password = binding.editPassword.text.toString()
         val name = binding.editName.text.toString()
 
+        if (email.isNullOrEmpty()) {
+            binding.editEmailLayout.error = "Cannot Be Blacnk"
+            return
+        }
+
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
