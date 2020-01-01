@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.drugassignment.Class.OtherUser
 import com.example.drugassignment.Profile_Module.Adapter
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentMemberFragmentBinding
@@ -38,13 +39,10 @@ class member_fragment : Fragment() {
 //            "something3"
 //        )
 
-        var list = arrayListOf<String>()
+        val list = arrayListOf<OtherUser>()
         for (i in 0..100)
-            list.add("Item $i")
-
-
+            list.add(OtherUser("Kuek", "kuekyb@gmail","Klang","30 days"))
         adapter.data = list
-
 
         return binding.root
     }

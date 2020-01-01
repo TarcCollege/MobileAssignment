@@ -5,11 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.drugassignment.Class.OtherUser
 import com.example.drugassignment.R
 
 
 class MemberAdapter: RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
-    var data =  listOf<String>()
+    var data =  listOf<OtherUser>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -28,16 +29,14 @@ class MemberAdapter: RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
+        val item : OtherUser = data[position]
 
-        holder.quality.text = item
-        holder.sleepLength.text = "2"
+        holder.sleepLength.text = item.displayName + item.city + item.email + item.progression
     }
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val sleepLength: TextView = itemView.findViewById(R.id.txt1)
-        val quality: TextView = itemView.findViewById(R.id.txt2)
+        val sleepLength: TextView = itemView.findViewById(R.id.textViewInfo)
 
     }
 

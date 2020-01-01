@@ -47,8 +47,8 @@ class Login : Fragment() {
             inflater, com.example.drugassignment.R.layout.fragment_login, container, false
         )
 
-        val fab: FloatingActionButton? = activity?.findViewById(com.example.drugassignment.R.id.fab2)
-        fab?.isVisible = false
+//        val fab: FloatingActionButton? = activity?.findViewById(com.example.drugassignment.R.id.fab2)
+//        fab?.isVisible = false
 
 
         auth = FirebaseAuth.getInstance()
