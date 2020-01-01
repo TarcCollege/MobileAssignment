@@ -102,26 +102,26 @@ class Login : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("Game", "signInWithEmail:success")
 
-                    //val user = FirebaseAuth.getInstance().currentUser
+                    val user = FirebaseAuth.getInstance().currentUser
 
                     findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
 
-//                    user?.let {
-//                        if (!user.isEmailVerified) {
-//                            FirebaseAuth.getInstance().signOut()
-//                            Toast.makeText(
-//                                activity, " Not Verified",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                        } else {
-//                            Toast.makeText(
-//                                activity, "Verified",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                            viewModel2.login = true
-//                            findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
-//                        }
-//                    }
+                    user?.let {
+                        if (!user.isEmailVerified) {
+                            FirebaseAuth.getInstance().signOut()
+                            Toast.makeText(
+                                activity, " Not Verified",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                activity, "Verified",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            viewModel2.login = true
+                            findNavController().navigate(com.example.drugassignment.R.id.homeFragment)
+                        }
+                    }
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Game", "signInWithEmail:failure", task.exception)

@@ -97,24 +97,24 @@ class Registration : Fragment() {
                             } else {
                                 Log.d("Game", "Fail")
                             }
-                            findNavController().navigate(R.id.action_registration_to_homeFragment)
+//                            findNavController().navigate(R.id.action_registration_to_homeFragment)
                         }
 
-//                    user?.sendEmailVerification()
-//                        ?.addOnCompleteListener { task ->
-//                            if (task.isSuccessful) {
-//                                Toast.makeText(
-//                                    activity, "Sent verification Email",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                                findNavController().navigate(R.id.action_registration_to_homeFragment)
-//                            } else {
-//                                Toast.makeText(
-//                                    activity, "Not verification Email" + task.exception,
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//                        }
+                    user?.sendEmailVerification()
+                        ?.addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Toast.makeText(
+                                    activity, "Sent verification Email",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                findNavController().navigate(R.id.action_registration_to_homeFragment)
+                            } else {
+                                Toast.makeText(
+                                    activity, "Not verification Email" + task.exception,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
 
                 } else {
                     // If sign in fails, display a message to the user.

@@ -17,16 +17,7 @@ class LoginViewModel : ViewModel() {
     }
 
     val authenticationState: LiveData<AuthenticationState>? = Transformations.map(FirebaseUserLiveData()) {
-//        if (it != null && it.isEmailVerified) {
-//            user = UserLog(it)
-//            login = true
-//            AuthenticationState.AUTHENTICATED
-//        } else {
-//            login = false
-//            AuthenticationState.UNAUTHENTICATED
-//        }
-
-        if (it != null) {
+        if (it != null && it.isEmailVerified) {
             user = UserLog(it)
             login = true
             AuthenticationState.AUTHENTICATED
@@ -34,6 +25,15 @@ class LoginViewModel : ViewModel() {
             login = false
             AuthenticationState.UNAUTHENTICATED
         }
+
+//        if (it != null) {
+//            user = UserLog(it)
+//            login = true
+//            AuthenticationState.AUTHENTICATED
+//        } else {
+//            login = false
+//            AuthenticationState.UNAUTHENTICATED
+//        }
 
     }
 

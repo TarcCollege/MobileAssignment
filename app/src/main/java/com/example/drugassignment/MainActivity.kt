@@ -83,34 +83,35 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.login -> {
             // User chose the "Settings" item, show the app settings UI...
-//            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
-//                when (authenticationState) {
-//                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-//                        item.onNavDestinationSelected(navController)
-//                    }
-//                    else -> {
-//                        Log.i("Navigat", "fail")
-//                        navController.navigate(R.id.action_homeFragment_to_login)
-//                    }
-//
-//                }
-//            })
-//            true
+            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
+                when (authenticationState) {
+                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
+
+                        navController.navigate(R.id.profile_Activity)
+                    }
+                    else -> {
+                        Log.i("Navigat", "fail")
+                        item.onNavDestinationSelected(navController)
+                    }
+
+                }
+            })
+            true
 
 //
 //
 //
 //
-            if (!viewModel.login) {
-                //item.onNavDestinationSelected(navController)
-                 item.onNavDestinationSelected(navController)
-                true
-
-            } else {
-                Log.i("Navigat", "fail")
-                navController.navigate(R.id.profile_Activity)
-                true
-            }
+//            if (!viewModel.login) {
+//                //item.onNavDestinationSelected(navController)
+//                 item.onNavDestinationSelected(navController)
+//                true
+//
+//            } else {
+//                Log.i("Navigat", "fail")
+//                navController.navigate(R.id.profile_Activity)
+//                true
+//            }
         }
 
         else -> {
