@@ -61,9 +61,9 @@ class Login : Fragment() {
             loginFlow()
         }
 
-        binding.btnReset.setOnClickListener {
-            it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_resetPassword)
-        }
+//        binding.btnReset.setOnClickListener {
+//            it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_resetPassword)
+//        }
         setHasOptionsMenu(true)
 
 
