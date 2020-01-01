@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentProfileMainBinding
@@ -33,13 +35,18 @@ class ProfileMain : Fragment() {
             inflater, R.layout.fragment_profile_main, container, false
         )
 
-        binding.btnLogout.setOnClickListener {
-            AuthUI.getInstance().signOut(requireContext()).addOnCompleteListener {
-                if (it.isComplete) {
-                    findNavController().navigate(R.id.action_profileMain_to_mainActivity)
-                }
-            }
-        }
+//        binding.btnLogout.setOnClickListener {
+//            AuthUI.getInstance().signOut(requireContext()).addOnCompleteListener {
+//                if (it.isComplete) {
+//                    findNavController().navigate(R.id.action_profileMain_to_mainActivity)
+//                }
+//            }
+//        }
+
+
+
+
+
         return binding.root
     }
 
