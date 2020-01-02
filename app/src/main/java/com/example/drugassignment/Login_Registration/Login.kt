@@ -93,7 +93,7 @@ class Login : Fragment() {
     }
 
     private fun login() {
-        val email = binding.editEmail.text.toString()
+        val email = binding.editRegisterEmail.text.toString()
         val password = binding.editPassword.text.toString()
 
         auth.signInWithEmailAndPassword(email, password)

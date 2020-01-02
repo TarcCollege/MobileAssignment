@@ -70,7 +70,7 @@ class Registration : Fragment() {
         val name = binding.editName.text.toString()
 
         if (email.isNullOrEmpty()) {
-            binding.editEmailLayout.error = "Cannot Be Blacnk"
+            binding.editRegisterEmailLayout.error = "Cannot Be Blacnk"
             return
         }
 

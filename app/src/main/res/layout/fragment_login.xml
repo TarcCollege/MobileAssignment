@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
@@ -21,7 +22,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editEmail"
+                android:id="@+id/editRegisterEmail"
                 android:hint="Email : "
                 android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                 android:layout_width="match_parent"
@@ -51,14 +52,16 @@
             android:id="@+id/btnLogin"
             android:layout_width="250dp"
             android:layout_height="50dp"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_gravity="center_vertical|center_horizontal"
             android:background="@drawable/custom_button"
+            android:outlineAmbientShadowColor="#00E41B1B"
+            android:outlineSpotShadowColor="#00F33E3E"
             android:text="Login"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            />
+            app:strokeColor="#00EC0A0A" />
 
         <Button
             android:id="@+id/btnReset"
