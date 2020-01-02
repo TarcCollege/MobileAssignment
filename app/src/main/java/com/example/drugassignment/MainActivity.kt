@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.example.drugassignment.Login_Registration.LoginViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = this.findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
 
 //        val fab: FloatingActionButton = findViewById(R.id.fab)
 //

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
@@ -11,47 +10,60 @@
         tools:context=".Login_Registration.Registration">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editEmailLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="300dp"
+            android:id="@+id/editRegisterEmailLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            app:errorEnabled="true"
-            app:helperText="Please enter email"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true">
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRegisterEmail"
+                android:ems="10"
+                android:hint="Email : "
+                android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <EditText-->
-<!--            android:id="@+id/editRegisterEmail"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:hint="Email : "-->
-<!--            android:inputType="textEmailAddress" />-->
-
-
-        <EditText
-            android:id="@+id/editPassword"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editPasswordLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Password : "
-            android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/editName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPassword"
+                android:ems="10"
+                android:hint="Password : "
+                android:inputType="textPassword"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editNameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Name : "
-            android:inputType="textPersonName" />
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editName"
+                android:ems="10"
+                android:hint="Name : "
+                android:inputType="textPersonName"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <Button
             android:id="@+id/btnRegistration"
