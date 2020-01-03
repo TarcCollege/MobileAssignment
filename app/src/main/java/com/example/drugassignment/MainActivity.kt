@@ -48,12 +48,12 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
-                R.id.action_homeFragment_to_contactMain,
-                R.id.action_homeFragment_to_donation_Main,
-                R.id.action_homeFragment_to_information_Main,
-                R.id.action_homeFragment_to_mapsActivity,
-                R.id.action_homeFragment_to_profile_Activity,
-                R.id.action_homeFragment_to_quiz_Main
+                R.id.contactMain,
+                R.id.donation_Main,
+                R.id.information_Main,
+                R.id.mainActivity,
+                R.id.profile_Activity,
+                R.id.quiz_Main
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
             } else {
                 Log.i("Navigat", "fail")
-                navController.navigate(R.id.action_homeFragment_to_login)
+                navController.navigate(R.id.login)
                 true
             }
         }

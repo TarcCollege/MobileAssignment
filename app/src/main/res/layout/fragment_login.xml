@@ -5,46 +5,48 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
+        style="@style/AppTheme2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:theme="@style/AppTheme2"
         tools:context=".Login_Registration.Login">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editEmailLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="120dp"
             android:ems="10"
-            android:inputType="textEmailAddress"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:inputType="textEmailAddress">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRegisterEmail"
-                android:hint="Email : "
-                android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                android:hint="Email : " />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPasswordLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:inputType="textPassword"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:inputType="textPassword">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editPassword"
-                android:hint="Password : "
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="Password : " />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,30 +76,31 @@
             android:text="Reset Password"
             android:textColor="@color/design_default_color_primary" />
 
-        <View style="@style/Divider.Horizontal"/>
+        <View style="@style/Divider.Horizontal" />
+
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:layout_marginTop="50dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Registration"
+            android:layout_marginTop="50dp"
             android:background="@drawable/custom_button"
+            android:text="Registration"
             android:textSize="22sp" />
 
         <Button
             android:id="@+id/btnRegistration"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Sign Up"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_design"
-            android:textSize="14sp"
-            android:textColor="@color/colorAccent"
+            android:drawableStart="@drawable/ic_launcher_sign_up"
             android:paddingLeft="60dp"
             android:paddingRight="60dp"
-            android:drawableStart="@drawable/ic_launcher_sign_up"/>
+            android:text="Sign Up"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
 
 
     </LinearLayout>

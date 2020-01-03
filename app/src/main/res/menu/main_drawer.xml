@@ -9,19 +9,19 @@
             android:icon="@drawable/side_menu_bar"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/action_homeFragment_to_information_Main"
+            android:id="@+id/information_Main"
 
             android:title="@string/menu_gallery" />
         <item
-            android:id="@+id/action_homeFragment_to_quiz_Main"
+            android:id="@+id/quiz_Main"
 
             android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/action_homeFragment_to_profile_Activity"
+            android:id="@+id/profile_Activity"
 
             android:title="@string/menu_tools" />
         <item
-            android:id="@+id/action_homeFragment_to_mapsActivity"
+            android:id="@+id/mapsActivity"
 
             android:title="@string/menu_tools" />
     </group>
@@ -29,11 +29,11 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/action_homeFragment_to_donation_Main"
+                android:id="@+id/donation_Main"
 
                 android:title="@string/menu_share" />
             <item
-                android:id="@+id/action_homeFragment_to_contactMain"
+                android:id="@+id/contactMain"
 
                 android:title="@string/menu_send" />
         </menu>

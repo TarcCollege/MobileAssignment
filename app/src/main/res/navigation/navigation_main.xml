@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.drugassignment.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_donation_Main"
@@ -35,27 +35,27 @@
     <fragment
         android:id="@+id/donation_Main"
         android:name="com.example.drugassignment.Donation_Module.Donation_Main"
-        android:label="fragment_donation__main"
+        android:label="Donation"
         tools:layout="@layout/fragment_donation__main" />
     <fragment
         android:id="@+id/contactMain"
         android:name="com.example.drugassignment.Help_Module.ContactMain"
-        android:label="fragment_contact__main"
+        android:label="Contact Us"
         tools:layout="@layout/fragment_contact__main" />
     <fragment
         android:id="@+id/quiz_Main"
         android:name="com.example.drugassignment.Quiz_Module.Quiz_Main"
-        android:label="fragment_quiz__main"
+        android:label="Quiz"
         tools:layout="@layout/fragment_quiz__main" />
     <fragment
         android:id="@+id/information_Main"
         android:name="com.example.drugassignment.Information_Module.Information_Main"
-        android:label="fragment_information__main"
+        android:label="Information"
         tools:layout="@layout/fragment_information__main" />
     <activity
         android:id="@+id/profile_Activity"
         android:name="com.example.drugassignment.Profile_Module.Profile_Activity"
-        android:label="Profile_Activity" />
+        android:label="Profile" />
     <activity
         android:id="@+id/mapsActivity"
         android:name="com.example.drugassignment.Map_Module.MapsActivity"
