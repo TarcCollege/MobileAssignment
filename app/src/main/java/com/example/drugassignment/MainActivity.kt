@@ -103,14 +103,14 @@ class MainActivity : AppCompatActivity() {
 //
 //
 //
-            if (viewModel.login) {
+            if (!viewModel.login) {
                 //item.onNavDestinationSelected(navController)
-                 item.onNavDestinationSelected(navController)
+                item.onNavDestinationSelected(navController)
                 true
 
             } else {
                 Log.i("Navigat", "fail")
-                navController.navigate(R.id.login)
+                navController.navigate(R.id.profile_Activity)
                 true
             }
         }
