@@ -79,7 +79,7 @@ class Profile_Activity : AppCompatActivity() {
             // User chose the "Settings" item, show the app settings UI...
 //            AuthUI.getInstance().signOut()
             FirebaseAuth.getInstance().signOut()
-            finish()
+            super.onBackPressed()
             true
         }
 

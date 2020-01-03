@@ -83,16 +83,17 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_homeFragment_to_profile_Activity -> {
+        R.id.login -> {
             // User chose the "Settings" item, show the app settings UI...
 //            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
 //                when (authenticationState) {
 //                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-//                        item.onNavDestinationSelected(navController)
+//
+//                        navController.navigate(R.id.profile_Activity)
 //                    }
 //                    else -> {
 //                        Log.i("Navigat", "fail")
-//                        navController.navigate(R.id.action_homeFragment_to_login)
+//                        item.onNavDestinationSelected(navController)
 //                    }
 //
 //                }
