@@ -83,35 +83,35 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.login -> {
             // User chose the "Settings" item, show the app settings UI...
-            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
-                when (authenticationState) {
-                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
+//            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
+//                when (authenticationState) {
+//                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
+//
+//                        navController.navigate(R.id.profile_Activity)
+//                    }
+//                    else -> {
+//                        Log.i("Navigat", "fail")
+//                        item.onNavDestinationSelected(navController)
+//                    }
+//
+//                }
+//            })
+//            true
 
-                        navController.navigate(R.id.profile_Activity)
-                    }
-                    else -> {
-                        Log.i("Navigat", "fail")
-                        item.onNavDestinationSelected(navController)
-                    }
+//
+//
+//
+//
+            if (!viewModel.login) {
+                //item.onNavDestinationSelected(navController)
+                 item.onNavDestinationSelected(navController)
+                true
 
-                }
-            })
-            true
-
-//
-//
-//
-//
-//            if (!viewModel.login) {
-//                //item.onNavDestinationSelected(navController)
-//                 item.onNavDestinationSelected(navController)
-//                true
-//
-//            } else {
-//                Log.i("Navigat", "fail")
-//                navController.navigate(R.id.profile_Activity)
-//                true
-//            }
+            } else {
+                Log.i("Navigat", "fail")
+                navController.navigate(R.id.profile_Activity)
+                true
+            }
         }
 
         else -> {

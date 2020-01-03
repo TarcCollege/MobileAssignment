@@ -104,7 +104,7 @@ class Login : Fragment() {
 
                     val user = FirebaseAuth.getInstance().currentUser
 
-                    findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
+                    //findNavController().navigate(com.example.drugassignment.R.id.action_login_to_homeFragment)
 
                     user?.let {
                         if (!user.isEmailVerified) {
@@ -119,7 +119,7 @@ class Login : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             viewModel2.login = true
-                            findNavController().navigate(com.example.drugassignment.R.id.homeFragment)
+                            findNavController().navigate(com.example.drugassignment.R.id.action_login_to_profile_Activity)
                         }
                     }
                 } else {
