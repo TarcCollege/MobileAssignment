@@ -35,4 +35,10 @@
         <item name="android:layout_height">1dp</item> // You can change thickness here.
         <item name="android:background">@color/colorDark</item>
     </style>
+
+    <style name="Divider2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
 </resources>

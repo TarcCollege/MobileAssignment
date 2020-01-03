@@ -51,7 +51,13 @@
         android:id="@+id/information_Main"
         android:name="com.example.drugassignment.Information_Module.Information_Main"
         android:label="Information"
-        tools:layout="@layout/fragment_information__main" />
+        tools:layout="@layout/fragment_information__main" >
+        <action
+            android:id="@+id/action_information_Main_to_drugInfo"
+            app:destination="@id/drugInfo"
+            app:popUpTo="@+id/information_Main"
+            app:popUpToInclusive="false" />
+    </fragment>
     <activity
         android:id="@+id/profile_Activity"
         android:name="com.example.drugassignment.Profile_Module.Profile_Activity"
@@ -104,6 +110,15 @@
         <action
             android:id="@+id/action_profileMain2_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drugInfo"
+        android:name="com.example.drugassignment.DrugInfo"
+        android:label="Drug Detail"
+        tools:layout="@layout/fragment_drug_info" >
+        <argument
+            android:name="Test"
+            app:argType="string" />
     </fragment>
 
 </navigation>

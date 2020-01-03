@@ -35,9 +35,9 @@ class Registration : Fragment() {
             inflater, R.layout.fragment_registration, container, false
         )
 
-        val fab: FloatingActionButton? = activity?.findViewById(R.id.fab2)
-        fab?.isVisible = false
-        setHasOptionsMenu(false)
+//        val fab: FloatingActionButton? = activity?.findViewById(R.id.fab2)
+//        fab?.isVisible = false
+//        setHasOptionsMenu(false)
 
         //observeAuthenticationState()
         // initilize firebase instance

@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:theme="@style/AppTheme2"
         tools:context=".Login_Registration.Registration">
 
         <com.google.android.material.textfield.TextInputLayout
