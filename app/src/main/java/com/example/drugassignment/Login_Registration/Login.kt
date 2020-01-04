@@ -1,6 +1,7 @@
 package com.example.drugassignment.Login_Registration
 
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,8 +22,7 @@ import android.view.Menu
 import androidx.fragment.app.viewModels
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-
-
+import kotlinx.android.synthetic.main.fragment_login.view.*
 
 
 /**
@@ -56,6 +56,9 @@ class Login : Fragment() {
 
 
         auth = FirebaseAuth.getInstance()
+
+
+        binding.btnReset.paintFlags = binding.btnReset.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
         binding.btnRegistration.setOnClickListener {
             it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_registration)
