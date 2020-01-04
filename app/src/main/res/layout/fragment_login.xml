@@ -26,14 +26,19 @@
             android:layout_marginTop="120dp"
             android:ems="10"
 
-            android:inputType="textEmailAddress">
+            android:inputType="textEmailAddress"
+            android:showDividers="end"
+            app:endIconMode="clear_text"
+            app:helperText="Please Enter Your Email"
+            app:helperTextEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRegisterEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_account_circle_black_24dp"
-                android:hint="Email : " />
+                android:hint="Email : "
+                android:inputType="textWebEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,13 +50,19 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:inputType="textPassword">
+            android:inputType="textPassword"
+            app:endIconMode="password_toggle"
+            app:helperText="Please Enter Your Password"
+            app:helperTextEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password : " />
+                android:hint="Password : "
+                android:inputType="textPassword"
+                android:layerType="none"
+                android:password="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

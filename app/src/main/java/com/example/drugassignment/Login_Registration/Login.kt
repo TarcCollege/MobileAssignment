@@ -97,6 +97,10 @@ class Login : Fragment() {
     }
 
     private fun login() {
+        if (!validation()) {
+            return
+        }
+
         val email = binding.editRegisterEmail.text.toString()
         val password = binding.editPassword.text.toString()
 
@@ -139,6 +143,19 @@ class Login : Fragment() {
 
 
             }
+    }
+
+    private fun validation() : Boolean {
+        if (binding.editRegisterEmail.text.isNullOrBlank() || binding.editPassword.text.isNullOrBlank()) {
+            if(binding.editRegisterEmail.text.isNullOrBlank()) {
+                binding.editEmailLayout.error = "No Empty"
+            } else {
+                binding.editPasswordLayout.error = "No Empty"
+            }
+            return false
+        }
+
+        return true
     }
 
 
