@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,3 +104,5 @@
         android:layout_gravity="left"
         android:textSize="16sp"/>
 </FrameLayout>
+
+

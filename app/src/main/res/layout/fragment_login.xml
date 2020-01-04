@@ -4,6 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
     <LinearLayout
 
         android:layout_width="match_parent"
@@ -128,22 +133,8 @@
                 android:textColor="@color/colorDark"
                 android:textSize="14sp" />
 
-
-
         </LinearLayout>
 
-
-        <!--        <com.google.android.gms.common.SignInButton-->
-<!--            android:id="@+id/sign_in_button"-->
-<!--            android:layout_width="250dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:layout_gravity="center_vertical|center_horizontal"-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            android:background="@drawable/custom_button"-->
-<!--            android:text="Registration"-->
-<!--            android:textSize="22sp" />-->
-
-
-<!--        <View style="@style/Divider.Horizontal" />-->
     </LinearLayout>
+    </ScrollView>
 </layout>

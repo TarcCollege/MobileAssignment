@@ -4,17 +4,17 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 class DrugDetail{
-    var DrugName : String? = ""
-    var DrugInfo : String? = ""
-    var DrugSideEffect : String? = ""
-    var DrugType : String? = ""
+    var drugName : String? = ""
+    var drugInfo : String? = ""
+    var drugSideEffect : String? = ""
+    var drugType : String? = ""
 
     constructor()
     constructor(name: String?, description: String?, sideEffect: String?, type: String?) {
-        this.DrugName = name
-        this.DrugInfo = description
-        this.DrugSideEffect = sideEffect
-        this.DrugType = type
+        this.drugName = name
+        this.drugInfo = description
+        this.drugSideEffect = sideEffect
+        this.drugType = type
     }
 
 

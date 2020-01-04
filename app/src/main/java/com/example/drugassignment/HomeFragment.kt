@@ -9,14 +9,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.example.drugassignment.Class.DrugDetail
 import com.example.drugassignment.Login_Registration.LoginViewModel
+import com.example.drugassignment.databinding.FragmentHomeBinding
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.text.Typography.times
+
 
 /**
  * A simple [Fragment] subclass.
@@ -25,6 +32,7 @@ class HomeFragment : Fragment() {
 
     private val viewModel by viewModels<LoginViewModel>()
     private lateinit var navController : NavController
+    private lateinit var binding : FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +40,19 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_home, container, false
+        )
+
         navController = activity!!.findNavController(R.id.nav_host_fragment)
 
         observeAuthenticationState()
 
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding.button2.setOnClickListener {
+            updateFirebase()
+        }
+
+        return binding.root
     }
 
     private fun observeAuthenticationState(){
@@ -77,6 +93,41 @@ class HomeFragment : Fragment() {
 
             }
         })
+    }
+
+    private fun updateFirebase() {
+        val mFirestore = FirebaseFirestore.getInstance();
+        val restaurants = mFirestore.collection("DrugInfo")
+
+        val drugList : MutableList<DrugDetail>
+
+        val description =
+            "Adderall contains a combination of amphetamine and dextroamphetamine.  Amphetamine and dextroamphetamine are central nervous system stimulants  that affect chemicals in the brain and nerves that contribute to  hyperactivity and impulse control. Adderall is used to treat attention deficit hyperactivity disorder (ADHD) and  narcolepsy. Adderall may also be used for purposes not listed in this medication guide."
+
+        val sideEffect1 =
+            "Lowered immunity to illness" +
+        "Depression" +
+        "Chronic anxiety" +
+                "Reduced sperm count in men" +
+        "Sedation" +
+        "Slowed reaction times" +
+        "Enhanced senses, such as seeing brighter colors" +
+        "Impaired sense of time"
+
+
+
+
+
+        val DrugName =
+            listOf<String>("Marijuana leaves","Hashish","Hash oil","Sativex")
+            val type = "cannabis"
+
+
+
+        for (drug in DrugName) {
+            val a = DrugDetail(drug,description,sideEffect1,type)
+            restaurants.add(a)
+        }
     }
 
 

@@ -24,8 +24,6 @@ import androidx.fragment.app.FragmentActivity
 
 open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantSelectedListener) : FirestoreAdapter<DrugDetailAdapter.ViewHolder?>(query) {
 
-
-
     interface OnRestaurantSelectedListener {
         fun onRestaurantSelected(restaurant: DocumentSnapshot?)
     }
@@ -48,7 +46,7 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
 //            it.findNavController().navigate(R.id.action_information_Main_to_drugInfo)
             it.findNavController().navigate(Information_MainDirections
                 .actionInformationMainToDrugInfo
-                    (drug!!.DrugName?:"123", drug!!.DrugInfo?:"null",drug!!.DrugSideEffect?:"null"))
+                    (drug!!.drugName?:"123", drug.drugInfo?:"null", drug.drugSideEffect?:"null"))
 
         }
     }
@@ -57,8 +55,7 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
         fun bind(snapshot: DocumentSnapshot, listener: OnRestaurantSelectedListener?, position: Int) {
             val drug = snapshot.toObject(DrugDetail::class.java)
 
-
-            val resources = itemView.resources
+//            val resources = itemView.resources
 
             // Load image
 //            Glide.with(itemView.restaurant_item_image.context)
@@ -71,7 +68,7 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
 //            itemView.restaurant_item_num_ratings.text = resources.getString(R.string.fmt_num_ratings,
 //                restaurant.numRatings)
 //            itemView.restaurant_item_price.text = RestaurantUtil.getPriceString(restaurant)
-            itemView.InfoMain.text = drug?.DrugName
+            itemView.InfoMain.text = drug?.drugName
             itemView.infoIndex.text = position.toString()
 
             // Click listener
