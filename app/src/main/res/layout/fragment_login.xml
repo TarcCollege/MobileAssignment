@@ -12,9 +12,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editEmailLayout"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="50dp"
             android:ems="10"
             android:inputType="textEmailAddress"
 
@@ -32,9 +32,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPasswordLayout"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="10dp"
+
             android:ems="10"
             android:inputType="textPassword"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -48,53 +49,56 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
+            android:id="@+id/btnReset"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="85dp"
             android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:text="Reset Password"
+            android:textColor="@color/design_default_color_primary"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:background="@drawable/custom_button"
             android:text="Login"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="14sp"
             />
 
-        <Button
-            android:id="@+id/btnReset"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginBottom="50dp"
-            android:background="#FFFFFF"
-            android:text="Reset Password"
-            android:textColor="@color/design_default_color_primary" />
 
-        <View style="@style/Divider.Horizontal"/>
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Registration"
-            android:background="@drawable/custom_button"
-            android:textSize="22sp" />
+<!--        <View style="@style/Divider.Horizontal"/>-->
 
         <Button
             android:id="@+id/btnRegistration"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Sign Up"
-            android:background="@drawable/button_design"
-            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/ic_launcher_sign_up"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Register"
             android:textColor="@color/colorAccent"
-            android:paddingLeft="60dp"
-            android:paddingRight="60dp"
-            android:drawableStart="@drawable/ic_launcher_sign_up"/>
+            android:textSize="14sp" />
 
+
+<!--        <com.google.android.gms.common.SignInButton-->
+<!--            android:id="@+id/sign_in_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical|center_horizontal"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text="Registration"-->
+<!--            android:background="@drawable/custom_button"-->
+<!--            android:textSize="22sp" />-->
 
     </LinearLayout>
 </layout>

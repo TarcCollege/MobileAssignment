@@ -1,6 +1,7 @@
 package com.example.drugassignment.Login_Registration
 
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -43,6 +44,7 @@ class Login : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+        binding.btnReset.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         binding = DataBindingUtil.inflate(
             inflater, com.example.drugassignment.R.layout.fragment_login, container, false
         )
