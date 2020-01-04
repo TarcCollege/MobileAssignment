@@ -113,11 +113,15 @@
     </fragment>
     <fragment
         android:id="@+id/drugInfo"
-        android:name="com.example.drugassignment.DrugInfo"
+        android:name="com.example.drugassignment.Information_Module.DrugInfo"
         android:label="Drug Detail"
         tools:layout="@layout/fragment_drug_info" >
         <argument
-            android:name="Test"
+            android:name="Name"
+            app:argType="string" />
+        <argument android:name="Info"
+            app:argType="string" />
+        <argument android:name="SideEffect"
             app:argType="string" />
     </fragment>
 

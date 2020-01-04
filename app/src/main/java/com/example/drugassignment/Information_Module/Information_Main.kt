@@ -49,12 +49,14 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             inflater, R.layout.fragment_information__main, container, false
         )
 
+
+
         val tabLayout : TabLayout = binding.infoTabLayout
 
         // set tab name
         tabLayout.addTab(tabLayout.newTab().setText("All"))
         tabLayout.addTab(tabLayout.newTab().setText("empathogen"))
-        tabLayout.addTab(tabLayout.newTab().setText("123"))
+        tabLayout.addTab(tabLayout.newTab().setText("psychedelic"))
 
         val text = tabLayout.getTabAt(0)?.text.toString()
 
@@ -74,11 +76,9 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
                         .collection("DrugInfo")
                         .orderBy("DrugType", Query.Direction.DESCENDING)
                         .limit(LIMIT.toLong())
+                } else {
+                    query = query.whereEqualTo("DrugType", tab!!.text)
                 }
-
-                query = query.whereEqualTo("DrugType", tab!!.text)
-
-
                 mQuery = query
 
 //                Log.i("Error", mQuery.)

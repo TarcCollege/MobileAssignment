@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
@@ -36,6 +37,7 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getSnapshot(position), mListener, position)
+        val drug = getSnapshot(position).toObject(DrugDetail::class.java)
 
         holder.itemView.setOnClickListener {
 //                        Toast.makeText(
@@ -43,7 +45,11 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
 //                position.toString() + "",
 //                Toast.LENGTH_SHORT
 //            ).show()
-            it.findNavController().navigate(R.id.action_information_Main_to_drugInfo)
+//            it.findNavController().navigate(R.id.action_information_Main_to_drugInfo)
+            it.findNavController().navigate(Information_MainDirections
+                .actionInformationMainToDrugInfo
+                    (drug!!.DrugName?:"123", drug!!.DrugInfo?:"null",drug!!.DrugSideEffect?:"null"))
+
         }
     }
 

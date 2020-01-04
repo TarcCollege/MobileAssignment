@@ -8,9 +8,10 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
 // safeargs
-//apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'androidx.navigation.safeargs'
 
 android {
+
 
     dataBinding {
         enabled = true
