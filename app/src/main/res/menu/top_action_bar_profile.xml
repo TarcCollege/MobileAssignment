@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/editProgile"
+        android:icon="@drawable/ic_pencil_edit_button"
         android:orderInCategory="100"
         android:title="Edit Profile"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
         android:orderInCategory="100"
         android:title="Logout"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>
