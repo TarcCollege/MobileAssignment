@@ -4,15 +4,26 @@ import android.app.DownloadManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.DrugDetail
 import com.example.drugassignment.FIreStore.FirestoreAdapter
+import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.android.synthetic.main.infor_layout_main.view.*
+import androidx.fragment.app.FragmentActivity
+
+
+
 
 open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantSelectedListener) : FirestoreAdapter<DrugDetailAdapter.ViewHolder?>(query) {
+
+
 
     interface OnRestaurantSelectedListener {
         fun onRestaurantSelected(restaurant: DocumentSnapshot?)
@@ -25,6 +36,15 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getSnapshot(position), mListener, position)
+
+        holder.itemView.setOnClickListener {
+//                        Toast.makeText(
+//                it.context,
+//                position.toString() + "",
+//                Toast.LENGTH_SHORT
+//            ).show()
+            it.findNavController().navigate(R.id.action_information_Main_to_drugInfo)
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

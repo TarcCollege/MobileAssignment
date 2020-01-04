@@ -1,13 +1,14 @@
 package com.example.drugassignment.Information_Module
 
 import androidx.lifecycle.ViewModel
+import com.example.drugassignment.Class.DrugDetail
 
 class InfoViewModel : ViewModel() {
-    var info : MutableList<String>? = null
+    var drug : DrugDetail? = null
 
-    fun addInfo(info2 : String) {
-        for (i in 1..20 ) {
-           info?.add(info2)
-        }
+
+    fun setingDrug(drug: DrugDetail) {
+        this.drug = drug
     }
+
 }

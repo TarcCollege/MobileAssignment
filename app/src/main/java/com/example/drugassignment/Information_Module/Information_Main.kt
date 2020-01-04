@@ -18,7 +18,10 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.Query
-import javax.xml.transform.Templates
+
+
+
+
 
 /**
  * A simple [Fragment] subclass.
@@ -48,19 +51,38 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
         val tabLayout : TabLayout = binding.infoTabLayout
 
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"))
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"))
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"))
+        // set tab name
+        tabLayout.addTab(tabLayout.newTab().setText("All"))
+        tabLayout.addTab(tabLayout.newTab().setText("empathogen"))
+        tabLayout.addTab(tabLayout.newTab().setText("123"))
 
         val text = tabLayout.getTabAt(0)?.text.toString()
 
         setRecycleDisplay(text)
 
+        initFirestore()
+        initRecyclerView()
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                setRecycleDisplay(tab?.text.toString())
 
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                //setRecycleDisplay(tab?.text.toString())
+                var query: Query = mFirestore.collection("DrugInfo")
+                if (tab!!.text == "All") {
+                    query = mFirestore
+                        .collection("DrugInfo")
+                        .orderBy("DrugType", Query.Direction.DESCENDING)
+                        .limit(LIMIT.toLong())
+                }
+
+                query = query.whereEqualTo("DrugType", tab!!.text)
+
+
+                mQuery = query
+
+//                Log.i("Error", mQuery.)
+                mAdapter.setQuery(mQuery)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -70,8 +92,7 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             }
         })
 
-        initFirestore()
-        initRecyclerView()
+
 
         binding.button.setOnClickListener {
 
@@ -154,3 +175,4 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
 
 }
+

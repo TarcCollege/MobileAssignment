@@ -1,5 +1,6 @@
 package com.example.drugassignment.FIreStore
 
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 import java.util.ArrayList
@@ -39,6 +40,7 @@ abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder?>(private var mQuer
     }
 
     protected fun getSnapshot(index: Int): DocumentSnapshot {
+       // Log.i("Size",mSnapshots.size.toString() )
         return mSnapshots[index]
     }
 
