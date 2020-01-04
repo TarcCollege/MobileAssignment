@@ -121,12 +121,12 @@ class Login : Fragment() {
                         if (!user.isEmailVerified) {
                             FirebaseAuth.getInstance().signOut()
                             Toast.makeText(
-                                activity, " Not Verified",
+                                activity, "Please Verify Your Email First",
                                 Toast.LENGTH_SHORT
                             ).show()
                         } else {
                             Toast.makeText(
-                                activity, "Verified",
+                                activity, "Welcome " + user.displayName,
                                 Toast.LENGTH_SHORT
                             ).show()
                             viewModel2.login = true

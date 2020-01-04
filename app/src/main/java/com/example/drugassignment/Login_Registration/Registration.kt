@@ -65,9 +65,12 @@ class Registration : Fragment() {
     }
 
     private fun regiser() {
+        if(!validation()) {
+            return
+        }
         val email = binding.editRegisterEmail.text.toString()
         val password = binding.editPassword.text.toString()
-        val name = binding.editName.text.toString()
+        val name = binding.editDisplayName.text.toString()
 
         if (email.isNullOrEmpty()) {
             binding.editRegisterEmailLayout.error = "Cannot Be Blacnk"
@@ -85,6 +88,7 @@ class Registration : Fragment() {
                     ).show()
 
                     var user = auth.currentUser
+
 
                     val profileUpdates: UserProfileChangeRequest =
                         UserProfileChangeRequest.Builder()
@@ -104,7 +108,8 @@ class Registration : Fragment() {
                         ?.addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(
-                                    activity, "Sent verification Email",
+                                    activity, "Sent verification Email, Please Verify " +
+                                            "Your Email Before Login",
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 findNavController().navigate(R.id.action_registration_to_homeFragment)
@@ -120,13 +125,26 @@ class Registration : Fragment() {
                     // If sign in fails, display a message to the user.
                     Log.w("Game", "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
-                        activity, "Authentication failed.",
+                        activity, "Wrong Email or Email Being Registered",
                         Toast.LENGTH_SHORT
                     ).show()
 
                 }
 
             }
+    }
+
+    private fun validation() : Boolean{
+        if (binding.editRegisterEmail.text.isNullOrBlank()) {
+            binding.editRegisterEmailLayout.error = "No Empty"
+        } else if (binding.editDisplayName.text.isNullOrBlank()) {
+            binding.editDisplayNameLayout.error = "No Empty"
+        }else if (binding.editPassword.text.isNullOrBlank()) {
+            binding.editPasswordLayout.error = "No Empty"
+        } else if (binding.editAddress.text.isNullOrBlank()) {
+            binding.editAddressLayout.error = "No Empty"
+        }
+        return true
     }
 
 }

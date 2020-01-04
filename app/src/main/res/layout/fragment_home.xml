@@ -1,108 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".HomeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Drug LOGO"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".HomeFragment">
 
-    <Button
-        android:id="@+id/btnInfomation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left"
-        android:background="@drawable/ic_iconfinder_info_large_216254" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="341dp"
+            android:layout_height="89dp"
+            android:layout_gravity="center|top"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/home_logo_foreground"
+            app:srcCompat="@mipmap/home_logo_foreground" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Information"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left"
-        android:textSize="16sp"/>
+        <Button
+            android:id="@+id/btnInfomation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:background="@drawable/ic_iconfinder_info_large_216254" />
 
-    <Button
-        android:id="@+id/btnQuiz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="50dp"
-        android:layout_gravity="right"
-        android:background="@drawable/ic_noun_enigma_box_37899" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Information"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:textSize="16sp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quiz"
-        android:layout_marginTop="200dp"
-        android:layout_marginRight="50dp"
-        android:layout_gravity="right"
-        android:textSize="16sp"/>
+        <Button
+            android:id="@+id/btnQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="50dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_noun_enigma_box_37899" />
 
-    <Button
-        android:id="@+id/btnSupport_Group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left"
-        android:background="@drawable/ic_noun_team_732987" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="200dp"
+            android:layout_marginRight="50dp"
+            android:text="Quiz"
+            android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Support Group"
-        android:layout_marginTop="350dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left"
-        android:textSize="16sp"/>
+        <Button
+            android:id="@+id/btnSupport_Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:background="@drawable/ic_noun_team_732987" />
 
-    <Button
-        android:id="@+id/btnDonation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginRight="50dp"
-        android:layout_gravity="right"
-        android:background="@drawable/ic_noun_donation_2508090" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support Group"
+            android:layout_marginTop="350dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:textSize="16sp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donation"
-        android:layout_marginTop="350dp"
-        android:layout_marginRight="50dp"
-        android:layout_gravity="right"
-        android:textSize="16sp"/>
+        <Button
+            android:id="@+id/btnDonation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_marginRight="50dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_noun_donation_2508090" />
 
-    <Button
-        android:id="@+id/btnContactUs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left"
-        android:background="@drawable/ic_noun_contact_us_1212887" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Donation"
+            android:layout_marginTop="350dp"
+            android:layout_marginRight="50dp"
+            android:layout_gravity="right"
+            android:textSize="16sp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contact Us"
-        android:layout_marginTop="500dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left"
-        android:textSize="16sp"/>
-</FrameLayout>
+        <Button
+            android:id="@+id/btnContactUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:background="@drawable/ic_noun_contact_us_1212887" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:layout_marginTop="500dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:textSize="16sp"/>
+
+    </FrameLayout>
 
 
+
+</layout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
@@ -12,92 +13,87 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editRegisterEmailLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_marginTop="30dp"
+            app:endIconMode="clear_text"
+            app:helperText="Please Enter Your Email"
+            app:helperTextEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRegisterEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_envelope"
                 android:ems="10"
                 android:hint="Email : "
-                android:inputType="textEmailAddress"
-                android:drawableLeft="@drawable/ic_envelope"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editUsernameLayout"
+            android:id="@+id/editDisplayNameLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:helperText="Please Enter Your Display Name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editUsernameEmail"
-                android:ems="10"
-                android:hint="Username : "
-                android:inputType="textEmailAddress"
+                android:id="@+id/editDisplayName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_account_circle_black_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editNameLayout"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editName"
                 android:ems="10"
-                android:hint="Name : "
-                android:inputType="textPersonName"
-                android:drawableLeft="@drawable/ic_launcher_sign_up"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:hint="Display Name : "
+                android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPasswordLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:endIconCheckable="true"
+            android:layout_marginTop="20dp"
+            app:endIconMode="password_toggle"
+            app:helperText="Please Enter Your Password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:ems="10"
                 android:hint="Password : "
-                android:inputType="textPassword"
-                android:drawableLeft="@drawable/ic_lock_black_24dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editAddressLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:endIconMode="clear_text"
+            android:layout_marginTop="20dp"
+            app:helperText="Please Enter Your Address"
+            app:helperTextEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_noun_address_2340040"
                 android:ems="10"
                 android:hint="Address : "
-                android:inputType="textPassword"
-                android:drawableLeft="@drawable/ic_noun_address_2340040"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
