@@ -17,7 +17,20 @@
     <string name="message">Message</string>
     <string name="title_activity_maps">Map</string>
 
+    //used in contact us
+    <string name="contact_header">Contact Us</string>
+    <string name="email">temp_email@gmail.com</string>
+    <string name="phone1">011-321 5708</string>
+    <string name="contact_number_header">Phone</string>
+    <string name="website">www.xxxxx.com</string>
+    <string name="website_header">Website</string>
+    <string name="email_header">Email</string>
+
+    //used in donate
+    <string name="fund">Fund us</string>
+    <string name="donate_venue">Donate a venue for helding event</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
