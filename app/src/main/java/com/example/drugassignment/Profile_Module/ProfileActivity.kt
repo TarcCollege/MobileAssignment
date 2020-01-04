@@ -98,7 +98,6 @@ class Profile_Activity : AppCompatActivity() {
     }
 
     private fun observeAuthenticationState(){
-
         loginViewModel.authenticationState?.observe(this, Observer {
             binding.titleText.title = loginViewModel.user.displayName
             binding.progressionText.text = loginViewModel.user.email

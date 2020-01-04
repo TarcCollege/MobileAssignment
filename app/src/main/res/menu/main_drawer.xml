@@ -17,10 +17,6 @@
 
             android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/profile_Activity"
-
-            android:title="@string/menu_tools" />
-        <item
             android:id="@+id/mapsActivity"
 
             android:title="@string/menu_tools" />
