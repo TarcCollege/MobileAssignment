@@ -29,6 +29,7 @@ class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
+        //Log.i("size", data.size.toString())
         return data.size
     }
 

@@ -62,13 +62,17 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 //setRecycleDisplay(tab?.text.toString())
                 var query: Query = mFirestore.collection("DrugInfo")
-                query = if (tab!!.text == "All") {
+                query = if (tab!!.text == "all") {
                     mFirestore
                         .collection("DrugInfo")
-                        .orderBy("DrugType", Query.Direction.DESCENDING)
-                        .limit(LIMIT.toLong())
+                        .orderBy("drugName", Query.Direction.ASCENDING)
+
+
                 } else {
-                    query.whereEqualTo("DrugType", tab.text)
+                    val tabb = tab.text.toString().toLowerCase()
+                    Log.i("tabb", tabb)
+                    query.whereEqualTo("drugType", tabb)
+                        .orderBy("drugName", Query.Direction.ASCENDING)
                 }
                 mQuery = query
 
@@ -92,7 +96,7 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
         // Get the 50 highest rated restaurants
         mQuery = mFirestore
             .collection("DrugInfo")
-            .orderBy("DrugType", Query.Direction.DESCENDING)
+            .orderBy("drugType", Query.Direction.DESCENDING)
             .limit(LIMIT.toLong())
 
         Log.i("123",mQuery.toString())
