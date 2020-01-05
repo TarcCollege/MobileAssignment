@@ -49,11 +49,59 @@ class HomeFragment : Fragment() {
 
         observeAuthenticationState()
 
+        enableButton()
+
+        binding.btnInformation.setOnClickListener {
+            navController.navigate(R.id.information_Main)
+            disableButton()
+        }
+
+        binding.btnContactUs.setOnClickListener {
+            navController.navigate(R.id.contactMain)
+            disableButton()
+        }
+
+        binding.btnDonation.setOnClickListener {
+            navController.navigate(R.id.donation_Main)
+            disableButton()
+        }
+
+        binding.btnQuiz.setOnClickListener {
+            navController.navigate(R.id.quiz_Main)
+            disableButton()
+        }
+
+        binding.btnSupportGroup.setOnClickListener {
+            navController.navigate(R.id.mapsActivity)
+            disableButton()
+        }
+
 //        binding.button2.setOnClickListener {
 //            updateFirebase()
 //        }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        enableButton()
+    }
+
+    private fun disableButton() {
+        binding.btnSupportGroup.isEnabled = false
+        binding.btnQuiz.isEnabled = false
+        binding.btnDonation.isEnabled = false
+        binding.btnContactUs.isEnabled = false
+        binding.btnInformation.isEnabled = false
+    }
+
+    private fun enableButton() {
+        binding.btnSupportGroup.isEnabled = true
+        binding.btnQuiz.isEnabled = true
+        binding.btnDonation.isEnabled = true
+        binding.btnContactUs.isEnabled = true
+        binding.btnInformation.isEnabled = true
     }
 
     private fun observeAuthenticationState(){
