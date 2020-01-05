@@ -162,7 +162,13 @@
         android:id="@+id/donation_Thankyou"
         android:name="com.example.drugassignment.Donation_Module.Donation_Thankyou"
         android:label="fragment_donation__thankyou"
-        tools:layout="@layout/fragment_donation__thankyou" />
+        tools:layout="@layout/fragment_donation__thankyou" >
+        <action
+            android:id="@+id/action_donation_Thankyou_to_donation_Main"
+            app:destination="@id/donation_Main"
+            app:popUpTo="@+id/donation_Main"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/donation_Venue_Information"
         android:name="com.example.drugassignment.Donation_Module.Donation_Venue_Information"
@@ -170,7 +176,9 @@
         tools:layout="@layout/fragment_donation__venue__information" >
         <action
             android:id="@+id/action_donation_Venue_Information_to_donation_Thankyou"
-            app:destination="@id/donation_Thankyou" />
+            app:destination="@id/donation_Thankyou"
+            app:popUpTo="@+id/donation_Main"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
