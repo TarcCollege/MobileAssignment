@@ -186,7 +186,7 @@ class Registration : Fragment() {
     }
 
     private fun getRole() : String{
-        return if (binding.btnMentee.isChecked) {
+        return if (binding.mentee.isChecked) {
             "Mentee"
         } else {
             "Mentor"

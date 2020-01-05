@@ -43,4 +43,7 @@
     <string name="hello_blank_fragment">Empty</string>
     <string name="email2">Email</string>
 
+    <string name="Mentee">Mentee</string>
+    <string name="Mentor">Mentor</string>
+
 </resources>

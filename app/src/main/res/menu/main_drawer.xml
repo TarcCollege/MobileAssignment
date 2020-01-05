@@ -10,7 +10,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/information_Main"
-
+            android:icon="@mipmap/home_logo_foreground"
             android:title="Information" />
         <item
             android:id="@+id/quiz_Main"
