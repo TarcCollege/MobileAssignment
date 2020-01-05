@@ -11,15 +11,15 @@
         <item
             android:id="@+id/information_Main"
 
-            android:title="@string/menu_gallery" />
+            android:title="Information" />
         <item
             android:id="@+id/quiz_Main"
 
-            android:title="@string/menu_slideshow" />
+            android:title="Quiz" />
         <item
             android:id="@+id/mapsActivity"
 
-            android:title="@string/menu_tools" />
+            android:title="Event" />
     </group>
 
     <item android:title="Communicate">
@@ -27,11 +27,11 @@
             <item
                 android:id="@+id/donation_Main"
 
-                android:title="@string/menu_share" />
+                android:title="Donation" />
             <item
                 android:id="@+id/contactMain"
 
-                android:title="@string/menu_send" />
+                android:title="Contact Us" />
         </menu>
     </item>
 
