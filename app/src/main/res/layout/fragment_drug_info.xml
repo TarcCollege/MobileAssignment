@@ -25,7 +25,7 @@
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="Description"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,30 +33,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/txtDrugInfo"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="12dp"
             android:justificationMode="inter_word"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="Description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <View
-            style="@style/Divider3"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="247dp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="268dp"
-            android:padding="20dp"
+            android:layout_marginTop="316dp"
+            android:padding="10dp"
             android:text="Side Effect"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,13 +64,21 @@
             android:id="@+id/txtDrugSideEffect"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="12dp"
             android:justificationMode="inter_word"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="Side Effect"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDrugInfo" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="289dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
