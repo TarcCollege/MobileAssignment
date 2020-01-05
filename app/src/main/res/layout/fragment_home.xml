@@ -10,21 +10,29 @@
         android:orientation="vertical"
         tools:context=".HomeFragment">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="341dp"
-            android:layout_height="89dp"
-            android:layout_gravity="center|top"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@mipmap/home_logo_foreground"
-            app:srcCompat="@mipmap/home_logo_foreground" />
-
         <Button
-            android:id="@+id/btnInfomation"
+            android:id="@+id/btnLogo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/ic_pill_svgrepo_com"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:text="DRUG DETOX"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <Button
+            android:id="@+id/btnInformation"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="140dp"
             android:layout_marginLeft="50dp"
             android:layout_gravity="left"
             android:background="@drawable/ic_iconfinder_info_large_216254" />
@@ -33,16 +41,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Information"
-            android:layout_marginTop="200dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginLeft="55dp"
             android:layout_gravity="left"
             android:textSize="16sp"/>
 
         <Button
             android:id="@+id/btnQuiz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="140dp"
             android:layout_marginRight="50dp"
             android:layout_gravity="right"
             android:background="@drawable/ic_noun_enigma_box_37899" />
@@ -51,16 +59,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="200dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginRight="80dp"
             android:text="Quiz"
             android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnSupport_Group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="280dp"
             android:layout_marginLeft="50dp"
             android:layout_gravity="left"
             android:background="@drawable/ic_noun_team_732987" />
@@ -69,16 +77,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Support Group"
-            android:layout_marginTop="350dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginTop="365dp"
+            android:layout_marginLeft="42dp"
             android:layout_gravity="left"
             android:textSize="16sp"/>
 
         <Button
             android:id="@+id/btnDonation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="280dp"
             android:layout_marginRight="50dp"
             android:layout_gravity="right"
             android:background="@drawable/ic_noun_donation_2508090" />
@@ -87,16 +95,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Donation"
-            android:layout_marginTop="350dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginTop="370dp"
+            android:layout_marginRight="60dp"
             android:layout_gravity="right"
             android:textSize="16sp"/>
 
         <Button
             android:id="@+id/btnContactUs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="400dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="420dp"
             android:layout_marginLeft="50dp"
             android:layout_gravity="left"
             android:background="@drawable/ic_noun_contact_us_1212887" />
@@ -105,10 +113,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact Us"
-            android:layout_marginTop="500dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginTop="510dp"
+            android:layout_marginLeft="60dp"
             android:layout_gravity="left"
             android:textSize="16sp"/>
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:background="@color/colorDark"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="115dp"/>
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="330dp"
+            android:layout_height="1dp"
+            android:background="@color/colorDark"
+            android:layout_marginTop="110dp"
+            android:layout_gravity="center_horizontal" />
 
     </FrameLayout>
 
