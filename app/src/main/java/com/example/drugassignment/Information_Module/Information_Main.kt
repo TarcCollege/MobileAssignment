@@ -172,19 +172,12 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
     private fun searchItem() {
         hideKeyboard()
-
         val query: Query
-
-        val searchItem = binding.editAddress.text.toString()
-
-
-
+        val searchItem = binding.editAddress.text.toString().capitalize()
         query = mFirestore
                 .collection("DrugInfo")
                 .whereEqualTo("drugName", searchItem)
-
             mQuery = query
-
             mAdapter.setQuery(mQuery)
 
     }
