@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout4"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/AppTheme2"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/buttonMasterCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#3F51B5"
-        android:text="Master Card"
-        android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="48dp" />
+        <Button
+            android:id="@+id/buttonMasterCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#3F51B5"
+            android:text="Master Card"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonVisa"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonVisa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#3F51B5"
-        android:text="Visa"
-        android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="48dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/buttonVisa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#3F51B5"
+            android:text="Visa"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toStartOf="@+id/buttonMasterCard"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextCardNum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="Credit Card/Debit Card Number"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonVisa" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

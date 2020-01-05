@@ -6,7 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.drugassignment.R
+import com.example.drugassignment.databinding.FragmentDonationMainBinding
+import kotlinx.android.synthetic.main.fragment_donation__main.*
 
 /**
  * A simple [Fragment] subclass.
@@ -18,7 +22,22 @@ class Donation_Main : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_donation__main, container, false)
+       val binding : FragmentDonationMainBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_donation__main, container, false
+        )
+
+        val navController = activity!!.findNavController(R.id.nav_host_fragment)
+
+        binding.imageFunding.setOnClickListener{
+            navController.navigate(R.id.action_donation_Main_to_donation_Fund)
+        }
+
+        binding.imageLocation.setOnClickListener {
+            navController.navigate(R.id.action_donation_Main_to_donation_Venue_Information)
+        }
+
+
+        return binding.root
     }
 
 
