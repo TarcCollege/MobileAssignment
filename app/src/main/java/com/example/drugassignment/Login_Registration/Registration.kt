@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 import java.time.LocalDateTime
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -105,11 +106,12 @@ class Registration : Fragment() {
                     addToDatabase()
 
                     var user = auth.currentUser
-
-
+//
+//
                     val profileUpdates: UserProfileChangeRequest =
                         UserProfileChangeRequest.Builder()
                             .setDisplayName(name).build()
+
 
                     user?.updateProfile(profileUpdates)
                         ?.addOnCompleteListener { task ->
@@ -177,10 +179,10 @@ class Registration : Fragment() {
         val display = binding.editDisplayName.text.toString()
         val address = binding.editAddress.text.toString()
         val role = getRole()
-        val date = LocalDateTime.now()
+        val date = "December"
         val availability = true
 
-        user.add(CurrentUser(display,email,address,role,date,availability))
+        user.document(email).set(CurrentUser(display,email,address,role,date,availability))
     }
 
     private fun getRole() : String{

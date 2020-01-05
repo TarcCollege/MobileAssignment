@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.google.firebase.firestore.IgnoreExtraProperties
 import java.time.LocalDateTime
+import java.util.*
 
 @IgnoreExtraProperties
 class CurrentUser{
@@ -12,7 +13,7 @@ class CurrentUser{
     var address : String? = ""
     var role : String? = ""
     @RequiresApi(Build.VERSION_CODES.O)
-    var registerDate : LocalDateTime? = LocalDateTime.now()
+    var registerDate : String? = ""
     var availability : Boolean = true
 
     constructor()
@@ -22,7 +23,7 @@ class CurrentUser{
         email: String?,
         address: String?,
         role: String?,
-        registerDate: LocalDateTime?,
+        registerDate: String?,
         availability : Boolean
     ) {
         this.displayName = displayName

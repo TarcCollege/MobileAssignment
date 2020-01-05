@@ -134,6 +134,7 @@ class Login : Fragment() {
                     user?.let {
                         if (!user.isEmailVerified) {
                             FirebaseAuth.getInstance().signOut()
+                            binding.btnLogin.isEnabled = true
                             Toast.makeText(
                                 activity, "Please Verify Your Email First",
                                 Toast.LENGTH_SHORT
