@@ -36,7 +36,7 @@ class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        val item : OtherUser = data[position]
 
-        holder.index.text = position.toString()
+       // holder.index.text = position.toString()
         holder.infoMain.text = data[position]
 
 //        holder.ItemHolder.setOnClickListener{
@@ -55,7 +55,7 @@ class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val index: TextView = itemView.findViewById(com.example.drugassignment.R.id.infoIndex)
+       // val index: TextView = itemView.findViewById(com.example.drugassignment.R.id.infoIndex)
         val infoMain : TextView = itemView.findViewById(com.example.drugassignment.R.id.InfoMain)
         val ItemHolder : LinearLayout = itemView.findViewById(com.example.drugassignment.R.id.ItemHolder)
 

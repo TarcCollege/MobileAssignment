@@ -1,12 +1,11 @@
 package com.example.drugassignment.Login_Registration
 
 
+import android.content.Context
 import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
@@ -18,7 +17,8 @@ import com.example.drugassignment.Profile_Module.ProfileViewModel
 import com.example.drugassignment.databinding.FragmentLoginBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import android.view.Menu
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.viewModels
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -73,8 +73,14 @@ class Login : Fragment() {
 //        }
         setHasOptionsMenu(true)
 
+        binding.btnReset.setOnClickListener {
+            it.findNavController().navigate(com.example.drugassignment.R.id.action_login_to_resetPassword)
+        }
 
 
+        binding.linear1.setOnClickListener{
+            hideKeyboard()
+        }
         return binding.root
     }
 
@@ -99,13 +105,21 @@ class Login : Fragment() {
         login()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideKeyboard()
+    }
+
     private fun login() {
+        hideKeyboard()
         if (!validation()) {
             return
         }
 
         val email = binding.editRegisterEmail.text.toString()
         val password = binding.editPassword.text.toString()
+
+        binding.btnLogin.isEnabled = false
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
@@ -135,16 +149,14 @@ class Login : Fragment() {
                     }
                 } else {
                     // If sign in fails, display a message to the user.
+                    binding.btnLogin.isEnabled = true
                     Log.w("Game", "signInWithEmail:failure", task.exception)
 
                     Toast.makeText(
                         activity, "Authentication failed.",
                         Toast.LENGTH_SHORT
                     ).show()
-
                 }
-
-
             }
     }
 
@@ -153,12 +165,23 @@ class Login : Fragment() {
             if(binding.editRegisterEmail.text.isNullOrBlank()) {
                 binding.editEmailLayout.error = "No Empty"
             } else {
+                binding.editEmailLayout.isErrorEnabled = false
+            }
+
+            if (binding.editPassword.text.isNullOrBlank()) {
                 binding.editPasswordLayout.error = "No Empty"
+            } else {
+                binding.editPasswordLayout.isErrorEnabled = false
             }
             return false
         }
 
         return true
+    }
+
+    private fun hideKeyboard() {
+        (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view?.windowToken,0)
     }
 
 

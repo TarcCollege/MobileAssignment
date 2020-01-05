@@ -1,12 +1,14 @@
 package com.example.drugassignment.Login_Registration
 
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
@@ -47,11 +49,21 @@ class Registration : Fragment() {
             registrationFlow()
         }
 
+        binding.linear2.setOnClickListener{
+            hideKeyboard()
+        }
+
         return binding.root
     }
 
     private fun registrationFlow() {
+        hideKeyboard()
         regiser()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideKeyboard()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -146,5 +158,10 @@ class Registration : Fragment() {
         }
         return true
     }
+    private fun hideKeyboard() {
+        (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view?.windowToken,0)
+    }
+
 
 }

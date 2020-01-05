@@ -68,8 +68,8 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
 //            itemView.restaurant_item_num_ratings.text = resources.getString(R.string.fmt_num_ratings,
 //                restaurant.numRatings)
 //            itemView.restaurant_item_price.text = RestaurantUtil.getPriceString(restaurant)
-            itemView.InfoMain.text = drug?.drugName
-            itemView.infoIndex.text = position.toString()
+            itemView.InfoMain.text = (position + 1) .toString() + "        "+ drug?.drugName
+
 
             // Click listener
             itemView.setOnClickListener { listener?.onRestaurantSelected(snapshot) }

@@ -12,9 +12,9 @@
     <application
         android:name="androidx.multidex.MultiDexApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/home_logo_foreground"
+        android:icon="@drawable/ic_pill_svgrepo_com"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/home_logo_round"
+        android:roundIcon="@drawable/ic_pill_svgrepo_com"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".nav_header2"></activity>

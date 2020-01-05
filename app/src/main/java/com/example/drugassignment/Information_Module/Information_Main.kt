@@ -1,11 +1,16 @@
 package com.example.drugassignment.Information_Module
 
 
+import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -85,8 +90,27 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             }
         })
 
-        binding.button.setOnClickListener {
+//        binding.button.setOnClickListener {
+//        }
+
+        binding.editSearchLayout.setEndIconOnClickListener{
+            searchItem()
         }
+
+//        binding.editAddress.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(s: Editable?) {
+//
+//            }
+//
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//                searchItem()
+//            }
+//
+//        })
 
         return binding.root
     }
@@ -144,6 +168,35 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
         private const val TAG = "MainActivity"
         private const val RC_SIGN_IN = 9001
         private const val LIMIT = 50
+    }
+
+    private fun searchItem() {
+        hideKeyboard()
+
+        val query: Query
+
+        val searchItem = binding.editAddress.text.toString()
+
+
+
+        query = mFirestore
+                .collection("DrugInfo")
+                .whereEqualTo("drugName", searchItem)
+
+            mQuery = query
+
+            mAdapter.setQuery(mQuery)
+
+    }
+
+    private fun hideKeyboard() {
+        (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view?.windowToken,0)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideKeyboard()
     }
 
 
