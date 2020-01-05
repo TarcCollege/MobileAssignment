@@ -12,12 +12,15 @@
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="232dp"
+        android:clickable="true"
         android:src="@drawable/donate_fund"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageLocation"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.384" />
 
     <ImageView
         android:id="@+id/imageLocation"
@@ -27,6 +30,8 @@
         android:src="@drawable/donate_location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageFunding"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.384" />
 

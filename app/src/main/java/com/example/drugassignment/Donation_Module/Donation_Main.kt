@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.drugassignment.R
+import kotlinx.android.synthetic.main.fragment_donation__main.*
 
 /**
  * A simple [Fragment] subclass.
