@@ -20,6 +20,8 @@
             android:id="@+id/mapsActivity"
             android:icon="@drawable/ic_noun_team_732987"
             android:title="@string/menu_tools" />
+
+
     </group>
 
     <item android:title="Communicate">
@@ -32,6 +34,9 @@
                 android:id="@+id/contactMain"
                 android:icon="@drawable/ic_noun_contact_us_1212887"
                 android:title="@string/menu_send" />
+
+
+               
         </menu>
     </item>
 
