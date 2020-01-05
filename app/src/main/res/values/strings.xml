@@ -36,6 +36,9 @@
     <string name="missing_LastName">Last Name</string>
     <string name="missingPhone">Phone</string>
 
+    <string name="desc">Description</string>
+    <string name="effect">Side Effect</string>
+    <string name="text">textView</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="reset">Reset Password</string>
     <string name="register">Register</string>
