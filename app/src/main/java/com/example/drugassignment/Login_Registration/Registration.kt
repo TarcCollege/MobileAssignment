@@ -57,6 +57,10 @@ class Registration : Fragment() {
             hideKeyboard()
         }
 
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_registration_to_login)
+        }
+
         return binding.root
     }
 

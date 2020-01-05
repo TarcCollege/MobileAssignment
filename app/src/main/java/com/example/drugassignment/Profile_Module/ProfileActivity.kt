@@ -38,9 +38,6 @@ class Profile_Activity : AppCompatActivity()  {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityProfileBinding
-//    private lateinit var mFirestore: FirebaseFirestore
-//    private lateinit var mQuery: Query
-//    private lateinit var mAdapter: MemberAdapter2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
