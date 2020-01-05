@@ -51,11 +51,12 @@ class Profile_Activity : AppCompatActivity() {
         val viewPager2 : ViewPager2 = findViewById(R.id.viewPager)
         viewPager2.adapter = ViewPagerAdapter(this)
 
-        val tabLayout : TabLayout = findViewById(R.id.tabLayout)
+        val tabLayout : TabLayout = this.findViewById(R.id.tabLayout)
 
         tabLayout.setupWithViewPager(viewPager, listOf("Progression", "Reminder", "Notification", "Mentee"))
 
-
+//        val message = intent.getStringExtra("Value")
+//        binding.progressionText.text = message
 
 //        var list = arrayListOf<String>()
 //        for (i in 0..100)
@@ -98,10 +99,21 @@ class Profile_Activity : AppCompatActivity() {
     }
 
     private fun observeAuthenticationState(){
-        loginViewModel.authenticationState?.observe(this, Observer {
-            binding.titleText.title = loginViewModel.user.displayName
-            binding.progressionText.text = loginViewModel.user.email
+        loginViewModel.authenticationState?.observe(this, Observer { authenticationState ->
+            when (authenticationState) {
+                LoginViewModel.AuthenticationState.AUTHENTICATED -> {
+                    loginViewModel.setCurrentUser()
+                }
+            }
         })
+
+        loginViewModel.currentUser?.observe(this, Observer {
+            binding.titleText.title = it.displayName
+            binding.progressionText.text = it.email
+        })
+
+//        binding.titleText.title = loginViewModel.currentUser.value?.displayName
+//            binding.progressionText.text = loginViewModel.currentUser.value?.email
     }
 
     fun TabLayout.setupWithViewPager(viewPager: ViewPager2, labels: List<String>) {

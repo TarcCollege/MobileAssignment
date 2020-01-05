@@ -1,5 +1,6 @@
 package com.example.drugassignment
 
+import android.app.PendingIntent.getActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -11,10 +12,17 @@ import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
+import com.example.drugassignment.Class.DrugDetail
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
+import android.content.Intent
+import android.provider.ContactsContract
+import com.example.drugassignment.Information_Module.Information_MainDirections
+import com.example.drugassignment.Profile_Module.Profile_Activity
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -140,32 +148,54 @@ class MainActivity : AppCompatActivity() {
             when (authenticationState) {
                 LoginViewModel.AuthenticationState.AUTHENTICATED -> {
                     //navView.removeHeaderView(headerView)
-                    headerView.textViewDisplayName.text = viewModel.user.displayName
-                    headerView.textViewHeaderEmail.text = viewModel.user.email
-                    headerView.setOnClickListener {
-
-                        // closing with animation
-                        // rawerLayout.closeDrawers()
-
-                        drawerLayout.closeDrawer(Gravity.LEFT, false)
-                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
-                    }
+                    //getdata()
+//                    headerView.textViewDisplayName.text = viewModel.currentUser.displayName
+//                    headerView.textViewHeaderEmail.text = viewModel.currentUser.email
+//                    headerView.setOnClickListener {
+//
+//                        // closing with animation
+//                        // rawerLayout.closeDrawers()
+//
+//                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+//                    }
+                    viewModel.setCurrentUser()
 
 
                     //navView.addHeaderView(headerView)
                 }
                 else -> {
                    // navView.removeHeaderView(headerView)
-                    headerView.textViewDisplayName.text = "Name"
-                    headerView.textViewHeaderEmail.text = "Email"
-                    headerView.setOnClickListener {
-                        drawerLayout.closeDrawer(Gravity.LEFT, false)
-                        navController.navigate(R.id.action_homeFragment_to_login)
-                    }
+//                    headerView.textViewDisplayName.text = "Name"
+//                    headerView.textViewHeaderEmail.text = "Email"
+//                    headerView.setOnClickListener {
+//                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                        navController.navigate(R.id.action_homeFragment_to_login)
+//                    }
 
                   //  navView.addHeaderView(headerView)
                 }
 
+            }
+        })
+
+        viewModel.currentUser?.observe(this, Observer {
+            if (it != null) {
+                headerView.textViewDisplayName.text = it.displayName
+                headerView.textViewHeaderEmail.text = it.email
+                headerView.setOnClickListener {
+                    // closing with animation
+                    // rawerLayout.closeDrawers()
+                    drawerLayout.closeDrawer(Gravity.LEFT, false)
+                    navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                }
+            } else {
+                headerView.textViewDisplayName.text = "Name"
+                headerView.textViewHeaderEmail.text = "Email"
+                headerView.setOnClickListener {
+                    drawerLayout.closeDrawer(Gravity.LEFT, false)
+                    navController.navigate(R.id.action_homeFragment_to_login)
+                }
             }
         })
     }
@@ -178,6 +208,22 @@ class MainActivity : AppCompatActivity() {
             LayoutInflater.from(this).inflate(R.layout.activity_nav_header2, null)
         navView.addHeaderView(headerView)
     }
+
+//    private fun getdata() {
+//        var mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+//        //var user2 : CurrentUser
+//        val email : String = viewModel.user.email?:""
+//        val docRef = mFirestore.collection("DrugInfo")
+//            .whereEqualTo("drugName", "Aerosol sprays")
+//
+//        docRef
+//            .get().addOnSuccessListener { documentSnapshot ->
+//                Log.i("user", viewModel.user.email)
+//                val qwe = documentSnapshot.toObjects(DrugDetail::class.java) ?: DrugDetail()
+//
+//
+//            }
+//    }
 }
 
 

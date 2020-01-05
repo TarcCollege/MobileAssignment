@@ -107,12 +107,44 @@
         <!--            android:background="@drawable/custom_button"-->
         <!--            android:text="Register" />-->
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:paddingTop="30dp"
+            android:text="Select Role : " />
+
+        <RadioGroup
+            android:id="@+id/btnRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:checkedButton="@id/btnMentee"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/btnMentee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mentee" />
+
+            <RadioButton
+                android:id="@+id/btnMentor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mentor" />
+        </RadioGroup>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="Register" />
+
+
 
 
     </LinearLayout>

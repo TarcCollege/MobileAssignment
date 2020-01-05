@@ -15,6 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.example.drugassignment.Class.CurrentUser
 import com.example.drugassignment.Class.DrugDetail
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.databinding.FragmentHomeBinding
@@ -70,29 +71,51 @@ class HomeFragment : Fragment() {
             when (authenticationState) {
                 LoginViewModel.AuthenticationState.AUTHENTICATED -> {
                     //navView.removeHeaderView(headerView)
-                    headerView.textViewDisplayName.text = viewModel.user.displayName
-                    headerView.textViewHeaderEmail.text = viewModel.user.email
-                    headerView.setOnClickListener {
-                        // closing with animation
-                        // rawerLayout.closeDrawers()
-                        drawerLayout.closeDrawer(Gravity.LEFT, false)
-                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
-                    }
+//                    headerView.textViewDisplayName.text = viewModel.currentUser.displayName
+//                    headerView.textViewHeaderEmail.text = viewModel.currentUser.email
+//                    headerView.setOnClickListener {
+//                        // closing with animation
+//                        // rawerLayout.closeDrawers()
+//                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+//                    }
+                    viewModel.setCurrentUser()
                     //navView.addHeaderView(headerView)
                 }
                 else -> {
                     // navView.removeHeaderView(headerView)
-                    headerView.textViewDisplayName.text = "Name"
-                    headerView.textViewHeaderEmail.text = "Email"
-                    headerView.setOnClickListener {
-                        drawerLayout.closeDrawer(Gravity.LEFT, false)
-                        navController.navigate(R.id.action_homeFragment_to_login)
-                    }
+//                    headerView.textViewDisplayName.text = "Name"
+//                    headerView.textViewHeaderEmail.text = "Email"
+//                    headerView.setOnClickListener {
+//                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                        navController.navigate(R.id.action_homeFragment_to_login)
+//                    }
                     //  navView.addHeaderView(headerView)
                 }
 
             }
         })
+        viewModel.currentUser?.observe(this, Observer {
+            if (it != null) {
+                headerView.textViewDisplayName.text = it.displayName
+                        headerView.textViewHeaderEmail.text = it.email
+                        headerView.setOnClickListener {
+                            // closing with animation
+                            // rawerLayout.closeDrawers()
+                            drawerLayout.closeDrawer(Gravity.LEFT, false)
+                            navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                        }
+            } else {
+                headerView.textViewDisplayName.text = "Name"
+                headerView.textViewHeaderEmail.text = "Email"
+                headerView.setOnClickListener {
+                    drawerLayout.closeDrawer(Gravity.LEFT, false)
+                    navController.navigate(R.id.action_homeFragment_to_login)
+                }
+            }
+        })
+
+
     }
 
 //    private fun updateFirebase() {

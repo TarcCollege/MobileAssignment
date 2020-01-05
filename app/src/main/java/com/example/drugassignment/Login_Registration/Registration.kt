@@ -2,6 +2,7 @@ package com.example.drugassignment.Login_Registration
 
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,15 +11,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.view.isVisible
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.drugassignment.Class.CurrentUser
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentRegistrationBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
+import java.time.LocalDateTime
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -99,12 +103,15 @@ class Registration : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
+                    addToDatabase()
+
                     var user = auth.currentUser
-
-
+//
+//
                     val profileUpdates: UserProfileChangeRequest =
                         UserProfileChangeRequest.Builder()
                             .setDisplayName(name).build()
+
 
                     user?.updateProfile(profileUpdates)
                         ?.addOnCompleteListener { task ->
@@ -161,6 +168,29 @@ class Registration : Fragment() {
     private fun hideKeyboard() {
         (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
             .hideSoftInputFromWindow(view?.windowToken,0)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun addToDatabase() {
+        val mFirestore = FirebaseFirestore.getInstance();
+        val user = mFirestore.collection("User")
+
+        val email = binding.editRegisterEmail.text.toString()
+        val display = binding.editDisplayName.text.toString()
+        val address = binding.editAddress.text.toString()
+        val role = getRole()
+        val date = "December"
+        val availability = true
+
+        user.document(email).set(CurrentUser(display,email,address,role,date,availability))
+    }
+
+    private fun getRole() : String{
+        return if (binding.btnMentee.isChecked) {
+            "Mentee"
+        } else {
+            "Mentor"
+        }
     }
 
 
