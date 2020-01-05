@@ -91,26 +91,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.login -> {
-            // User chose the "Settings" item, show the app settings UI...
-//            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
-//                when (authenticationState) {
-//                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-//
-//                        navController.navigate(R.id.profile_Activity)
-//                    }
-//                    else -> {
-//                        Log.i("Navigat", "fail")
-//                        item.onNavDestinationSelected(navController)
-//                    }
-//
-//                }
-//            })
-//            true
 
-//
-//
-//
-//
             if (!viewModel.login) {
                 //item.onNavDestinationSelected(navController)
                 item.onNavDestinationSelected(navController)
@@ -179,7 +160,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        viewModel.currentUser?.observe(this, Observer {
+        viewModel.currentUser.observe(this, Observer {
             if (it != null) {
                 headerView.textViewDisplayName.text = it.displayName
                 headerView.textViewHeaderEmail.text = it.email

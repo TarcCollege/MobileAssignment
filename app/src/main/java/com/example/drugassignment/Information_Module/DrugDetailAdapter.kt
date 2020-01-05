@@ -1,6 +1,7 @@
 package com.example.drugassignment.Information_Module
 
 import android.app.DownloadManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,7 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getSnapshot(position), mListener, position)
         val drug = getSnapshot(position).toObject(DrugDetail::class.java)
+
 
         holder.itemView.setOnClickListener {
 //                        Toast.makeText(

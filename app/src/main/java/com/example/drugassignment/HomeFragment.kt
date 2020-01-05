@@ -95,16 +95,16 @@ class HomeFragment : Fragment() {
 
             }
         })
-        viewModel.currentUser?.observe(this, Observer {
+        viewModel.currentUser.observe(this, Observer {
             if (it != null) {
                 headerView.textViewDisplayName.text = it.displayName
-                        headerView.textViewHeaderEmail.text = it.email
-                        headerView.setOnClickListener {
-                            // closing with animation
-                            // rawerLayout.closeDrawers()
-                            drawerLayout.closeDrawer(Gravity.LEFT, false)
-                            navController.navigate(R.id.action_homeFragment_to_profile_Activity)
-                        }
+                headerView.textViewHeaderEmail.text = it.email
+                headerView.setOnClickListener {
+                    // closing with animation
+                    // rawerLayout.closeDrawers()
+                    drawerLayout.closeDrawer(Gravity.LEFT, false)
+                    navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                }
             } else {
                 headerView.textViewDisplayName.text = "Name"
                 headerView.textViewHeaderEmail.text = "Email"

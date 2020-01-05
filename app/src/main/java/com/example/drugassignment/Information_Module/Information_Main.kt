@@ -17,6 +17,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.drugassignment.Class.DrugDetail
 import com.example.drugassignment.Class.DrugTitle
+import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentInformationMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -38,7 +39,7 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
     private lateinit var binding : FragmentInformationMainBinding
     private val viewModel by viewModels<InfoViewModel>()
-
+    private lateinit var loginViewModel: LoginViewModel
     private lateinit var mFirestore: FirebaseFirestore
     private lateinit var mQuery: Query
     private lateinit var mAdapter: DrugDetailAdapter

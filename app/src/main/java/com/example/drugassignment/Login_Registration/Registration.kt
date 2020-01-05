@@ -172,7 +172,7 @@ class Registration : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun addToDatabase() {
-        val mFirestore = FirebaseFirestore.getInstance();
+        val mFirestore = FirebaseFirestore.getInstance()
         val user = mFirestore.collection("User")
 
         val email = binding.editRegisterEmail.text.toString()
