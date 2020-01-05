@@ -26,6 +26,9 @@
     <string name="first_label">Mentor</string>
     <string name="second_label">Mentee</string>
 
+    <string name="desc">Description</string>
+    <string name="effect">Side Effect</string>
+    <string name="text">textView</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
