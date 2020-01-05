@@ -23,6 +23,8 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
+import java.util.concurrent.ThreadLocalRandom
 import kotlin.text.Typography.times
 
 
@@ -52,7 +54,8 @@ class HomeFragment : Fragment() {
         enableButton()
 
         binding.btnInformation.setOnClickListener {
-            navController.navigate(R.id.information_Main)
+//            updateFirebase()
+            //navController.navigate(R.id.information_Main)
             disableButton()
         }
 
@@ -167,38 +170,26 @@ class HomeFragment : Fragment() {
     }
 
 //    private fun updateFirebase() {
-//        val mFirestore = FirebaseFirestore.getInstance();
-//        val restaurants = mFirestore.collection("DrugInfo")
+//        val mFirestore = FirebaseFirestore.getInstance()
+//        val restaurants = mFirestore.collection("User")
 //
-//        val drugList : MutableList<DrugDetail>
+//        for (i in 1..10) {
+//            val name = randomName(10)
+//            val email = randomName(10) + "@gmail.com"
+//            val date = "December"
+//            val address = "Kuala Lumpur"
+//            val availability = true
+//            val role = "Mentor"
 //
-//        val description =
-//            "Adderall contains a combination of amphetamine and dextroamphetamine.  Amphetamine and dextroamphetamine are central nervous system stimulants  that affect chemicals in the brain and nerves that contribute to  hyperactivity and impulse control. Adderall is used to treat attention deficit hyperactivity disorder (ADHD) and  narcolepsy. Adderall may also be used for purposes not listed in this medication guide."
-//
-//        val sideEffect1 =
-//            "Lowered immunity to illness" +
-//        "Depression" +
-//        "Chronic anxiety" +
-//                "Reduced sperm count in men" +
-//        "Sedation" +
-//        "Slowed reaction times" +
-//        "Enhanced senses, such as seeing brighter colors" +
-//        "Impaired sense of time"
-//
-//
-//
-//
-//
-//        val DrugName =
-//            listOf<String>("Marijuana leaves","Hashish","Hash oil","Sativex")
-//            val type = "cannabis"
-//
-//
-//
-//        for (drug in DrugName) {
-//            val a = DrugDetail(drug,description,sideEffect1,type)
-//            restaurants.add(a)
+//            restaurants.document(email).set(CurrentUser(name,email,address,role,date,availability))
 //        }
+//
+//    }
+//
+//    private fun randomName(limit: Int): String {
+//        val STRING_CHARACTERS = ('0'..'z').toList().toTypedArray()
+//
+//        return   (1..32).map { STRING_CHARACTERS.random() }.joinToString("")
 //    }
 
 

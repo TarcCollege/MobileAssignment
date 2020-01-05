@@ -129,5 +129,9 @@
         <argument android:name="SideEffect"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/newMember22"
+        android:name="com.example.drugassignment.NewMember2"
+        android:label="NewMember2" />
 
 </navigation>

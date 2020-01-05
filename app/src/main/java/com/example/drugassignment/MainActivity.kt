@@ -20,8 +20,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
 import android.content.Intent
 import android.provider.ContactsContract
+import androidx.core.view.isVisible
 import com.example.drugassignment.Information_Module.Information_MainDirections
 import com.example.drugassignment.Profile_Module.Profile_Activity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
 
-//        val fab: FloatingActionButton = findViewById(R.id.fab)
+//        val fab: FloatingActionButton = findViewById(R.id.fab2)
 //
 //        fab.isVisible = false
 //
