@@ -106,10 +106,18 @@ class Profile_Activity : AppCompatActivity() {
                 }
             }
         })
-
         loginViewModel.currentUser?.observe(this, Observer {
             binding.titleText.title = it.displayName
             binding.progressionText.text = it.email
+
+
+            val tabLayout : TabLayout = this.findViewById(R.id.tabLayout)
+            if (loginViewModel.currentUser.value?.role == "Mentee"){
+                tabLayout.getTabAt(3)?.setText("Mentor")
+            } else {
+                tabLayout.getTabAt(3)?.setText("Mentee")
+            }
+
         })
 
 //        binding.titleText.title = loginViewModel.currentUser.value?.displayName

@@ -158,10 +158,6 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             }
 
         }
-
-//        tabLayout.addTab(tabLayout.newTab().setText("All"))
-//        tabLayout.addTab(tabLayout.newTab().setText("empathogen"))
-//        tabLayout.addTab(tabLayout.newTab().setText("psychedelic"))
     }
 
     companion object {
