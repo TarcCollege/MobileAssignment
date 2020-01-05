@@ -141,7 +141,7 @@ class Login : Fragment() {
                             ).show()
                         } else {
                             Toast.makeText(
-                                activity, "Welcome " + user.displayName,
+                                activity, "Welcome",
                                 Toast.LENGTH_SHORT
                             ).show()
                             viewModel2.login = true

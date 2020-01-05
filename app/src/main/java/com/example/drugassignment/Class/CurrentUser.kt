@@ -8,7 +8,7 @@ import java.util.*
 
 @IgnoreExtraProperties
 class CurrentUser{
-    var displayName : String? = ""
+    var displayName : String? = "DrugDetox"
     var email : String? = ""
     var address : String? = ""
     var role : String? = ""
