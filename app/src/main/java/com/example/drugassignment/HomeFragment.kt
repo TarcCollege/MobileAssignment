@@ -55,28 +55,28 @@ class HomeFragment : Fragment() {
 
         binding.btnInformation.setOnClickListener {
 //            updateFirebase()
-            //navController.navigate(R.id.information_Main)
-            disableButton()
+            navController.navigate(R.id.information_Main)
+           // disableButton()
         }
 
         binding.btnContactUs.setOnClickListener {
             navController.navigate(R.id.contactMain)
-            disableButton()
+            //disableButton()
         }
 
         binding.btnDonation.setOnClickListener {
             navController.navigate(R.id.donation_Main)
-            disableButton()
+           // disableButton()
         }
 
         binding.btnQuiz.setOnClickListener {
             navController.navigate(R.id.quiz_Main)
-            disableButton()
+            //disableButton()
         }
 
         binding.btnSupportGroup.setOnClickListener {
             navController.navigate(R.id.mapsActivity)
-            disableButton()
+           disableButton()
         }
 
 //        binding.button2.setOnClickListener {
