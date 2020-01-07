@@ -40,12 +40,6 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
 
 
         holder.itemView.setOnClickListener {
-//                        Toast.makeText(
-//                it.context,
-//                position.toString() + "",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//            it.findNavController().navigate(R.id.action_information_Main_to_drugInfo)
             it.findNavController().navigate(Information_MainDirections
                 .actionInformationMainToDrugInfo
                     (drug!!.drugName?:"123", drug.drugInfo?:"null", drug.drugSideEffect?:"null"))

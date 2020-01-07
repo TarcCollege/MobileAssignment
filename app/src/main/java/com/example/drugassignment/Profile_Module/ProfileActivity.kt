@@ -2,37 +2,22 @@ package com.example.drugassignment.Profile_Module
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.drugassignment.Information_Module.DrugDetailAdapter
-import com.example.drugassignment.Information_Module.Information_Main
 import com.example.drugassignment.Login_Registration.LoginViewModel
-import com.example.drugassignment.Profile_Module.sub_module.MemberAdapter2
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.ActivityProfileBinding
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.activity_nav_header2.view.*
-import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.app_bar_profile.view.*
 
 class Profile_Activity : AppCompatActivity()  {
 
@@ -45,7 +30,7 @@ class Profile_Activity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
+      //  binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
         viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
@@ -58,31 +43,17 @@ class Profile_Activity : AppCompatActivity()  {
 
         observeAuthenticationState()
 
+        // displaying toolbar
         val toolbar: Toolbar = this.findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
 
-
-
-        val viewPager2 : ViewPager2 = findViewById(R.id.viewPager)
-        viewPager2.adapter = ViewPagerAdapter(this)
-
-        val tabLayout : TabLayout = this.findViewById(R.id.tabLayout)
-
-        tabLayout.setupWithViewPager(viewPager, listOf("Progression", "Reminder", "Notification", "Mentee"))
-
-//        val message = intent.getStringExtra("Value")
-//        binding.progressionText.text = message
-
-//        var list = arrayListOf<String>()
-//        for (i in 0..100)
-//            list.add("Item $i")
-//        val adapter = Adapter(list)
-//        recyclerView.layoutManager = LinearLayoutManager(this@Profile_Activity, RecyclerView.VERTICAL,
-//            false)
-//        recyclerView.adapter = adapter
-
+//        val button : Button = findViewById(R.id.buttonOtherUser)
+//
+//        button.setOnClickListener {
+//            navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+//        }
 
     }
 
@@ -124,8 +95,10 @@ class Profile_Activity : AppCompatActivity()  {
             }
         })
         loginViewModel.currentUser.observe(this, Observer {
-            binding.titleText.title = it.displayName
-            binding.progressionText.text = it.email
+            val appbar : CollapsingToolbarLayout = findViewById(R.id.titleText)
+
+            appbar.title = it.displayName
+            appbar.progressionText.text = it.email
 
             val fab: FloatingActionButton = findViewById(R.id.fab2)
 
@@ -160,9 +133,9 @@ class Profile_Activity : AppCompatActivity()  {
     }
 
 //    private fun initFirestore() {
-//        mFirestore = FirebaseFirestore.getInstance()
+//        val mFirestore = FirebaseFirestore.getInstance()
 //        // Get the 50 highest rated restaurants
-//        mQuery = mFirestore
+//        val mQuery = mFirestore
 //            .collection("DrugInfo")
 //            .orderBy("drugType", Query.Direction.DESCENDING)
 //        Log.i("123",mQuery.toString())

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
@@ -21,6 +22,7 @@ import com.example.drugassignment.Class.SubUser
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.NewMember2
 import com.example.drugassignment.Profile_Module.Adapter
+import com.example.drugassignment.Profile_Module.ProfileViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentMemberFragmentBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -36,16 +38,13 @@ import java.lang.reflect.Member
 /**
  * A simple [Fragment] subclass.
  */
-class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
-    override fun onRestaurantSelected(restaurant: DocumentSnapshot?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+class member_fragment : Fragment(){
 
     private lateinit var mFirestore: FirebaseFirestore
     private lateinit var mQuery: Query
-    private lateinit var mAdapter: MemberAdapter2
     private lateinit var binding : FragmentMemberFragmentBinding
     private lateinit var loginViewModel: LoginViewModel
+    private val memberViewModel by viewModels<ProfileViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,27 +58,11 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         setUpButton()
-
-
-
-
-            initFirestore()
-        initRecyclerView()
         observeAuthenticationState()
+        initFirestore()
+        initRecyclerView()
 
-//        val adapter = MemberAdapter()
-//        binding.memberRecycleView.adapter = adapter
-//
-////        val nights = listOf(
-////            "Something",
-////            "something2",
-////            "something3"
-////        )
-//
-//        val list = arrayListOf<OtherUser>()
-//        for (i in 0..100)
-//            list.add(OtherUser("Kuek", "kuekyb@gmail","Klang","30 days"))
-//        adapter.data = list
+
 
         return binding.root
     }
@@ -93,19 +76,7 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
     }
 
     private fun initRecyclerView() {
-//        mAdapter = object : MemberAdapter2(mQuery, this@member_fragment) {
-//            override fun onError(e: FirebaseFirestoreException?) { // Show a snackbar on errors
-////                Log.i("testing",mQuery.toString())
-//            }
-//        }
-//        Log.i("testing", mAdapter.toString())
-//
-//        binding.memberRecycleView.layoutManager = LinearLayoutManager(context)
-//        binding.memberRecycleView.adapter = mAdapter
-
             var user = FirebaseAuth.getInstance().currentUser
-
-
             var mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
             //var user2 : CurrentUser
             val email : String = user?.email?:""
@@ -117,13 +88,14 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
 
             docRef
                 .get().addOnSuccessListener { documentSnapshot ->
-                    Log.i("user22", user?.email)
                     val adapter = documentSnapshot.toObjects(SubUser::class.java)
-//                    Log.i("testing", adapter.get(0).email)
                     val adapter2 = MemberAdapter()
+
                     binding.memberRecycleView.adapter = adapter2
+
                     adapter2.data = adapter
                 }
+
 
     }
 
@@ -136,24 +108,8 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
 
     }
 
-//    private var function = {
-//        val nextFrag: NewMember2 = NewMember2();
-//        getActivity()!!.getSupportFragmentManager().beginTransaction()
-//            .replace(R.id.fragment_new_member2, nextFrag, "findThisFragment")
-//            .addToBackStack(null)
-//            .commit();
-//    }
-
     private fun observeAuthenticationState() {
         val btn : Button = activity!!.findViewById(R.id.buttonOtherUser)
-        loginViewModel.authenticationState?.observe(this, Observer { authenticationState ->
-            when (authenticationState) {
-                LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-                    loginViewModel.setCurrentUser()
-                }
-            }
-        })
-        loginViewModel.currentUser.observe(this, Observer {
             loginViewModel.currentUser.observe(this, Observer {
                 if (it.role == "Mentee") {
                     if(it.availability) {
@@ -173,8 +129,6 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
                 }
             })
 
-
-        })
     }
 
 }

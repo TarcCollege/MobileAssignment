@@ -1,5 +1,6 @@
 package com.example.drugassignment.Profile_Module.sub_module
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,8 @@ class MemberAdapter: RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
         holder.email.text = item.email
         holder.name.text = item.displayName
         holder.address.text = item.address
+
+        Log.i("email", holder.address.text.toString())
     }
 
 
