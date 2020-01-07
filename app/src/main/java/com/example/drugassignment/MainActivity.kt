@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        setHeader()
 
         //addHeaderView()
         observeAuthenticationState()
@@ -93,7 +94,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.login -> {
-
             if (!viewModel.login) {
                 //item.onNavDestinationSelected(navController)
                 item.onNavDestinationSelected(navController)
@@ -147,17 +147,17 @@ class MainActivity : AppCompatActivity() {
 
                     //navView.addHeaderView(headerView)
                 }
-                else -> {
-                   // navView.removeHeaderView(headerView)
+//                else -> {
+//                    navView.removeHeaderView(headerView)
 //                    headerView.textViewDisplayName.text = "Name"
 //                    headerView.textViewHeaderEmail.text = "Email"
 //                    headerView.setOnClickListener {
 //                        drawerLayout.closeDrawer(Gravity.LEFT, false)
 //                        navController.navigate(R.id.action_homeFragment_to_login)
 //                    }
-
-                  //  navView.addHeaderView(headerView)
-                }
+//
+//                    navView.addHeaderView(headerView)
+//                }
 
             }
         })
@@ -166,18 +166,34 @@ class MainActivity : AppCompatActivity() {
             if (it != null) {
                 headerView.textViewDisplayName.text = it.displayName
                 headerView.textViewHeaderEmail.text = it.email
-                headerView.setOnClickListener {
-                    // closing with animation
-                    // rawerLayout.closeDrawers()
-                    drawerLayout.closeDrawer(Gravity.LEFT, false)
-                    navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                if (viewModel.login) {
+                    headerView.setOnClickListener {
+                        // closing with animation
+                        // rawerLayout.closeDrawers()
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                    }
+                } else {
+                    headerView.setOnClickListener {
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navController.navigate(R.id.action_homeFragment_to_login)
+                    }
                 }
             } else {
                 headerView.textViewDisplayName.text = "Name"
                 headerView.textViewHeaderEmail.text = "Email"
-                headerView.setOnClickListener {
-                    drawerLayout.closeDrawer(Gravity.LEFT, false)
-                    navController.navigate(R.id.action_homeFragment_to_login)
+                if (viewModel.login == true) {
+                    headerView.setOnClickListener {
+                        // closing with animation
+                        // rawerLayout.closeDrawers()
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                    }
+                } else {
+                    headerView.setOnClickListener {
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navController.navigate(R.id.action_homeFragment_to_login)
+                    }
                 }
             }
         })
@@ -207,6 +223,26 @@ class MainActivity : AppCompatActivity() {
 //
 //            }
 //    }
+
+    private fun setHeader() {
+        val navView : NavigationView = findViewById(R.id.nav_view)
+        val headerView = navView.getHeaderView(0)
+        val drawerLayout : DrawerLayout = findViewById(R.id.drawer_layout)
+        Log.i("123",viewModel.login.toString())
+//        if (viewModel.login == true) {
+//            headerView.setOnClickListener {
+//                // closing with animation
+//                // rawerLayout.closeDrawers()
+//                drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+//            }
+//        } else {
+//            headerView.setOnClickListener {
+//                drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                navController.navigate(R.id.action_homeFragment_to_login)
+//            }
+//        }
+    }
 }
 
 

@@ -163,7 +163,7 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
 //                            function()
 //                        }
                     }else {
-                        btn.isVisible = true
+                        btn.isVisible = false
                     }
                 } else {
 

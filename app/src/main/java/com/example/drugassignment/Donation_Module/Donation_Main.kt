@@ -35,8 +35,6 @@ class Donation_Main : Fragment() {
         binding.imageLocation.setOnClickListener {
             navController.navigate(R.id.action_donation_Main_to_donation_Venue_Information)
         }
-
-
         return binding.root
     }
 

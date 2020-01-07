@@ -23,6 +23,7 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_profile.view.*
 import java.util.*
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.text.Typography.times
@@ -78,6 +79,8 @@ class HomeFragment : Fragment() {
             navController.navigate(R.id.mapsActivity)
            disableButton()
         }
+
+
 
 //        binding.button2.setOnClickListener {
 //            updateFirebase()
@@ -147,23 +150,27 @@ class HomeFragment : Fragment() {
             }
         })
         viewModel.currentUser.observe(this, Observer {
-            if (it != null) {
-                headerView.textViewDisplayName.text = it.displayName
-                headerView.textViewHeaderEmail.text = it.email
-                headerView.setOnClickListener {
-                    // closing with animation
-                    // rawerLayout.closeDrawers()
-                    drawerLayout.closeDrawer(Gravity.LEFT, false)
-                    navController.navigate(R.id.action_homeFragment_to_profile_Activity)
-                }
-            } else {
-                headerView.textViewDisplayName.text = "Name"
-                headerView.textViewHeaderEmail.text = "Email"
-                headerView.setOnClickListener {
-                    drawerLayout.closeDrawer(Gravity.LEFT, false)
-                    navController.navigate(R.id.action_homeFragment_to_login)
-                }
-            }
+//            if (it != null) {
+//                headerView.textViewDisplayName.text = it.displayName
+//                headerView.textViewHeaderEmail.text = it.email
+//                headerView.setOnClickListener {
+//                    // closing with animation
+//                    // rawerLayout.closeDrawers()
+//                    drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                    navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+//                }
+//            } else {
+//                headerView.textViewDisplayName.text = "Name"
+//                headerView.textViewHeaderEmail.text = "Email"
+//                headerView.setOnClickListener {
+//                    drawerLayout.closeDrawer(Gravity.LEFT, false)
+//                    navController.navigate(R.id.action_homeFragment_to_login)
+//                }
+//            }
+
+
+
+
         })
 
 
