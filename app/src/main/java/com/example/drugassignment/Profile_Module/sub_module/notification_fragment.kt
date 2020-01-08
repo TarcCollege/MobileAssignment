@@ -37,8 +37,8 @@ class notification_fragment : Fragment() {
          binding  = DataBindingUtil.inflate(
             inflater, R.layout.fragment_notification_fragment, container, false)
 
-        val fab : FloatingActionButton = activity!!.findViewById(R.id.fab2)
-        fab.isVisible = false
+//        val fab : FloatingActionButton = activity!!.findViewById(R.id.fab2)
+//        fab.isVisible = false
         val btn : Button = activity!!.findViewById(R.id.buttonOtherUser)
         btn.isVisible = false
 

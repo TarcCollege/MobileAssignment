@@ -27,8 +27,8 @@ class progression_fragment : Fragment() {
         val binding : FragmentProgressionFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_progression_fragment, container, false)
 
-        val fab : FloatingActionButton = activity!!.findViewById(R.id.fab2)
-        fab.isVisible = false
+//        val fab : FloatingActionButton = activity!!.findViewById(R.id.fab2)
+//        fab.isVisible = false
         val btn : Button = activity!!.findViewById(R.id.buttonOtherUser)
         btn.isVisible = false
 
