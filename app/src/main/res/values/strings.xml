@@ -8,11 +8,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_gallery">Information</string>
+    <string name="menu_slideshow">Quiz</string>
+    <string name="menu_tools">Event</string>
+    <string name="menu_share">Donation</string>
+    <string name="menu_send">Contact Us</string>
     <string name="receiver">To:</string>
     <string name="message">Message</string>
     <string name="title_activity_maps">Map</string>
@@ -36,6 +36,9 @@
     <string name="missing_LastName">Last Name</string>
     <string name="missingPhone">Phone</string>
 
+    <string name="desc">Description</string>
+    <string name="effect">Side Effect</string>
+    <string name="text">textView</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="reset">Reset Password</string>
     <string name="register">Register</string>

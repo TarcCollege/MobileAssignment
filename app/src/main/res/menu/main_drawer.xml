@@ -6,32 +6,37 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/homeFragment"
-            android:icon="@drawable/side_menu_bar"
+            android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/information_Main"
-            android:icon="@mipmap/home_logo_foreground"
-            android:title="Information" />
+            android:icon="@drawable/ic_iconfinder_info_large_216254"
+            android:title="@string/menu_gallery" />
         <item
             android:id="@+id/quiz_Main"
-
-            android:title="Quiz" />
+            android:icon="@drawable/ic_noun_enigma_box_37899"
+            android:title="@string/menu_slideshow" />
         <item
             android:id="@+id/mapsActivity"
+            android:icon="@drawable/ic_noun_team_732987"
+            android:title="@string/menu_tools" />
 
-            android:title="Event" />
+
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/donation_Main"
-
-                android:title="Donation" />
+                android:icon="@drawable/ic_noun_donation_2508090"
+                android:title="@string/menu_share" />
             <item
                 android:id="@+id/contactMain"
+                android:icon="@drawable/ic_noun_contact_us_1212887"
+                android:title="@string/menu_send" />
 
-                android:title="Contact Us" />
+
+               
         </menu>
     </item>
 

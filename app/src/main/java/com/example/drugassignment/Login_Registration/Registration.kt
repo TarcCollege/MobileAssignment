@@ -57,6 +57,10 @@ class Registration : Fragment() {
             hideKeyboard()
         }
 
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_registration_to_login)
+        }
+
         return binding.root
     }
 
@@ -172,7 +176,7 @@ class Registration : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun addToDatabase() {
-        val mFirestore = FirebaseFirestore.getInstance();
+        val mFirestore = FirebaseFirestore.getInstance()
         val user = mFirestore.collection("User")
 
         val email = binding.editRegisterEmail.text.toString()

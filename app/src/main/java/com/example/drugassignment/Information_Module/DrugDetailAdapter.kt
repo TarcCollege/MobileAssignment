@@ -1,6 +1,7 @@
 package com.example.drugassignment.Information_Module
 
 import android.app.DownloadManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,7 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
         holder.bind(getSnapshot(position), mListener, position)
         val drug = getSnapshot(position).toObject(DrugDetail::class.java)
 
+
         holder.itemView.setOnClickListener {
 //                        Toast.makeText(
 //                it.context,
@@ -55,21 +57,7 @@ open class DrugDetailAdapter(query: Query?, private val mListener: OnRestaurantS
         fun bind(snapshot: DocumentSnapshot, listener: OnRestaurantSelectedListener?, position: Int) {
             val drug = snapshot.toObject(DrugDetail::class.java)
 
-//            val resources = itemView.resources
-
-            // Load image
-//            Glide.with(itemView.restaurant_item_image.context)
-//                .load(restaurant!!.photo)
-//                .into(itemView.restaurant_item_image)
-//            itemView.restaurant_item_name.text = restaurant.name
-//            itemView.restaurant_item_rating.rating = restaurant.avgRating.toFloat()
-//            itemView.restaurant_item_city.text = restaurant.city
-//            itemView.restaurant_item_category.text = restaurant.category
-//            itemView.restaurant_item_num_ratings.text = resources.getString(R.string.fmt_num_ratings,
-//                restaurant.numRatings)
-//            itemView.restaurant_item_price.text = RestaurantUtil.getPriceString(restaurant)
             itemView.InfoMain.text = (position + 1) .toString() + "        "+ drug?.drugName
-
 
             // Click listener
             itemView.setOnClickListener { listener?.onRestaurantSelected(snapshot) }

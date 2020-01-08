@@ -2,6 +2,7 @@ package com.example.drugassignment.Profile_Module
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
@@ -13,17 +14,26 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.drugassignment.Information_Module.DrugDetailAdapter
+import com.example.drugassignment.Information_Module.Information_Main
 import com.example.drugassignment.Login_Registration.LoginViewModel
+import com.example.drugassignment.Profile_Module.sub_module.MemberAdapter2
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.ActivityProfileBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
 import kotlinx.android.synthetic.main.activity_profile.*
 
-class Profile_Activity : AppCompatActivity() {
+class Profile_Activity : AppCompatActivity()  {
+
 
     private lateinit var viewModel: ProfileViewModel
     private lateinit var loginViewModel: LoginViewModel
@@ -40,6 +50,9 @@ class Profile_Activity : AppCompatActivity() {
         viewModel.title.observe(this, Observer {
             supportActionBar?.title = it
         })
+
+//        initFirestore()
+//        initRecyclerView()
 
         observeAuthenticationState()
 
@@ -106,10 +119,18 @@ class Profile_Activity : AppCompatActivity() {
                 }
             }
         })
-
-        loginViewModel.currentUser?.observe(this, Observer {
+        loginViewModel.currentUser.observe(this, Observer {
             binding.titleText.title = it.displayName
             binding.progressionText.text = it.email
+
+
+            val tabLayout : TabLayout = this.findViewById(R.id.tabLayout)
+            if (loginViewModel.currentUser.value?.role == "Mentee"){
+                tabLayout.getTabAt(3)?.text = "Mentor"
+            } else {
+                tabLayout.getTabAt(3)?.text = "Mentee"
+            }
+
         })
 
 //        binding.titleText.title = loginViewModel.currentUser.value?.displayName
@@ -126,6 +147,26 @@ class Profile_Activity : AppCompatActivity() {
                 tab.text = labels[position]
             }).attach()
     }
+
+//    private fun initFirestore() {
+//        mFirestore = FirebaseFirestore.getInstance()
+//        // Get the 50 highest rated restaurants
+//        mQuery = mFirestore
+//            .collection("DrugInfo")
+//            .orderBy("drugType", Query.Direction.DESCENDING)
+//        Log.i("123",mQuery.toString())
+//    }
+//
+//    private fun initRecyclerView() {
+//        mAdapter = object : MemberAdapter2(mQuery, this@Profile_Activity) {
+//            override fun onError(e: FirebaseFirestoreException?) { // Show a snackbar on errors
+////                Snackbar.make(view!!.findViewById(android.R.id.content),
+////                    "Error: check logs for info.", Snackbar.LENGTH_LONG).show()
+//            }
+//        }
+//        binding.infoMainRecycleView.layoutManager = LinearLayoutManager(activity)
+//        binding.infoMainRecycleView.adapter = mAdapter
+//    }
 }
 
 

@@ -49,11 +49,59 @@ class HomeFragment : Fragment() {
 
         observeAuthenticationState()
 
+        enableButton()
+
+        binding.btnInformation.setOnClickListener {
+            navController.navigate(R.id.information_Main)
+            disableButton()
+        }
+
+        binding.btnContactUs.setOnClickListener {
+            navController.navigate(R.id.contactMain)
+            disableButton()
+        }
+
+        binding.btnDonation.setOnClickListener {
+            navController.navigate(R.id.donation_Main)
+            disableButton()
+        }
+
+        binding.btnQuiz.setOnClickListener {
+            navController.navigate(R.id.quiz_Main)
+            disableButton()
+        }
+
+        binding.btnSupportGroup.setOnClickListener {
+            navController.navigate(R.id.mapsActivity)
+            disableButton()
+        }
+
 //        binding.button2.setOnClickListener {
 //            updateFirebase()
 //        }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        enableButton()
+    }
+
+    private fun disableButton() {
+        binding.btnSupportGroup.isEnabled = false
+        binding.btnQuiz.isEnabled = false
+        binding.btnDonation.isEnabled = false
+        binding.btnContactUs.isEnabled = false
+        binding.btnInformation.isEnabled = false
+    }
+
+    private fun enableButton() {
+        binding.btnSupportGroup.isEnabled = true
+        binding.btnQuiz.isEnabled = true
+        binding.btnDonation.isEnabled = true
+        binding.btnContactUs.isEnabled = true
+        binding.btnInformation.isEnabled = true
     }
 
     private fun observeAuthenticationState(){
@@ -95,16 +143,16 @@ class HomeFragment : Fragment() {
 
             }
         })
-        viewModel.currentUser?.observe(this, Observer {
+        viewModel.currentUser.observe(this, Observer {
             if (it != null) {
                 headerView.textViewDisplayName.text = it.displayName
-                        headerView.textViewHeaderEmail.text = it.email
-                        headerView.setOnClickListener {
-                            // closing with animation
-                            // rawerLayout.closeDrawers()
-                            drawerLayout.closeDrawer(Gravity.LEFT, false)
-                            navController.navigate(R.id.action_homeFragment_to_profile_Activity)
-                        }
+                headerView.textViewHeaderEmail.text = it.email
+                headerView.setOnClickListener {
+                    // closing with animation
+                    // rawerLayout.closeDrawers()
+                    drawerLayout.closeDrawer(Gravity.LEFT, false)
+                    navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                }
             } else {
                 headerView.textViewDisplayName.text = "Name"
                 headerView.textViewHeaderEmail.text = "Email"
