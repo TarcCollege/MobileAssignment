@@ -1,6 +1,5 @@
 package com.example.drugassignment.Profile_Module.sub_module
 
-
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -23,22 +22,18 @@ import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentMemberFragmentBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
-
-
-/**
- * A simple [Fragment] subclass.
- */
 class member_fragment : Fragment() {
 
     private lateinit var mFirestore: FirebaseFirestore
     private lateinit var mQuery: Query
 
     private lateinit var binding: FragmentMemberFragmentBinding
-    private lateinit var loginViewModel: LoginViewModel
     private lateinit var profileViewModel: ProfileViewModel2
     private val viewModel by viewModels<ProfileViewModel2>()
     lateinit var sharedPreferences: SharedPreferences
+    private lateinit var dataListener : ListenerRegistration
 
 
     override fun onCreateView(
@@ -52,12 +47,11 @@ class member_fragment : Fragment() {
         )
 
         sharedPreferences = activity!!.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
-        loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         profileViewModel = ViewModelProviders.of(this).get(ProfileViewModel2::class.java)
 
-        initFirestore()
-        initRecyclerView()
-        setUpUI()
+        //initFirestore()
+        //initRecyclerView()
+        //setUpUI()
 
         return binding.root
     }
@@ -72,7 +66,27 @@ class member_fragment : Fragment() {
 
     private fun initRecyclerView() {
         val user = FirebaseAuth.getInstance().currentUser
-        val mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+        // get the data once
+//        val mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
+//        //var user2 : CurrentUser
+//        val email: String = user?.email ?: ""
+//        val docRef = mFirestore.collection("User")
+//            .document(email)
+//            .collection("SubUser")
+//
+//        Log.i("user", docRef.get().isSuccessful.toString())
+
+//        docRef
+//            .get().addOnSuccessListener { documentSnapshot ->
+//                Log.i("user22", user?.email)
+//                val adapter = documentSnapshot.toObjects(SubUser::class.java)
+//                val adapter2 = MemberAdapter()
+//                binding.memberRecycleView.adapter = adapter2
+//                adapter2.data = adapter
+//            }
+
+        var mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
         //var user2 : CurrentUser
         val email: String = user?.email ?: ""
         val docRef = mFirestore.collection("User")
@@ -81,68 +95,57 @@ class member_fragment : Fragment() {
 
         Log.i("user", docRef.get().isSuccessful.toString())
 
-        docRef
-            .get().addOnSuccessListener { documentSnapshot ->
-                Log.i("user22", user?.email)
-                val adapter = documentSnapshot.toObjects(SubUser::class.java)
-                val adapter2 = MemberAdapter()
-                binding.memberRecycleView.adapter = adapter2
-                adapter2.data = adapter
+
+
+        dataListener= docRef
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && !snapshot.isEmpty) {
+                    Log.d("123", "Current data: ${snapshot.toObjects(SubUser::class.java)}")
+                    val adapter = snapshot.toObjects(SubUser::class.java)
+                    val adapter2 = MemberAdapter(this.activity!!)
+                    binding.memberRecycleView.adapter = adapter2
+                    adapter2.data = adapter
+                } else {
+                    Log.d("123", "Current data: null")
+                }
             }
+    }
 
+//    override fun onPause() {
+//        super.onPause()
+//        //dataListener.remove()
+//    }
 
-
-
-//        val email = activity!!.intent.getStringExtra(getString(R.string.passEmail))
-//        val role = activity!!.intent.getStringExtra(getString(R.string.passRole))
-//        val adapter2 = MentorMenteeAdapter()
-//        binding.memberRecycleView.adapter = adapter2
-//
-//        val user = FirebaseAuth.getInstance().currentUser
-//        val mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-//        //var user2 : CurrentUser
-//
-//        val docRef = mFirestore.collection("User")
-//            .whereEqualTo("role", role)
-//
-//        Log.i("user", docRef.get().isSuccessful.toString())
-//
-//        docRef
-//            .get().addOnSuccessListener { documentSnapshot ->
-//                Log.i("user22", user?.email)
-//                val adapter = documentSnapshot.toObjects(SubUser::class.java)
-//                adapter2.data = adapter
-//            }
-
-
+    override fun onResume() {
+        super.onResume()
+        Log.i("Share1", "start")
+        initFirestore()
+        initRecyclerView()
+        setUpUI()
     }
 
     fun setUpUI() {
-
-//        val role =
-//            activity?.intent?.getStringExtra(getString(com.example.drugassignment.R.string.passRole))
-//        val available = activity!!.intent.getBooleanExtra(
-//            getString(com.example.drugassignment.R.string.passAvailable),
-//            false
-//        )
-
         val btn: Button = activity!!.findViewById(com.example.drugassignment.R.id.buttonOtherUser)
+        val available = sharedPreferences.getBoolean(context?.getString(R.string.passAvailable),true)
+        val role = sharedPreferences.getString(context?.getString(R.string.passRole),"123")
 
-        if (profileViewModel.role == "Mentee") {
-            if (profileViewModel.available) {
+        Log.i("true123",(profileViewModel.role))
+        if (role == "Mentee") {
+            if (available) {
                 btn.isVisible = true
                 btn.text = "Find Mentor"
 
             } else {
-                btn.isVisible = true
+                btn.isVisible = false
             }
         } else {
             btn.isVisible = true
             btn.text = "Find Mentee"
 
         }
-
-//        Log.i("Share",  sharedPreferences.getString(getString(R.string.passEmail), "123"))
 
         btn.setOnClickListener {
             val intent = Intent(context, MemberList::class.java)

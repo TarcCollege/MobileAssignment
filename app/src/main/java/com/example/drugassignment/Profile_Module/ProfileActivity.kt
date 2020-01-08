@@ -50,9 +50,13 @@ class Profile_Activity : AppCompatActivity() {
 
         //Initialise the Shared Preferences
         sharedPreferences = getSharedPreferences("PREF_NAME",Context.MODE_PRIVATE)
-        Log.i("Share1",  sharedPreferences.getString(getString(R.string.passEmail), "123"))
 
-        setUpUI()
+        val a = sharedPreferences.getBoolean(getString(R.string.passAvailable),true)
+
+        Log.i("Share1", a.toString())
+
+
+
        // observeAuthenticationState()
 
         val toolbar: Toolbar = this.findViewById(R.id.toolbar)
@@ -71,12 +75,21 @@ class Profile_Activity : AppCompatActivity() {
             listOf("Progression", "Reminder", "Notification", "Mentee")
         )
 
+        setUpUI()
+
         binding.buttonOtherUser.setOnClickListener {
             startOtherUser()
         }
 
+    }
 
+    override fun onResume() {
+        super.onResume()
 
+        val a = sharedPreferences.getBoolean(getString(R.string.passAvailable),true)
+
+        Log.i("Share1", a.toString())
+        setUpUI()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -165,7 +178,7 @@ class Profile_Activity : AppCompatActivity() {
         val address = sharedPreferences.getString(getString(R.string.passAddress), "123")
         val avaiable = sharedPreferences.getBoolean(getString(R.string.passAvailable), false)
 
-        //profileViewModel.setData(name,email,avaiable,address,role)
+        profileViewModel.setData(name,email,avaiable,address,role)
 
         Log.i("Share",  sharedPreferences.getString(getString(R.string.passEmail), "123"))
 
@@ -175,17 +188,24 @@ class Profile_Activity : AppCompatActivity() {
         val fab: FloatingActionButton = findViewById(R.id.fab2)
 
         val tabLayout: TabLayout = this.findViewById(R.id.tabLayout)
+
+        Log.i("Share",  tabLayout.tabCount.toString() )
+
         if (role == "Mentee") {
             tabLayout.getTabAt(3)?.text = "Mentor"
+            fab.isVisible = false
         } else {
             tabLayout.getTabAt(3)?.text = "Mentee"
+            fab.isVisible = true
+            fab.setOnClickListener {
+                //addSubMember()
+            }
         }
 
-        fab.isVisible = role != "Mentee"
 
-        fab.setOnClickListener {
-            //addSubMember()
-        }
+
+
+
     }
 
 }

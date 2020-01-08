@@ -54,5 +54,6 @@
     <string name="passRole">Role</string>
     <string name="passAvailable">Available</string>
     <string name="passAddress">Address</string>
+    <string name="passDate">Date</string>
 
 </resources>
