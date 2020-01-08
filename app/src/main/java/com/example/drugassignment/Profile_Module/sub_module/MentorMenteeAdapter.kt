@@ -60,41 +60,54 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
             val name = sharedPreferences.getString(context.getString(R.string.passDisplayName),"123")
             val date = sharedPreferences.getString(context.getString(R.string.passDate),"123")
             val address = sharedPreferences.getString(context.getString(R.string.passAddress),"123")
+            val role = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passRole), "123")
+            val availability = sharedPreferences.getBoolean(context.getString(com.example.drugassignment.R.string.passAvailable), false)
             Log.i("share111", email)
 
             val mentorUser = SubUser(item.displayName, item.email, item.registerDate, item.address)
             val currentUser = SubUser()
 
 
+            if (!availability && role == "Mentee") {
+                Toast.makeText(
+                    context, "You Can Only Add One Mentor",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+                db.collection("User").document(email!!)
+                    .collection("SubUser")
+                    .document(item.email!!)
+                    .set(mentorUser)           // add selected user
+                    .addOnSuccessListener {
+                        Toast.makeText(
+                            context, "Successfully Added.. Directing Back To Profile Page",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-            val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-            db.collection("User").document(email!!)
-                .collection("SubUser")
-                .document(item.email!!)
-                .set(mentorUser)           // add selected user
-                .addOnSuccessListener {
-                    sharedPreferences.edit()
-                        .putBoolean(context.getString(R.string.passAvailable), false)
-                        .apply()
-                    Toast.makeText(
-                        context, "Successfully Added",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    db.collection("User").document(email!!)
-                        .update("availability", false)
-                        .addOnCompleteListener {        // update the availability of the mentee
-                            if (it.isSuccessful) {
-                                context.finish()
+                        // update share Preferences
+                        sharedPreferences.edit()
+                            .putBoolean(context.getString(R.string.passAvailable), false)
+                            .apply()
+
+                        db.collection("User").document(email!!)
+                            .update("availability", false)
+                            .addOnCompleteListener {        // update the availability of the mentee
+                                if (it.isSuccessful) {
+                                    context.finish()
+                                }
                             }
-                        }
 
-                    // update the mentor SubUser
-                    db.collection("User")
-                        .document(item.email!!)
-                        .collection("SubUser")
-                        .document(email)
-                        .set(SubUser(name,email,date,address))
-                }
+                        // update the mentor SubUser
+                        db.collection("User")
+                            .document(item.email!!)
+                            .collection("SubUser")
+                            .document(email)
+                            .set(SubUser(name,email,date,address))
+                    }
+            }
+
+
         }
     }
 

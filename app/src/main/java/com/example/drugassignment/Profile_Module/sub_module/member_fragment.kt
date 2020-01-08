@@ -132,6 +132,7 @@ class member_fragment : Fragment() {
         val available = sharedPreferences.getBoolean(context?.getString(R.string.passAvailable),true)
         val role = sharedPreferences.getString(context?.getString(R.string.passRole),"123")
 
+
         Log.i("true123",(profileViewModel.role))
         if (role == "Mentee") {
             if (available) {

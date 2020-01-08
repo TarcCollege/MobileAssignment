@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.SubUser
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import kotlinx.android.synthetic.main.activity_profile.*
 
 
 class MemberAdapter constructor(context: Activity) :
@@ -61,7 +63,9 @@ class MemberAdapter constructor(context: Activity) :
             val db: FirebaseFirestore = FirebaseFirestore.getInstance()
             val email = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passEmail), "123")
 
+
             // delete the SubUser from currentUser
+
             db.collection("User")
                 .document(email!!)
                 .collection("SubUser")
@@ -87,6 +91,8 @@ class MemberAdapter constructor(context: Activity) :
                         .collection("SubUser")
                         .document(email)
                         .delete()
+
+                    context.buttonOtherUser.isVisible = true
                 }
 
 
