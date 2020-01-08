@@ -17,11 +17,13 @@
         android:roundIcon="@drawable/ic_pill_svgrepo_com"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".nav_header2"></activity>
+        <activity android:name=".Profile_Module.sub_module.MemberList"
+            android:parentActivityName=".Profile_Module.Profile_Activity"></activity>
+        <activity android:name=".nav_header2" />
         <activity
             android:name=".Profile_Module.Profile_Activity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

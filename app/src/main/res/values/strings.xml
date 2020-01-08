@@ -49,4 +49,10 @@
     <string name="Mentee">Mentee</string>
     <string name="Mentor">Mentor</string>
 
+    <string name="passEmail">Email</string>
+    <string name="passDisplayName">DisplayName</string>
+    <string name="passRole">Role</string>
+    <string name="passAvailable">Available</string>
+    <string name="passAddress">Address</string>
+
 </resources>
