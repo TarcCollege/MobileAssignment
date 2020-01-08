@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_profile"
-    app:startDestination="@id/profileMain">
+    app:startDestination="@id/member_fragment">
 
     <fragment
         android:id="@+id/profileMain"
@@ -35,6 +35,18 @@
         <action
             android:id="@+id/action_editProgile_to_profile_Activity"
             app:destination="@id/profile_Activity" />
+    </fragment>
+    <fragment
+        android:id="@+id/newMember2"
+        android:name="com.example.drugassignment.NewMember2"
+        android:label="NewMember2" />
+    <fragment
+        android:id="@+id/member_fragment"
+        android:name="com.example.drugassignment.Profile_Module.sub_module.member_fragment"
+        android:label="member_fragment" >
+        <action
+            android:id="@+id/action_member_fragment_to_newMember2"
+            app:destination="@id/newMember2" />
     </fragment>
 
 </navigation>

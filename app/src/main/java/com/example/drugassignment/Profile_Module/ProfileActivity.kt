@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
@@ -20,6 +21,7 @@ import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.Profile_Module.sub_module.MemberAdapter2
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.ActivityProfileBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
@@ -60,6 +62,8 @@ class Profile_Activity : AppCompatActivity()  {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
+
+
 
         val viewPager2 : ViewPager2 = findViewById(R.id.viewPager)
         viewPager2.adapter = ViewPagerAdapter(this)
@@ -123,12 +127,19 @@ class Profile_Activity : AppCompatActivity()  {
             binding.titleText.title = it.displayName
             binding.progressionText.text = it.email
 
+            val fab: FloatingActionButton = findViewById(R.id.fab2)
 
             val tabLayout : TabLayout = this.findViewById(R.id.tabLayout)
-            if (loginViewModel.currentUser.value?.role == "Mentee"){
+            if (it.role == "Mentee"){
                 tabLayout.getTabAt(3)?.text = "Mentor"
             } else {
                 tabLayout.getTabAt(3)?.text = "Mentee"
+            }
+
+            fab.isVisible = loginViewModel.currentUser.value!!.availability
+
+            fab.setOnClickListener {
+                addSubMember()
             }
 
         })
@@ -167,6 +178,10 @@ class Profile_Activity : AppCompatActivity()  {
 //        binding.infoMainRecycleView.layoutManager = LinearLayoutManager(activity)
 //        binding.infoMainRecycleView.adapter = mAdapter
 //    }
+
+    fun addSubMember() {
+
+    }
 }
 
 

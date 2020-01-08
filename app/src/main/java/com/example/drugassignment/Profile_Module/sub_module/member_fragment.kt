@@ -7,17 +7,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.CurrentUser
 import com.example.drugassignment.Class.OtherUser
 import com.example.drugassignment.Class.SubUser
 import com.example.drugassignment.Login_Registration.LoginViewModel
+import com.example.drugassignment.NewMember2
 import com.example.drugassignment.Profile_Module.Adapter
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentMemberFragmentBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -51,9 +58,14 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
 
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
+        setUpButton()
 
-        initFirestore()
+
+
+
+            initFirestore()
         initRecyclerView()
+        observeAuthenticationState()
 
 //        val adapter = MemberAdapter()
 //        binding.memberRecycleView.adapter = adapter
@@ -115,5 +127,54 @@ class member_fragment : Fragment(),MemberAdapter2.OnRestaurantSelectedListener {
 
     }
 
+    private fun setUpButton() {
+        val fab : FloatingActionButton = activity!!.findViewById(R.id.fab2)
+        fab.isVisible = false
+        val btn : Button = activity!!.findViewById(R.id.buttonOtherUser)
+
+        Log.i("avaiable", loginViewModel.currentUser.value!!.availability.toString())
+
+    }
+
+//    private var function = {
+//        val nextFrag: NewMember2 = NewMember2();
+//        getActivity()!!.getSupportFragmentManager().beginTransaction()
+//            .replace(R.id.fragment_new_member2, nextFrag, "findThisFragment")
+//            .addToBackStack(null)
+//            .commit();
+//    }
+
+    private fun observeAuthenticationState() {
+        val btn : Button = activity!!.findViewById(R.id.buttonOtherUser)
+        loginViewModel.authenticationState?.observe(this, Observer { authenticationState ->
+            when (authenticationState) {
+                LoginViewModel.AuthenticationState.AUTHENTICATED -> {
+                    loginViewModel.setCurrentUser()
+                }
+            }
+        })
+        loginViewModel.currentUser.observe(this, Observer {
+            loginViewModel.currentUser.observe(this, Observer {
+                if (it.role == "Mentee") {
+                    if(it.availability) {
+                        btn.isVisible = true
+                        btn.text = "Find Mentor"
+//                        btn.setOnClickListener {
+//                            function()
+//                        }
+                    }else {
+                        btn.isVisible = false
+                    }
+                } else {
+
+                        btn.isVisible = true
+                        btn.text = "Find Mentee"
+
+                }
+            })
+
+
+        })
+    }
 
 }
