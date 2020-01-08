@@ -6,8 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 
 import com.example.drugassignment.R
+import com.example.drugassignment.databinding.FragmentDonationFundPaymentBinding
+import com.example.drugassignment.databinding.FragmentDonationMainBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -19,7 +23,14 @@ class Donation_Fund_Payment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_donation_fund_payment, container, false)
+
+        val binding : FragmentDonationFundPaymentBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_donation_fund_payment, container, false
+        )
+
+
+
+        return binding.root
     }
 
 
