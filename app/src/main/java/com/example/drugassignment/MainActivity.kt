@@ -157,7 +157,8 @@ class MainActivity : AppCompatActivity() {
 
 
     fun navigateProfile () {
-        val sharedPref = getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE) ?: return
+        val sharedPref = getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+
         with(sharedPref.edit()){
             putString(getString(com.example.drugassignment.R.string.passEmail), viewModel.currentUser.value?.email)
             putString(getString(com.example.drugassignment.R.string.passAddress), viewModel.currentUser.value?.address)

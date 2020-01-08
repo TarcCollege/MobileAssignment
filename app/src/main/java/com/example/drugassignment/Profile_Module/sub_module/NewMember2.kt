@@ -39,7 +39,13 @@ class NewMember2 : Fragment() {
     private fun initRecyclerView() {
         val email = activity!!.intent.getStringExtra(getString(R.string.passEmail))
 //        val role = activity?.intent?.getStringExtra(getString(R.string.passRole))
-        val role = "Mentee"
+        var role = activity?.intent?.getStringExtra(getString(R.string.passRole))
+
+        role = if (role == "Mentee") {
+            "Mentor"
+        } else {
+            "Mentee"
+        }
 
 //        Log.i("rile", role)
 
@@ -52,6 +58,7 @@ class NewMember2 : Fragment() {
 
         val docRef = mFirestore.collection("User")
             .whereEqualTo("role", role)
+            .whereEqualTo("availability", true)
 
         Log.i("user", docRef.get().isSuccessful.toString())
 
