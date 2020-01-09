@@ -57,7 +57,7 @@
         android:id="@+id/quiz_Main"
         android:name="com.example.drugassignment.quizmodule.QuizMainFragment"
         android:label="Quiz"
-        tools:layout="@layout/fragment_quiz__main" >
+        tools:layout="@layout/fragment_quiz_main" >
         <action
             android:id="@+id/action_quiz_Main_to_quizQuesFragment"
             app:destination="@+id/quizQuesFragment" />
@@ -98,7 +98,6 @@
         <action
             android:id="@+id/action_login_to_profile_Activity"
             app:destination="@id/profile_Activity"
-            app:enterAnim="@anim/fui_slide_in_right"
             app:popUpTo="@+id/mainActivity"
             app:popUpToInclusive="true" />
     </fragment>
