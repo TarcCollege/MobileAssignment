@@ -60,6 +60,7 @@ class MemberAdapter constructor(context: Activity) :
         holder.buttonApply.setOnClickListener {
             val sharedPreferences = context.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
             val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+            val role = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passRole),"123")
             val email = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passEmail), "123")
 
             // delete the SubUser from currentUser
@@ -70,7 +71,7 @@ class MemberAdapter constructor(context: Activity) :
                 .delete()
                 .addOnSuccessListener {
                     sharedPreferences.edit()
-                            // update the availanility on sharedPreference
+                            // update the availanility of current user on sharedPreference
                         .putBoolean(context.getString(com.example.drugassignment.R.string.passAvailable), true)
                         .apply()
                     Toast.makeText(
@@ -78,8 +79,17 @@ class MemberAdapter constructor(context: Activity) :
                         Toast.LENGTH_SHORT
                     ).show()
                     // update the availanility on firestore
+
+                    if (role == "Mentor") {
+                        // if is the deleted is mentee , change his availability to true
+
+                        db.collection("User").document(item.email!!)
+                            .update("availability", true)
+                    }
+
                     db.collection("User").document(email!!)
                         .update("availability", true)
+
 
                     // delete currentUser from the mentorUser
                     db.collection("User")
@@ -89,6 +99,8 @@ class MemberAdapter constructor(context: Activity) :
                         .delete()
                 }
             context.buttonOtherUser.isVisible = true
+            holder.buttonApply.isEnabled = false
+            holder.buttonbuttonViewMore.isEnabled = false
 
 
         }

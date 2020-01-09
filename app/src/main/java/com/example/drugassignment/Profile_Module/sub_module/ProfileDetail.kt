@@ -1,5 +1,6 @@
 package com.example.drugassignment.Profile_Module.sub_module
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.NavUtils
@@ -20,16 +21,7 @@ class ProfileDetail : AppCompatActivity() {
 
         binding  =  DataBindingUtil.setContentView(this, R.layout.activity_profile_detial)
 
-        binding.buttonAdd.setOnClickListener {
-            removeMember()
-        }
-
-
-        val email =intent?.getStringExtra("Email")
-        val name =  intent?.getStringExtra("DisplayName")
-
-        txtDetailEmail.text = email
-        txtDetailName.text = name
+        setupUI()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -45,7 +37,10 @@ class ProfileDetail : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun removeMember() {
-
+    private fun setupUI() {
+        val email =intent?.getStringExtra("Email")
+        val name =  intent?.getStringExtra("DisplayName")
+        txtDetailEmail.text = email
+        txtDetailName.text = name
     }
 }

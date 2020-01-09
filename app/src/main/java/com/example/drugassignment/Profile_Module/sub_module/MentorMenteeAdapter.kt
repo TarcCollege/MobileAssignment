@@ -78,27 +78,56 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
                     .document(item.email!!)
                     .set(mentorUser)           // add selected user
                     .addOnSuccessListener {
-                        sharedPreferences.edit()
-                            .putBoolean(context.getString(R.string.passAvailable), false)
-                            .apply()
-                        Toast.makeText(
-                            context, "Successfully Added, Directing Back to Profile Page",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        db.collection("User").document(email!!)
-                            .update("availability", false)
-                            .addOnCompleteListener {        // update the availability of the mentee
-                                if (it.isSuccessful) {
-                                    context.finish()
-                                }
-                            }
+                        if (role == "Mentee") {
+                            Toast.makeText(
+                                context, "Successfully Added, Directing Back to Profile Page",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                        // update the mentor SubUser
-                        db.collection("User")
-                            .document(item.email!!)
-                            .collection("SubUser")
-                            .document(email)
-                            .set(SubUser(name,email,date,address))
+                            // update the mentor SubUser
+                            db.collection("User")
+                                .document(item.email!!)
+                                .collection("SubUser")
+                                .document(email)
+                                .set(SubUser(name,email,date,address))
+
+                            sharedPreferences.edit()
+                                // update the availanility of current user on sharedPreference
+                                .putBoolean(context.getString(com.example.drugassignment.R.string.passAvailable), false)
+                                .apply()
+
+                            // update currentuser SubUser
+                            db.collection("User").document(email!!)
+                                .update("availability", false)
+                                .addOnCompleteListener {        // update the availability of the mentee
+                                    if (it.isSuccessful) {
+                                        context.finish()
+                                    }
+                                }
+
+
+                        } else {
+
+                            Log.i("email" , item.email!!)
+
+                            sharedPreferences.edit()
+                                .putBoolean(context.getString(R.string.passAvailable), false)
+                                .apply()
+                            Toast.makeText(
+                                context, "Successfully Added, Directing Back to Profile Page",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            db.collection("User").document(item.email!!)
+                                .update("availability", false)
+                                .addOnCompleteListener {        // update the availability of the mentee
+                                    if (it.isSuccessful) {
+                                        context.finish()
+                                    }
+                                }
+                        }
+
+
                     }
             }
 

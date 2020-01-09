@@ -34,17 +34,20 @@ class NewMember2 : Fragment() {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_new_member2, container, false)
 
-        initRecyclerView()
+      //  initRecyclerView()
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initRecyclerView()
     }
 
     private fun initRecyclerView() {
         val email = activity!!.intent.getStringExtra(getString(R.string.passEmail))
 //        val role = activity?.intent?.getStringExtra(getString(R.string.passRole))
         var role = activity?.intent?.getStringExtra(getString(R.string.passRole))
-
-
 
         role = if (role == "Mentee") {
             "Mentor"
