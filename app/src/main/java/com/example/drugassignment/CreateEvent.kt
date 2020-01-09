@@ -1,10 +1,12 @@
 package com.example.drugassignment
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,8 +15,14 @@ import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.databinding.ActivityCreateEventBinding
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_create_event.*
 import java.text.SimpleDateFormat
 import java.util.*
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class CreateEvent : AppCompatActivity() {
 
@@ -51,10 +59,41 @@ class CreateEvent : AppCompatActivity() {
             selectDate()
         }
 
+        binding.reset.setOnClickListener {
+            reset()
+        }
+        binding.layout.setOnClickListener{
+            hideKeyboard()
+        }
+
+
         date = Calendar.getInstance()
         startTime = Calendar.getInstance()
         endTime = Calendar.getInstance()
 
+    }
+
+    override fun onPause() {
+        super.onPause()
+        hideKeyboard()
+    }
+
+    private fun hideKeyboard() {
+        (this?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(binding.layout.windowToken,0)
+    }
+
+    private fun reset() {
+        binding.let {
+            editEventName.text?.clear()
+            editEventName.requestFocus()
+            editCity.text?.clear()
+            editDescription.text?.clear()
+            editEventVenue.text?.clear()
+            editDate.text?.clear()
+            editStartTime.text?.clear()
+            editEndTime.text?.clear()
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -138,6 +177,10 @@ class CreateEvent : AppCompatActivity() {
         val startTime = startTime.time
         val endTime = endTime.time
 
+        validation()
+
+        // hide keyboard
+        hideKeyboard()
 
         val event = CreateDrugEvent(
             eventName, eventDescription, eventLocation, eventCity,email
@@ -163,12 +206,25 @@ class CreateEvent : AppCompatActivity() {
                     .collection("Notification")
                     .document(createTime.toString())
                     .set(notification)
-                    .addOnCompleteListener {
-                        Toast.makeText(
-                            this, "Successfully Add Noti",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+
             }
+    }
+
+    private fun  validation() {
+        if (binding.editCity.text.isNullOrBlank() ||
+            binding.editDate.text.isNullOrBlank() ||
+            binding.editDescription.text.isNullOrBlank() ||
+            binding.editEndTime.text.isNullOrBlank() ||
+            binding.editEventName.text.isNullOrBlank() ||
+            binding.editStartTime.text.isNullOrBlank() ||
+            binding.editEventVenue.text.isNullOrBlank()) {
+
+            Toast.makeText(
+                this, "INput Error",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            return
+        }
     }
 }

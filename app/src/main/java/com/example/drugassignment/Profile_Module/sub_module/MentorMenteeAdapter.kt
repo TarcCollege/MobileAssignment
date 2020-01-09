@@ -137,7 +137,7 @@ class MentorMenteeAdapter constructor(context: Activity) :
 
                             // add notification
                             val createTime = Date()
-                            var content = "You have added $targetEmail as Mentor"
+                            var content = "You have added $targetEmail as Mentee"
                             val notification = Notification(createTime, content, false)
 
                             db.collection("User")

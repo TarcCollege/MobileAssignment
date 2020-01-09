@@ -68,23 +68,6 @@ class member_fragment : Fragment() {
         val user = FirebaseAuth.getInstance().currentUser
 
         // get the data once
-//        val mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-//        //var user2 : CurrentUser
-//        val email: String = user?.email ?: ""
-//        val docRef = mFirestore.collection("User")
-//            .document(email)
-//            .collection("SubUser")
-//
-//        Log.i("user", docRef.get().isSuccessful.toString())
-
-//        docRef
-//            .get().addOnSuccessListener { documentSnapshot ->
-//                Log.i("user22", user?.email)
-//                val adapter = documentSnapshot.toObjects(SubUser::class.java)
-//                val adapter2 = MemberAdapter()
-//                binding.memberRecycleView.adapter = adapter2
-//                adapter2.data = adapter
-//            }
 
         var mFirestore: FirebaseFirestore = FirebaseFirestore.getInstance()
         //var user2 : CurrentUser
