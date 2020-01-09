@@ -91,27 +91,9 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             }
         })
 
-//        binding.button.setOnClickListener {
-//        }
-
         binding.editSearchLayout.setEndIconOnClickListener{
             searchItem()
         }
-
-//        binding.editAddress.addTextChangedListener(object : TextWatcher {
-//            override fun afterTextChanged(s: Editable?) {
-//
-//            }
-//
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//
-//            }
-//
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                searchItem()
-//            }
-//
-//        })
 
         return binding.root
     }
@@ -129,10 +111,7 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
     private fun initRecyclerView() {
         mAdapter = object : DrugDetailAdapter(mQuery, this@Information_Main) {
-            override fun onError(e: FirebaseFirestoreException?) { // Show a snackbar on errors
-                Snackbar.make(view!!.findViewById(android.R.id.content),
-                    "Error: check logs for info.", Snackbar.LENGTH_LONG).show()
-            }
+
         }
         binding.infoMainRecycleView.layoutManager = LinearLayoutManager(activity)
         binding.infoMainRecycleView.adapter = mAdapter

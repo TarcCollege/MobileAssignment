@@ -111,93 +111,24 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeAuthenticationState(){
-        // get the Nav view from the layout
-        Log.i("Register", "Start")
-        val navView : NavigationView = activity!!.findViewById(R.id.nav_view)
-        // get the header view
-//        val headerView  =
-//            LayoutInflater.from(this).inflate(R.layout.activity_nav_header2, null)
-
-        val headerView = navView.getHeaderView(0)
-        val drawerLayout : DrawerLayout = activity!!.findViewById(R.id.drawer_layout)
-
         viewModel.authenticationState?.observe(this, Observer { authenticationState ->
             when (authenticationState) {
                 LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-                    //navView.removeHeaderView(headerView)
-//                    headerView.textViewDisplayName.text = viewModel.currentUser.displayName
-//                    headerView.textViewHeaderEmail.text = viewModel.currentUser.email
-//                    headerView.setOnClickListener {
-//                        // closing with animation
-//                        // rawerLayout.closeDrawers()
-//                        drawerLayout.closeDrawer(Gravity.LEFT, false)
-//                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
-//                    }
+
                     viewModel.setCurrentUser()
                     //navView.addHeaderView(headerView)
                 }
                 else -> {
-                    // navView.removeHeaderView(headerView)
-//                    headerView.textViewDisplayName.text = "Name"
-//                    headerView.textViewHeaderEmail.text = "Email"
-//                    headerView.setOnClickListener {
-//                        drawerLayout.closeDrawer(Gravity.LEFT, false)
-//                        navController.navigate(R.id.action_homeFragment_to_login)
-//                    }
-                    //  navView.addHeaderView(headerView)
                 }
 
             }
         })
-        viewModel.currentUser.observe(this, Observer {
-//            if (it != null) {
-//                headerView.textViewDisplayName.text = it.displayName
-//                headerView.textViewHeaderEmail.text = it.email
-//                headerView.setOnClickListener {
-//                    // closing with animation
-//                    // rawerLayout.closeDrawers()
-//                    drawerLayout.closeDrawer(Gravity.LEFT, false)
-//                    navController.navigate(R.id.action_homeFragment_to_profile_Activity)
-//                }
-//            } else {
-//                headerView.textViewDisplayName.text = "Name"
-//                headerView.textViewHeaderEmail.text = "Email"
-//                headerView.setOnClickListener {
-//                    drawerLayout.closeDrawer(Gravity.LEFT, false)
-//                    navController.navigate(R.id.action_homeFragment_to_login)
-//                }
-//            }
 
-
-
-
-        })
 
 
     }
 
-//    private fun updateFirebase() {
-//        val mFirestore = FirebaseFirestore.getInstance()
-//        val restaurants = mFirestore.collection("User")
-//
-//        for (i in 1..10) {
-//            val name = randomName(10)
-//            val email = randomName(10) + "@gmail.com"
-//            val date = "December"
-//            val address = "Kuala Lumpur"
-//            val availability = true
-//            val role = "Mentor"
-//
-//            restaurants.document(email).set(CurrentUser(name,email,address,role,date,availability))
-//        }
-//
-//    }
-//
-//    private fun randomName(limit: Int): String {
-//        val STRING_CHARACTERS = ('0'..'z').toList().toTypedArray()
-//
-//        return   (1..32).map { STRING_CHARACTERS.random() }.joinToString("")
-//    }
+
 
 
 }

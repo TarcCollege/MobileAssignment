@@ -62,13 +62,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:alwaysDrawnWithCache="false"
                     android:background="@color/colorPrimary"
                     android:translationZ="14dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/toolbar"
                     app:tabGravity="fill"
                     app:tabIndicatorHeight="3dp"
-                    app:tabMode="scrollable" />
+                    app:tabMode="scrollable"
+                    app:tabUnboundedRipple="true" />
 
                 <TextView
                     android:id="@+id/progressionText"

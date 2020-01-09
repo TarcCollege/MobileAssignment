@@ -33,14 +33,6 @@ class ProfileMain : Fragment() {
             inflater, R.layout.fragment_profile_main, container, false
         )
 
-
-
-
-
-
-
-
-
         return binding.root
     }
 

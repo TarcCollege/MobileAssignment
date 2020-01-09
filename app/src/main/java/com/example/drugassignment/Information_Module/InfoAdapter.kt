@@ -35,7 +35,6 @@ class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.infoMain.text = data[position]
         holder.itemView.setOnClickListener {
-
             it.findNavController().navigate(R.id.action_information_Main_to_drugInfo)
         }
     }

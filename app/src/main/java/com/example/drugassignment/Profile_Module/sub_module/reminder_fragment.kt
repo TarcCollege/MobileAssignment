@@ -27,8 +27,8 @@ class reminder_fragment : Fragment() {
         val binding : FragmentReminderFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_reminder_fragment, container, false)
 
-        val fab : FloatingActionButton = activity!!.findViewById(R.id.fab2)
-        fab.isVisible = false
+//        val fab : FloatingActionButton = activity!!.findViewById(R.id.fab2)
+//        fab.isVisible = false
 
         val btn : Button = activity!!.findViewById(R.id.buttonOtherUser)
         btn.isVisible = false
