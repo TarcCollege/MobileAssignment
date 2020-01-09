@@ -17,7 +17,9 @@
         android:roundIcon="@drawable/ic_pill_svgrepo_com"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateEvent"></activity>
+        <activity android:name=".CreateEvent"
+            android:parentActivityName=".Profile_Module.Profile_Activity"
+            android:label="Create Event"></activity>
         <activity android:name=".Profile_Module.sub_module.ProfileDetail" />
         <activity
             android:name=".Profile_Module.sub_module.MemberList"
