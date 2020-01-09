@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.SubUser
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
+import kotlinx.android.synthetic.main.activity_profile.*
 
 
 class MemberAdapter constructor(context: Activity) :
@@ -80,7 +81,6 @@ class MemberAdapter constructor(context: Activity) :
                     db.collection("User").document(email!!)
                         .update("availability", true)
 
-
                     // delete currentUser from the mentorUser
                     db.collection("User")
                         .document(item.email!!)
@@ -88,6 +88,7 @@ class MemberAdapter constructor(context: Activity) :
                         .document(email)
                         .delete()
                 }
+            context.buttonOtherUser.isVisible = true
 
 
         }

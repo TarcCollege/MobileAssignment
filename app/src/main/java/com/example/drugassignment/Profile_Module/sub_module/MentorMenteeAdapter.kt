@@ -3,7 +3,6 @@ package com.example.drugassignment.Profile_Module.sub_module
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.provider.Settings.Secure.getString
 import android.util.Log
 
 import android.view.LayoutInflater
@@ -60,41 +59,50 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
             val name = sharedPreferences.getString(context.getString(R.string.passDisplayName),"123")
             val date = sharedPreferences.getString(context.getString(R.string.passDate),"123")
             val address = sharedPreferences.getString(context.getString(R.string.passAddress),"123")
+            val availability = sharedPreferences.getBoolean(context.getString(R.string.passAvailable),false)
+            val role = sharedPreferences.getString(context.getString(R.string.passRole),"123")
             Log.i("share111", email)
 
             val mentorUser = SubUser(item.displayName, item.email, item.registerDate, item.address)
             val currentUser = SubUser()
 
-
-
-            val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-            db.collection("User").document(email!!)
-                .collection("SubUser")
-                .document(item.email!!)
-                .set(mentorUser)           // add selected user
-                .addOnSuccessListener {
-                    sharedPreferences.edit()
-                        .putBoolean(context.getString(R.string.passAvailable), false)
-                        .apply()
-                    Toast.makeText(
-                        context, "Successfully Added",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    db.collection("User").document(email!!)
-                        .update("availability", false)
-                        .addOnCompleteListener {        // update the availability of the mentee
-                            if (it.isSuccessful) {
-                                context.finish()
+            if (!availability && role == "Mentee") {
+                Toast.makeText(
+                    context, "You Can Only Apply For 1 Mentor",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+                db.collection("User").document(email!!)
+                    .collection("SubUser")
+                    .document(item.email!!)
+                    .set(mentorUser)           // add selected user
+                    .addOnSuccessListener {
+                        sharedPreferences.edit()
+                            .putBoolean(context.getString(R.string.passAvailable), false)
+                            .apply()
+                        Toast.makeText(
+                            context, "Successfully Added, Directing Back to Profile Page",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        db.collection("User").document(email!!)
+                            .update("availability", false)
+                            .addOnCompleteListener {        // update the availability of the mentee
+                                if (it.isSuccessful) {
+                                    context.finish()
+                                }
                             }
-                        }
 
-                    // update the mentor SubUser
-                    db.collection("User")
-                        .document(item.email!!)
-                        .collection("SubUser")
-                        .document(email)
-                        .set(SubUser(name,email,date,address))
-                }
+                        // update the mentor SubUser
+                        db.collection("User")
+                            .document(item.email!!)
+                            .collection("SubUser")
+                            .document(email)
+                            .set(SubUser(name,email,date,address))
+                    }
+            }
+
+
         }
     }
 

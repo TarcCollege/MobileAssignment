@@ -5,14 +5,24 @@ import android.os.Bundle
 import androidx.core.app.NavUtils
 
 import android.view.MenuItem
+import androidx.databinding.DataBindingUtil
 import com.example.drugassignment.R
+import com.example.drugassignment.databinding.ActivityProfileDetialBinding
 import kotlinx.android.synthetic.main.activity_profile_detial.*
 
 class ProfileDetail : AppCompatActivity() {
 
+    private lateinit var binding : ActivityProfileDetialBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.drugassignment.R.layout.activity_profile_detial)
+
+        binding  =  DataBindingUtil.setContentView(this, R.layout.activity_profile_detial)
+
+        binding.buttonAdd.setOnClickListener {
+            removeMember()
+        }
 
 
         val email =intent?.getStringExtra("Email")
@@ -33,5 +43,9 @@ class ProfileDetail : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun removeMember() {
+
     }
 }
