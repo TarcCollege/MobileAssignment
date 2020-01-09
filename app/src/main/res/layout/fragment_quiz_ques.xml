@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    tools:context=".QuizQuesFragment">
+    tools:context=".Quiz_Module.QuizQuesFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <data>

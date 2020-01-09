@@ -55,9 +55,13 @@
     </fragment>
     <fragment
         android:id="@+id/quiz_Main"
-        android:name="com.example.drugassignment.Quiz_Module.Quiz_Main"
+        android:name="com.example.drugassignment.Quiz_Module.QuizMainFragment"
         android:label="Quiz"
-        tools:layout="@layout/fragment_quiz__main" />
+        tools:layout="@layout/fragment_quiz__main" >
+        <action
+            android:id="@+id/action_quiz_Main_to_quizQuesFragment"
+            app:destination="@id/quizQuesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/information_Main"
         android:name="com.example.drugassignment.Information_Module.Information_Main"
@@ -186,5 +190,10 @@
             app:popUpTo="@+id/donation_Main"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/quizQuesFragment"
+        android:name="com.example.drugassignment.Quiz_Module.QuizQuesFragment"
+        android:label="fragment_quiz_ques"
+        tools:layout="@layout/fragment_quiz_ques" />
 
 </navigation>
