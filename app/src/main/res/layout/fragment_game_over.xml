@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameOverFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameOverConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gameOverBackground">
+
+        <ImageView
+            android:id="@+id/gameOverFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.242"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:srcCompat="@drawable/sadfaces" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/fail"
+            android:textColor="@color/colorAccent"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/nextMatchButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameOverFragment"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/tryAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/vertical_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginEnd="@dimen/vertical_margin"
+            android:layout_marginBottom="8dp"
+            android:paddingStart="@dimen/button_padding"
+            android:paddingEnd="@dimen/button_padding"
+            android:text="@string/try_again"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameOverFragment"
+            app:layout_constraintVertical_bias="0.296" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
