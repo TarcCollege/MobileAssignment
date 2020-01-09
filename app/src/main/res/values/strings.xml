@@ -57,9 +57,12 @@
     <string name="passDate">Date</string>
 
 
-    <string name="quiz_title">Quiz Here</string>
+    <string name="quiz_title">Drug Quiz</string>
     <string name="quiz">Drug Quiz (%1$d/%2$d)</string>
-    <string name="summary">Summary Here</string>
+    <string name="summary">There are several questions on this page to test your knowledge and understanding of drugs. The relevant answers can be found in the information office.
+        \n\nSelect the answer from the options given. Each time you get an answer correct,
+        you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to
+        the title screen using up or back from within the game screen, and this will also end your game.</string>
     <string name="quiz_button">Get Start!</string>
     <string name="title_activity_quiz_main">activity_quiz_main</string>
     <string name="submit_button">Submit</string>

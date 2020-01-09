@@ -60,7 +60,7 @@
         tools:layout="@layout/fragment_quiz__main" >
         <action
             android:id="@+id/action_quiz_Main_to_quizQuesFragment"
-            app:destination="@id/quizQuesFragment" />
+            app:destination="@+id/quizQuesFragment" />
     </fragment>
     <fragment
         android:id="@+id/information_Main"
@@ -194,6 +194,23 @@
         android:id="@+id/quizQuesFragment"
         android:name="com.example.drugassignment.Quiz_Module.QuizQuesFragment"
         android:label="fragment_quiz_ques"
-        tools:layout="@layout/fragment_quiz_ques" />
+        tools:layout="@layout/fragment_quiz_ques" >
+        <action
+            android:id="@+id/action_quizQuesFragment_to_gameOverFragment2"
+            app:destination="@id/gameOverFragment2" />
+        <action
+            android:id="@+id/action_quizQuesFragment_to_gameWonFragment"
+            app:destination="@id/gameWonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment2"
+        android:name="com.example.drugassignment.Quiz_Module.GameOverFragment"
+        android:label="fragment_game_over"
+        tools:layout="@layout/fragment_game_over" />
+    <fragment
+        android:id="@+id/gameWonFragment"
+        android:name="com.example.drugassignment.Quiz_Module.GameWonFragment"
+        android:label="fragment_game_won"
+        tools:layout="@layout/fragment_game_won" />
 
 </navigation>
