@@ -50,7 +50,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editRegisterEmailLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editAddress"
+                android:id="@+id/editSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_noun_address_2340040"

@@ -4,16 +4,16 @@
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
 <!--    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorBlue</item>
+        <item name="colorPrimaryDark">@color/colorDarkBlue</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme2" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!--    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorBlue</item>
+        <item name="colorPrimaryDark">@color/colorDarkBlue</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 

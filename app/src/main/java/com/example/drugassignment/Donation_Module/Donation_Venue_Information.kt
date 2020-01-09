@@ -42,9 +42,9 @@ class Donation_Venue_Information : Fragment() {
     }
 
     private fun validation() :Boolean {
-        if (binding.editAddress.text.isNullOrBlank() || binding.editDisplayName.text.isNullOrBlank()
+        if (binding.editSearch.text.isNullOrBlank() || binding.editDisplayName.text.isNullOrBlank()
             ||binding.editRegisterEmail.text.isNullOrBlank()) {
-            if (binding.editAddress.text.isNullOrBlank()) {
+            if (binding.editSearch.text.isNullOrBlank()) {
                 binding.editAddressLayout.error = "No Blank"
             } else {
                 binding.editAddressLayout.isErrorEnabled = false
