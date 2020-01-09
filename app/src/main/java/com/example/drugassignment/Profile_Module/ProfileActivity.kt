@@ -14,6 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
+import com.example.drugassignment.CreateEvent
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.Profile_Module.sub_module.MemberList
 import com.example.drugassignment.Profile_Module.sub_module.ProfileViewModel2
@@ -198,7 +199,8 @@ class Profile_Activity : AppCompatActivity() {
             tabLayout.getTabAt(3)?.text = "Mentee"
             fab.isVisible = true
             fab.setOnClickListener {
-                //addSubMember()
+                val intent = Intent(this, CreateEvent::class.java)
+                startActivity(intent)
             }
         }
 

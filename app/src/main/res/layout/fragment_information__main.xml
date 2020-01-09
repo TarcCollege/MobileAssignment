@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editAddress"
+                android:id="@+id/editSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorDarkBlue"
             android:translationZ="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,9 +67,9 @@
             app:tabGravity="fill"
             app:tabIconTint="#FFFFFF"
             app:tabIndicatorColor="#FFFFFF"
-            app:tabSelectedTextColor="#FFFFFF"
             app:tabIndicatorHeight="3dp"
-            app:tabMode="scrollable" />
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#FFFFFF" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/infoMainRecycleView"

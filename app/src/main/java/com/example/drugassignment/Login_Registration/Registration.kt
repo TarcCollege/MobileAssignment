@@ -164,7 +164,7 @@ class Registration : Fragment() {
             binding.editDisplayNameLayout.error = "No Empty"
         }else if (binding.editPassword.text.isNullOrBlank()) {
             binding.editPasswordLayout.error = "No Empty"
-        } else if (binding.editAddress.text.isNullOrBlank()) {
+        } else if (binding.editSearch.text.isNullOrBlank()) {
             binding.editAddressLayout.error = "No Empty"
         }
         return true
@@ -181,7 +181,7 @@ class Registration : Fragment() {
 
         val email = binding.editRegisterEmail.text.toString()
         val display = binding.editDisplayName.text.toString()
-        val address = binding.editAddress.text.toString()
+        val address = binding.editSearch.text.toString()
         val role = getRole()
         val date = "December"
         val availability = true

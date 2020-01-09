@@ -16,15 +16,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="194dp">
 
             <ImageView
                 android:id="@+id/imageViewMemberProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="111dp"
+                android:layout_height="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/ic_user"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_account_circle_black_24dp" />
 
             <Button
                 android:id="@+id/buttonViewMore"
@@ -34,48 +35,48 @@
                 android:text="View Details"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.531"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/txtName"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="56dp"
+
                 android:text="Name"
-                app:layout_constraintEnd_toStartOf="@+id/button"
-                app:layout_constraintStart_toEndOf="@+id/imageViewMemberProfile"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="44dp"
                 android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/txtName"
-                app:layout_constraintHorizontal_bias="0.476"
-                app:layout_constraintStart_toStartOf="@+id/txtName"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
             <TextView
                 android:id="@+id/txtAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="36dp"
                 android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/txtEmail"
-                app:layout_constraintStart_toStartOf="@+id/txtEmail"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
             <Button
                 android:id="@+id/buttonApply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="144dp"
                 android:text="Apply"
-                app:layout_constraintBottom_toTopOf="@+id/buttonViewMore"
-                app:layout_constraintStart_toStartOf="@+id/buttonViewMore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonViewMore"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

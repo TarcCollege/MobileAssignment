@@ -3,30 +3,23 @@ package com.example.drugassignment.Information_Module
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.drugassignment.Class.DrugDetail
 import com.example.drugassignment.Class.DrugTitle
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentInformationMainBinding
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.activity_profile.*
 
 
 /**
@@ -34,10 +27,10 @@ import kotlinx.android.synthetic.main.activity_profile.*
  */
 class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListener {
     override fun onRestaurantSelected(restaurant: DocumentSnapshot?) {
-        Log.i("123","clicked")
+        Log.i("123", "clicked")
     }
 
-    private lateinit var binding : FragmentInformationMainBinding
+    private lateinit var binding: FragmentInformationMainBinding
     private val viewModel by viewModels<InfoViewModel>()
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var mFirestore: FirebaseFirestore
@@ -85,13 +78,15 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 //                Log.i("Error", mQuery.)
                 mAdapter.setQuery(mQuery)
             }
+
             override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
+
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
         })
 
-        binding.editSearchLayout.setEndIconOnClickListener{
+        binding.editSearchLayout.setEndIconOnClickListener {
             searchItem()
         }
 
@@ -106,7 +101,7 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             .orderBy("drugType", Query.Direction.DESCENDING)
             .limit(LIMIT.toLong())
 
-        Log.i("123",mQuery.toString())
+        Log.i("123", mQuery.toString())
     }
 
     private fun initRecyclerView() {
@@ -149,18 +144,18 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
     private fun searchItem() {
         hideKeyboard()
         val query: Query
-        val searchItem = binding.editAddress.text.toString().capitalize()
+        val searchItem = binding.editSearch.text.toString().capitalize()
         query = mFirestore
-                .collection("DrugInfo")
-                .whereEqualTo("drugName", searchItem)
-            mQuery = query
-            mAdapter.setQuery(mQuery)
+            .collection("DrugInfo")
+            .whereEqualTo("drugName", searchItem)
+        mQuery = query
+        mAdapter.setQuery(mQuery)
 
     }
 
     private fun hideKeyboard() {
         (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-            .hideSoftInputFromWindow(view?.windowToken,0)
+            .hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
     override fun onDestroyView() {
