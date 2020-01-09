@@ -201,7 +201,8 @@ class Registration : Fragment() {
         mFirestore.collection("User")
             .document(email!!)
             .collection("Notification")
-            .add(notification)
+            .document(createTime.toString())
+            .set(notification)
             .addOnCompleteListener {
                 Toast.makeText(
                     context, "Successfully Add Noti",

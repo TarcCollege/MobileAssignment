@@ -55,6 +55,27 @@ class NotificationAdapter  constructor(context: Activity) : RecyclerView.Adapter
             holder.wrapper.setCardBackgroundColor(Color.WHITE)
         }
 
+        holder.wrapper.setOnClickListener {
+            val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+            val sharedPreferences = context.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+            val email = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passEmail), "123")
+
+
+            db.collection("User")
+                .document(email!!)
+                .collection("Notification")
+                .document(item.date.toString())
+                .update("view", true)
+                .addOnCompleteListener {
+                    Toast.makeText(
+                        context, "Successfully Change status",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    holder.wrapper.setCardBackgroundColor(Color.WHITE)
+                }
+        }
+
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

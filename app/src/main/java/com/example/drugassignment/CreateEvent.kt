@@ -161,10 +161,11 @@ class CreateEvent : AppCompatActivity() {
                 db.collection("User")
                     .document(email!!)
                     .collection("Notification")
-                    .add(notification)
+                    .document(createTime.toString())
+                    .set(notification)
                     .addOnCompleteListener {
                         Toast.makeText(
-                            this, "Successfully Created Event",
+                            this, "Successfully Add Noti",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
