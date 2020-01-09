@@ -1,4 +1,4 @@
-package com.example.drugassignment.Quiz_Module
+package com.example.drugassignment.quizmodule
 
 
 import android.os.Bundle

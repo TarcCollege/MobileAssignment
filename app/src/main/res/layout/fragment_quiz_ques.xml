@@ -2,16 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".quizmodule.QuizQuesFragment">
 
-    tools:context=".Quiz_Module.QuizQuesFragment">
+<!--    <data>-->
 
-    <!-- TODO: Update blank fragment layout -->
-    <data>
-
-        <variable
-            name="game"
-            type="Quiz_Module.QuizFragment" />
-    </data>
+<!--        <variable-->
+<!--            name="game"-->
+<!--            type="com.example.drugassignment.quizmodule.QuizMainFragment" />-->
+<!--    </data>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,7 +29,7 @@
                 android:layout_marginStart="@dimen/question_horizontal_margin"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
                 android:fontFamily="sans-serif"
-                android:text="@{game.currentQuestion.text}"
+                android:text="123"
                 android:textSize="@dimen/question_text_size"
                 android:textStyle="bold"
                 android:typeface="normal"
@@ -62,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:checked="true"
-                    android:text="@{game.answers[0]}"
+                    android:text="123"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Blue" />
 
@@ -71,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[1]}"
+                    android:text="123"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Green" />
 
@@ -80,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:text="@{game.answers[2]}"
+                    android:text="123"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Yellow" />
 
@@ -88,7 +86,7 @@
                     android:id="@+id/fourthAnswerRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{game.answers[3]}"
+                    android:text="123"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Red" />
             </RadioGroup>

@@ -1,4 +1,4 @@
-package com.example.drugassignment.Quiz_Module
+package com.example.drugassignment.quizmodule
 
 
 import android.os.Bundle
@@ -83,12 +83,13 @@ class QuizQuesFragment : Fragment() {
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
     private val numQuestions = 6
+    private lateinit var binding: FragmentQuizQuesBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentQuizQuesBinding>(
+         binding = DataBindingUtil.inflate<FragmentQuizQuesBinding>(
             inflater, R.layout.fragment_quiz_ques, container, false)
 
         // Shuffles the questions and sets the question index to the first question.
@@ -122,13 +123,12 @@ class QuizQuesFragment : Fragment() {
                         // We've won!  Navigate to the gameWonFragment.
                         view.findNavController()
                             .navigate(
-                                GameFragmentDirections
-                                    .actionGameFragmentToGameWonFragment(numQuestions, questionIndex))
+                                R.id.action_quizQuesFragment_to_gameWonFragment)
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
                     view.findNavController()
-                        .navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment2())
+                        .navigate(R.id.action_quizQuesFragment_to_gameOverFragment2)
                 }
             }
         }
@@ -150,6 +150,13 @@ class QuizQuesFragment : Fragment() {
         answers = currentQuestion.answers.toMutableList()
         // and shuffle them
         answers.shuffle()
+
+        binding.questionText.text = currentQuestion.text
+        binding.firstAnswerRadioButton.text = currentQuestion.answers[0]
+        binding.secondAnswerRadioButton.text = currentQuestion.answers[1]
+        binding.thirdAnswerRadioButton.text = currentQuestion.answers[2]
+        binding.fourthAnswerRadioButton.text = currentQuestion.answers[3]
+
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.quiz, questionIndex + 1, numQuestions)
     }
 

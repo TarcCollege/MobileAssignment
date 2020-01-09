@@ -1,4 +1,4 @@
-package com.example.drugassignment.Quiz_Module
+package com.example.drugassignment.quizmodule
 
 
 import android.os.Bundle
@@ -24,7 +24,7 @@ class GameOverFragment : Fragment() {
 
         binding.tryAgainButton.setOnClickListener { view : View ->
             view.findNavController()
-                .navigate(GameOverFragmentDirections.actionGameOverFragment2ToGameFragment())
+                .navigate(R.id.action_gameOverFragment2_to_quizQuesFragment)
         }
 
 
