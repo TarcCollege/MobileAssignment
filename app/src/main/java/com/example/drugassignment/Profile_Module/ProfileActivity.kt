@@ -102,8 +102,13 @@ class Profile_Activity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.logout -> {
             // User chose the "Settings" item, show the app settings UI...
+            // logout user
 //            AuthUI.getInstance().signOut()
             FirebaseAuth.getInstance().signOut()
+
+            // delete preference after logout
+            this.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE).edit().clear().apply()
+
             super.onBackPressed()
             true
         }

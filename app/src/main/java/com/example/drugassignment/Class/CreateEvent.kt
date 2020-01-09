@@ -5,7 +5,7 @@ import java.util.*
 class CreateDrugEvent {
     var eventName: String? = "123"
     var eventDescription: String? = "123"
-    var eventLocation : String? = "123"
+    var eventLocation: String? = "123"
     var eventCity: String? = "123"
     var eventDate: Date = Date()
     var startTime: Date = Date()
@@ -16,7 +16,7 @@ class CreateDrugEvent {
     constructor(
         eventName: String?,
         eventDescription: String?,
-        eventLocation : String?,
+        eventLocation: String?,
         eventCity: String?,
         eventDate: Date,
         startTime: Date,
@@ -30,7 +30,7 @@ class CreateDrugEvent {
         this.startTime = startTime
         this.endTime = endTime
     }
-
+}
 
 //    fun addData(
 //        eventName: String?,
@@ -47,4 +47,3 @@ class CreateDrugEvent {
 //        this.startTime = startTime
 //        this.endTime = endTime
 //    }
-}
