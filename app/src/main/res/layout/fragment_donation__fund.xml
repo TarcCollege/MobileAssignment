@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_donation_fund"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:theme="@style/AppTheme2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:theme="@style/AppTheme2">
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -18,16 +19,15 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:background="#FFFFFF"
             android:ems="10"
-            android:hint="@string/email2"
             android:inputType="textEmailAddress"
             app:endIconMode="clear_text"
             app:helperText="Please Enter Your Email"
             app:helperTextEnabled="true"
             app:helperTextTextColor="#F44336"
-            app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+            app:layout_constraintBottom_toTopOf="@+id/editPhoneLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editDisplayLastNameLayout">
+            app:layout_constraintTop_toBottomOf="@+id/editDisplayFirstNameLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRegisterEmail"
@@ -36,7 +36,7 @@
                 android:drawableLeft="@drawable/ic_envelope"
                 android:ems="10"
 
-                android:hint="E-mail"
+                android:hint="@string/missingEmail"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="30dp"
                 android:textSize="16sp" />
@@ -49,11 +49,13 @@
             android:layout_width="411dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:textColorHint="#3F51B5"
             app:helperText="Please Enter Your Display Name"
-            app:layout_constraintBottom_toTopOf="@+id/editDisplayLastNameLayout"
+            app:helperTextTextColor="#F44336"
+            app:layout_constraintBottom_toTopOf="@+id/editEmailLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
+            app:layout_constraintTop_toBottomOf="@+id/textViewSpecifyAmount">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editDisplayFirstName"
@@ -65,28 +67,6 @@
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editDisplayLastNameLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="411dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            app:helperText="Please Enter Your Display Name"
-            app:layout_constraintBottom_toTopOf="@+id/editEmailLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editDisplayFirstNameLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editDisplayLastName"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:drawableLeft="@drawable/ic_account_circle_black_24dp"
-                android:ems="10"
-                android:hint="@string/missing_LastName"
-                android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <EditText
             android:id="@+id/editAmount"
             android:layout_width="270dp"
@@ -95,10 +75,10 @@
             android:hint="RM "
             android:inputType="numberDecimal"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSpecifyAmount"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
+            app:layout_constraintStart_toEndOf="@+id/textViewSpecifyAmount"
+            app:layout_constraintTop_toTopOf="@+id/textViewSpecifyAmount" />
 
         <TextView
             android:id="@+id/textAmount"
@@ -114,26 +94,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn200"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:background="#3F51B5"
-            android:text="RM200"
-            android:textColor="#FAF7F7"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
-            app:layout_constraintEnd_toStartOf="@+id/btnOtherAmount"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn100"
-            app:layout_constraintTop_toBottomOf="@+id/textAmount" />
-
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewSpecifyAmount"
             android:layout_width="115dp"
             android:layout_height="47dp"
-            android:layout_marginBottom="44dp"
+            android:layout_marginBottom="32dp"
             android:background="#9C9C9C"
-            android:text="Specify Amount"
+            android:text="@string/specifyamt"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:visibility="visible"
@@ -144,13 +111,26 @@
             app:layout_constraintTop_toBottomOf="@+id/btn100" />
 
         <Button
+            android:id="@+id/btn200"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="#3F51B5"
+            android:text="RM200"
+            android:textColor="#FAF7F7"
+            app:layout_constraintBottom_toTopOf="@+id/textViewSpecifyAmount"
+            app:layout_constraintEnd_toStartOf="@+id/btnOtherAmount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn100"
+            app:layout_constraintTop_toBottomOf="@+id/textAmount" />
+
+        <Button
             android:id="@+id/btn100"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="#3F51B5"
             android:text="RM100"
             android:textColor="#FAF7F7"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintBottom_toTopOf="@+id/textViewSpecifyAmount"
             app:layout_constraintEnd_toStartOf="@+id/btn200"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -162,9 +142,9 @@
             android:layout_width="109dp"
             android:layout_height="wrap_content"
             android:background="#3F51B5"
-            android:text="Other Amount"
+            android:text="@string/otheramt"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintBottom_toTopOf="@+id/textViewSpecifyAmount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn200"
@@ -175,25 +155,80 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#03A9F4"
-            android:text="Next"
+            android:text="@string/next"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/editTextPhone"
+        <!--        <EditText-->
+        <!--            android:id="@+id/editTextPhone"-->
+        <!--            android:layout_width="411dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="64dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="@string/missingPhone"-->
+        <!--            android:inputType="phone"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/buttonNext"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editPhoneLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="411dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="64dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/missingPhone"
             android:inputType="phone"
+            app:endIconMode="clear_text"
+            app:helperText="Please Enter Your Phone Number"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#F44336"
             app:layout_constraintBottom_toTopOf="@+id/buttonNext"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editEmailLayout">
+
+            <!--            <com.google.android.material.textfield.TextInputEditText-->
+            <!--                android:id="@+id/editTextPhone"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--        android:layout_marginBottom="64dp"-->
+            <!--                android:drawableLeft="@drawable/ic_envelope"-->
+            <!--                android:ems="10"-->
+
+            <!--                android:hint="E-mail"-->
+            <!--                android:inputType="textEmailAddress"-->
+            <!--                android:paddingLeft="30dp"-->
+            <!--                android:textSize="16sp" />-->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/phone_icon"
+                android:ems="10"
+                android:hint="@string/missingPhone"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/editTextPhone"-->
+        <!--            android:layout_width="411dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="224dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="@string/missingPhone"-->
+        <!--            android:inputType="phone"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/buttonNext"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
