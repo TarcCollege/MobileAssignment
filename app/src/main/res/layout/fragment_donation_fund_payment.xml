@@ -10,9 +10,23 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/buttonNext2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#03A9F4"
+            android:text="@string/next"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
             android:id="@+id/buttonMasterCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:background="#3F51B5"
             android:text="Master Card"
             android:textColor="#FFFFFF"
@@ -25,6 +39,7 @@
             android:id="@+id/buttonVisa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:background="#3F51B5"
             android:text="Visa"
             android:textColor="#FFFFFF"

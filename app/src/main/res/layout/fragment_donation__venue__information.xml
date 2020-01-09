@@ -131,7 +131,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editAddressLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="411dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:textColorHint="#86FFFFFF"
@@ -157,7 +157,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editSizeLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="411dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             app:endIconMode="clear_text"
@@ -171,7 +171,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextSize"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/venue_size"
