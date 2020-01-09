@@ -1,4 +1,4 @@
-package com.example.drugassignment.Quiz_Module
+package com.example.drugassignment.quizmodule
 
 
 import android.os.Bundle
@@ -11,14 +11,14 @@ import com.example.drugassignment.R
 /**
  * A simple [Fragment] subclass.
  */
-class Quiz_Main : Fragment() {
+class GameWonFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quiz__main, container, false)
+        return inflater.inflate(R.layout.fragment_game_won, container, false)
     }
 
 
