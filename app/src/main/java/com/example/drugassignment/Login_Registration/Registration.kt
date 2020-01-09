@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.drugassignment.Class.CurrentUser
+import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentRegistrationBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -107,6 +108,7 @@ class Registration : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
+                    // add register user into database
                     addToDatabase()
 
                     var user = auth.currentUser
@@ -144,6 +146,7 @@ class Registration : Fragment() {
                             }
                         }
 
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Game", "createUserWithEmail:failure", task.exception)
@@ -174,7 +177,8 @@ class Registration : Fragment() {
             .hideSoftInputFromWindow(view?.windowToken,0)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
+
     private fun addToDatabase() {
         val mFirestore = FirebaseFirestore.getInstance()
         val user = mFirestore.collection("User")
@@ -187,6 +191,24 @@ class Registration : Fragment() {
         val availability = true
 
         user.document(email).set(CurrentUser(display,email,address,role,date,availability))
+
+
+        // add notification
+        val createTime = Date()
+        val content = "You have register as $role"
+        val notification = Notification(createTime, content, false)
+
+        mFirestore.collection("User")
+            .document(email!!)
+            .collection("Notification")
+            .add(notification)
+            .addOnCompleteListener {
+                Toast.makeText(
+                    context, "Successfully Add Noti",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
     }
 
     private fun getRole() : String{

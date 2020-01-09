@@ -23,14 +23,14 @@
             android:id="@+id/action_homeFragment_to_information_Main"
             app:destination="@id/information_Main" />
         <action
-            android:id="@+id/action_homeFragment_to_mapsActivity"
-            app:destination="@id/mapsActivity" />
-        <action
             android:id="@+id/action_homeFragment_to_profile_Activity"
             app:destination="@id/profile_Activity" />
         <action
             android:id="@+id/action_homeFragment_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_homeFragment_to_eventMain"
+            app:destination="@id/eventMain" />
     </fragment>
     <fragment
         android:id="@+id/donation_Main"
@@ -73,11 +73,6 @@
         android:id="@+id/profile_Activity"
         android:name="com.example.drugassignment.Profile_Module.Profile_Activity"
         android:label="Profile" />
-    <activity
-        android:id="@+id/mapsActivity"
-        android:name="com.example.drugassignment.Map_Module.MapsActivity"
-        android:label="activity_maps"
-        tools:layout="@layout/activity_maps" />
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.drugassignment.MainActivity"
@@ -186,5 +181,10 @@
             app:popUpTo="@+id/donation_Main"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/eventMain"
+        android:name="com.example.drugassignment.Map_Module.EventMain"
+        android:label="fragment_event_main"
+        tools:layout="@layout/fragment_event_main" />
 
 </navigation>

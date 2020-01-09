@@ -3,11 +3,15 @@ package com.example.drugassignment
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.drugassignment.Class.CreateDrugEvent
+import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.databinding.ActivityCreateEventBinding
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.*
@@ -124,23 +128,8 @@ class CreateEvent : AppCompatActivity() {
     }
 
     private fun confirm() {
-//        val docRef = db.collection("objects")
-//        val updates = HashMap<String, Any>()
-//        updates["timestamp"] = Timestamp(cal.time)
-//
-////        db.collection("objects")
-////            .add(Timestamp(cal.time))
-//
-//        db.collection("objects")
-//            .whereLessThan("timestamp", Timestamp(cal.time))
-//            .get()
-//            .addOnCompleteListener {
-//                if (it.isComplete){
-//                    Log.i("counter", it.result?.size().toString())
-//                }
-//            }
-
-
+        val sharedPreferences = getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+        val email = sharedPreferences.getString(getString(R.string.passEmail),"123")
         val eventName = binding.editEventName.text.toString()
         val eventDescription = binding.editDescription.text.toString()
         val eventLocation = binding.editEventVenue.text.toString()
@@ -149,12 +138,36 @@ class CreateEvent : AppCompatActivity() {
         val startTime = startTime.time
         val endTime = endTime.time
 
+
         val event = CreateDrugEvent(
-            eventName, eventDescription, eventLocation, eventCity
+            eventName, eventDescription, eventLocation, eventCity,email
             , date, startTime, endTime
         )
 
+        Toast.makeText(
+            this, "Creating Event... Please Wait",
+            Toast.LENGTH_SHORT
+        ).show()
+
+        // update event collection
         db.collection("Event")
             .add(event)
+            .addOnCompleteListener {
+                // update creator notification
+                val createTime = Date()
+                val content = "You have created event : $eventName"
+                val notification = Notification(createTime, content, false)
+
+                db.collection("User")
+                    .document(email!!)
+                    .collection("Notification")
+                    .add(notification)
+                    .addOnCompleteListener {
+                        Toast.makeText(
+                            this, "Successfully Created Event",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+            }
     }
 }

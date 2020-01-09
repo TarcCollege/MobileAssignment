@@ -13,16 +13,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.CurrentUser
+import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.Class.SubUser
 import com.example.drugassignment.R
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 
-class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<MentorMenteeAdapter.ViewHolder>()  {
+class MentorMenteeAdapter constructor(context: Activity) :
+    RecyclerView.Adapter<MentorMenteeAdapter.ViewHolder>() {
 
     var context = context
 
-    var data =  listOf<CurrentUser>()
+    var data = listOf<CurrentUser>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -30,7 +33,7 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view : View = layoutInflater
+        val view: View = layoutInflater
             .inflate(R.layout.mentor_mentee_view_list, parent, false) as View
 
         return ViewHolder(view)
@@ -41,7 +44,7 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item : CurrentUser = data[position]
+        val item: CurrentUser = data[position]
 
         holder.email.text = item.email
         holder.name.text = item.displayName
@@ -54,13 +57,17 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
             it.context.startActivity(intent)
         }
         holder.buttonApply.setOnClickListener {
-            val sharedPreferences = context.getSharedPreferences("PREF_NAME",Context.MODE_PRIVATE)
-            val email = sharedPreferences.getString(context.getString(R.string.passEmail),"123")
-            val name = sharedPreferences.getString(context.getString(R.string.passDisplayName),"123")
-            val date = sharedPreferences.getString(context.getString(R.string.passDate),"123")
-            val address = sharedPreferences.getString(context.getString(R.string.passAddress),"123")
-            val availability = sharedPreferences.getBoolean(context.getString(R.string.passAvailable),false)
-            val role = sharedPreferences.getString(context.getString(R.string.passRole),"123")
+            val sharedPreferences = context.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+            val email = sharedPreferences.getString(context.getString(R.string.passEmail), "123")
+            val name =
+                sharedPreferences.getString(context.getString(R.string.passDisplayName), "123")
+            val date = sharedPreferences.getString(context.getString(R.string.passDate), "123")
+            val address =
+                sharedPreferences.getString(context.getString(R.string.passAddress), "123")
+            val availability =
+                sharedPreferences.getBoolean(context.getString(R.string.passAvailable), false)
+            val role = sharedPreferences.getString(context.getString(R.string.passRole), "123")
+            val targetEmail = item.email!!
             Log.i("share111", email)
 
             val mentorUser = SubUser(item.displayName, item.email, item.registerDate, item.address)
@@ -84,32 +91,66 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
                                 Toast.LENGTH_SHORT
                             ).show()
 
+                            // add notification
+                            val createTime = Date()
+                            var content = "You have added $targetEmail as Mentee"
+                            val notification = Notification(createTime, content, false)
+
+                            db.collection("User")
+                                .document(email!!)
+                                .collection("Notification")
+                                .add(notification)
+                                .addOnCompleteListener {
+                                    Toast.makeText(
+                                        context, "Successfully Add Noti",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+
                             // update the mentor SubUser
                             db.collection("User")
                                 .document(item.email!!)
                                 .collection("SubUser")
                                 .document(email)
-                                .set(SubUser(name,email,date,address))
+                                .set(SubUser(name, email, date, address))
 
                             sharedPreferences.edit()
                                 // update the availanility of current user on sharedPreference
-                                .putBoolean(context.getString(com.example.drugassignment.R.string.passAvailable), false)
+                                .putBoolean(
+                                    context.getString(com.example.drugassignment.R.string.passAvailable),
+                                    false
+                                )
                                 .apply()
 
                             // update currentuser SubUser
                             db.collection("User").document(email!!)
                                 .update("availability", false)
-                                .addOnCompleteListener {        // update the availability of the mentee
+                                .addOnCompleteListener {
+                                    // update the availability of the mentee
                                     if (it.isSuccessful) {
                                         context.finish()
                                     }
                                 }
 
-
                         } else {
 
-                            Log.i("email" , item.email!!)
+                            // add notification
+                            val createTime = Date()
+                            var content = "You have added $targetEmail as Mentor"
+                            val notification = Notification(createTime, content, false)
 
+                            db.collection("User")
+                                .document(email!!)
+                                .collection("Notification")
+                                .add(notification)
+                                .addOnCompleteListener {
+                                    Toast.makeText(
+                                        context, "Successfully Add Noti",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+
+                            // update current user sharedPreferences
                             sharedPreferences.edit()
                                 .putBoolean(context.getString(R.string.passAvailable), false)
                                 .apply()
@@ -118,9 +159,12 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
                                 Toast.LENGTH_SHORT
                             ).show()
 
+                            // update current user database availability
+
                             db.collection("User").document(item.email!!)
                                 .update("availability", false)
-                                .addOnCompleteListener {        // update the availability of the mentee
+                                .addOnCompleteListener {
+                                    // update the availability of the mentee
                                     if (it.isSuccessful) {
                                         context.finish()
                                     }
@@ -135,17 +179,16 @@ class MentorMenteeAdapter constructor(context: Activity): RecyclerView.Adapter<M
         }
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val email: TextView = itemView.findViewById(R.id.txtEmail)
-        val address : TextView = itemView.findViewById(R.id.txtAddress)
-        val name : TextView = itemView.findViewById(R.id.txtName)
-        val buttonbuttonViewMore : Button = itemView.findViewById(R.id.buttonViewMore)
+        val address: TextView = itemView.findViewById(R.id.txtAddress)
+        val name: TextView = itemView.findViewById(R.id.txtName)
+        val buttonbuttonViewMore: Button = itemView.findViewById(R.id.buttonViewMore)
         val buttonApply: Button = itemView.findViewById(R.id.buttonApply)
 
     }
 
-    private fun  addUser() {
-
+    private fun addUser() {
 
 
     }

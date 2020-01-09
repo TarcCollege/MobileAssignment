@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.contactMain,
                 R.id.donation_Main,
                 R.id.information_Main,
-                R.id.mainActivity,
+                R.id.eventMain,
                 R.id.quiz_Main
             ), drawerLayout
         )

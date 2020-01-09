@@ -3,6 +3,7 @@ package com.example.drugassignment.Profile_Module.sub_module
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +12,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.Class.SubUser
 
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_profile.*
+import java.util.*
 
 
 class MemberAdapter constructor(context: Activity) :
@@ -41,6 +44,7 @@ class MemberAdapter constructor(context: Activity) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: SubUser = data[position]
+        var content : String = ""
 
         holder.email.text = item.email
         holder.name.text = item.displayName
@@ -62,6 +66,7 @@ class MemberAdapter constructor(context: Activity) :
             val db: FirebaseFirestore = FirebaseFirestore.getInstance()
             val role = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passRole),"123")
             val email = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passEmail), "123")
+            val targetEmail = item.email!!
 
             // delete the SubUser from currentUser
             db.collection("User")
@@ -78,6 +83,7 @@ class MemberAdapter constructor(context: Activity) :
                         context, "Successfully Deleted",
                         Toast.LENGTH_SHORT
                     ).show()
+
                     // update the availanility on firestore
 
                     if (role == "Mentor") {
@@ -85,6 +91,10 @@ class MemberAdapter constructor(context: Activity) :
 
                         db.collection("User").document(item.email!!)
                             .update("availability", true)
+
+                        content = "You have remove $targetEmail as Mentee"
+                    } else {
+                        content = "You have remove $targetEmail as Mentor"
                     }
 
                     db.collection("User").document(email!!)
@@ -97,10 +107,27 @@ class MemberAdapter constructor(context: Activity) :
                         .collection("SubUser")
                         .document(email)
                         .delete()
+
+                    // add notification
+                    val createTime = Date()
+                    val notification = Notification(createTime, content, false)
+
+                    db.collection("User")
+                        .document(email!!)
+                        .collection("Notification")
+                        .add(notification)
+                        .addOnCompleteListener {
+                            Toast.makeText(
+                                context, "Successfully Add Noti",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                 }
             context.buttonOtherUser.isVisible = true
             holder.buttonApply.isEnabled = false
             holder.buttonbuttonViewMore.isEnabled = false
+
+
 
 
         }

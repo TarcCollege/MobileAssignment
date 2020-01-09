@@ -76,7 +76,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnSupportGroup.setOnClickListener {
-            navController.navigate(R.id.mapsActivity)
+            navController.navigate(R.id.eventMain)
            disableButton()
         }
 

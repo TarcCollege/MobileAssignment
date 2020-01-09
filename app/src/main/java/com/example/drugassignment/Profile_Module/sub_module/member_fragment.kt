@@ -93,10 +93,6 @@ class member_fragment : Fragment() {
             .document(email)
             .collection("SubUser")
 
-        Log.i("user", docRef.get().isSuccessful.toString())
-
-
-
         dataListener= docRef
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {

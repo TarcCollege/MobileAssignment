@@ -7,6 +7,7 @@ class CreateDrugEvent {
     var eventDescription: String? = "123"
     var eventLocation: String? = "123"
     var eventCity: String? = "123"
+    var createrEmail : String? = "123"
     var eventDate: Date = Date()
     var startTime: Date = Date()
     var endTime: Date = Date()
@@ -18,6 +19,7 @@ class CreateDrugEvent {
         eventDescription: String?,
         eventLocation: String?,
         eventCity: String?,
+        createrEmail : String?,
         eventDate: Date,
         startTime: Date,
         endTime: Date
@@ -26,6 +28,7 @@ class CreateDrugEvent {
         this.eventDescription = eventDescription
         this.eventLocation = eventLocation
         this.eventCity = eventCity
+        this.createrEmail = createrEmail
         this.eventDate = eventDate
         this.startTime = startTime
         this.endTime = endTime
