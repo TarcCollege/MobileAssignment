@@ -56,8 +56,7 @@
     <fragment
         android:id="@+id/quiz_Main"
         android:name="com.example.drugassignment.quizmodule.QuizMainFragment"
-        android:label="Quiz"
-        tools:layout="@layout/fragment_quiz__main" >
+        android:label="Quiz">
         <action
             android:id="@+id/action_quiz_Main_to_quizQuesFragment"
             app:destination="@+id/quizQuesFragment" />
