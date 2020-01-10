@@ -12,11 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.Login_Registration.LoginViewModel
-import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentEventDetailBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -33,7 +34,7 @@ class EventDetail : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_event_detail, container, false
+            inflater, com.example.drugassignment.R.layout.fragment_event_detail, container, false
         )
 
         viewModel = ViewModelProviders.of(this.activity!!).get(EventViewModel::class.java)
@@ -79,34 +80,59 @@ class EventDetail : Fragment() {
             .get()
             .addOnCompleteListener {
                 if (!it.result!!.exists()) {
-                   // update Current User Event
+                    // update Current User Event
                     Toast.makeText(
                         context, "Registering Event ...",
                         Toast.LENGTH_SHORT
                     ).show()
+                    db.collection("User")
+                        .document(email!!)
+                        .collection("Event")
+                        .document(viewModel.detail.eventDate.toString())
+                        .set(viewModel.detail)
+                        .addOnCompleteListener {
+                            // update User Notification
+                            // add notification
+                            val createTime = Date()
+                            val content = "You have Register For $eventName"
+                            val notification = Notification(createTime, content, false)
+
                             db.collection("User")
                                 .document(email!!)
-                                .collection("Event")
-                                .document(viewModel.detail.eventDate.toString())
-                                .set(viewModel.detail)
-                                .addOnCompleteListener {
-                                    Toast.makeText(
-                                        context, "Successfully Register Event",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                .collection("Notification")
+                                .document(createTime.toString())
+                                .set(notification)
 
-                                    // update User Notification
-                                    // add notification
-                                    val createTime = Date()
-                                    val content = "You have Register For $eventName"
-                                    val notification = Notification(createTime, content, false)
+                            // display Snackbar that let user undo
+                            Snackbar.make(
+                                binding.btnparticipate,
+                                "Item Added",
+                                Snackbar.LENGTH_LONG
+                            ).setAction("Undo") {
+                                db.collection("User")
+                                    .document(email!!)
+                                    .collection("Event")
+                                    .document(viewModel.detail.eventDate.toString())
+                                    .delete()
+                                    .addOnCompleteListener {
+                                        Toast.makeText(
+                                            context, "Success Unregistered Event!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
 
-                                    db.collection("User")
-                                        .document(email!!)
-                                        .collection("Notification")
-                                        .document(createTime.toString())
-                                        .set(notification)
-                                }
+                                        // add notification to user
+                                        val createTime = Date()
+                                        val content = "You have Unregistered For $eventName"
+                                        val notification = Notification(createTime, content, false)
+
+                                        db.collection("User")
+                                            .document(email!!)
+                                            .collection("Notification")
+                                            .document(createTime.toString())
+                                            .set(notification)
+                                    }
+                            }.show()
+                        }
                 } else {
                     Toast.makeText(
                         context, "You Had Registered This Event",
@@ -120,3 +146,5 @@ class EventDetail : Fragment() {
 
 
 }
+
+
