@@ -154,7 +154,7 @@ class CreateEvent : AppCompatActivity() {
         val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
             endTime.set(Calendar.HOUR_OF_DAY, hour)
             endTime.set(Calendar.MINUTE, minute)
-            binding.editEndTime.setText(SimpleDateFormat("HH:mm").format(startTime.time))
+            binding.editEndTime.setText(SimpleDateFormat("HH:mm").format(endTime.time))
         }
 
         TimePickerDialog(
@@ -177,7 +177,9 @@ class CreateEvent : AppCompatActivity() {
         val startTime = startTime.time
         val endTime = endTime.time
 
-        validation()
+        if (!validation()) {
+            return
+        }
 
         // hide keyboard
         hideKeyboard()
@@ -210,21 +212,30 @@ class CreateEvent : AppCompatActivity() {
             }
     }
 
-    private fun  validation() {
+    private fun  validation() : Boolean {
         if (binding.editCity.text.isNullOrBlank() ||
             binding.editDate.text.isNullOrBlank() ||
             binding.editDescription.text.isNullOrBlank() ||
             binding.editEndTime.text.isNullOrBlank() ||
             binding.editEventName.text.isNullOrBlank() ||
             binding.editStartTime.text.isNullOrBlank() ||
-            binding.editEventVenue.text.isNullOrBlank()) {
+            binding.editEventVenue.text.isNullOrBlank() ||
+            startTime.compareTo(endTime) > 0 ) {
+
+
+            if (startTime.compareTo(endTime) > 0 ) {
+                editEndTimeLayout.error = "End Time Should Be later than Start Time"
+                editEndTime.requestFocus()
+                editEndTime.text?.clear()
+            }
 
             Toast.makeText(
-                this, "INput Error",
+                this, "Input Error",
                 Toast.LENGTH_SHORT
             ).show()
 
-            return
+            return false
         }
+        return true
     }
 }

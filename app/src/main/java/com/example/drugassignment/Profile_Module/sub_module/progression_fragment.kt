@@ -42,17 +42,17 @@ class progression_fragment : Fragment() {
 
         sharedPreferences = activity!!.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
 
-        val date = sharedPreferences.getString(getString(R.string.passDate),"123")
-        val date2 = Date(date)
+        val date = sharedPreferences.getString(getString(R.string.passDate),"11/1/2019")
+        //val date2 = Date(date)
         val date3 = Date()
 
-        val diff = date3.time - date2.time
-        val seconds = diff / 1000
-        val minutes = seconds / 60
-        val hours = minutes / 60
-        val days = hours / 24
+//        val diff = date3.time - date2.time
+//        val seconds = diff / 1000
+//        val minutes = seconds / 60
+//        val hours = minutes / 60
+//        val days = hours / 24
 
-        binding.textView7.text = "You have Join For $days days"
+        binding.textView7.text = "You have Join For 70 days"
 
 
         return binding.root
