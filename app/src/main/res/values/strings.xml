@@ -46,6 +46,7 @@
     <string name="missing_FirstName">First Name</string>
     <string name="missing_LastName">Last Name</string>
     <string name="missingPhone">Phone</string>
+    <string name="missingEmail">Email</string>
     <string name="rm">RM </string>
     <string name="amount">Amount</string>
     <string name="rm200">RM 200</string>
@@ -53,6 +54,8 @@
     <string name="specify_Amount">Specify Amount</string>
     <string name="other_Amount">Other Amount</string>
     <string name="next">Next</string>
+    <string name="venue_location">Venue Location</string>
+    <string name="venue_size">Venue Size</string>
 
     //Login
     <string name="desc">Description</string>

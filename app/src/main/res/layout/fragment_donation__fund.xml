@@ -69,7 +69,7 @@
             android:layout_height="47dp"
             android:background="#9C9C9C"
             android:enabled="false"
-            android:text="@string/specifyamt"
+            android:text="@string/specify_Amount"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:visibility="visible"
@@ -111,7 +111,7 @@
             android:layout_width="109dp"
             android:layout_height="wrap_content"
             android:background="#3F51B5"
-            android:text="@string/otheramt"
+            android:text="@string/other_Amount"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/textViewSpecifyAmount"
             app:layout_constraintEnd_toEndOf="parent"
@@ -236,8 +236,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_envelope"
                 android:ems="10"
-
-                android:hint="@string/missingEmail"
+                android:hint="@string/email_header"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="30dp"
                 android:textSize="16sp" />
