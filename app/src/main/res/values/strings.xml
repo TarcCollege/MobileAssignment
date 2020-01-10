@@ -19,10 +19,11 @@
 
     //used in contact us
     <string name="contact_header">Contact Us</string>
-    <string name="email">temp_email@gmail.com</string>
-    <string name="phone1">011-321 5708</string>
+    <string name="email">drug_prevention@gmail.com</string>
+    <string name="phone">011-321 5708</string>
+    <string name="phone1">011-324 5232</string>
     <string name="contact_number_header">Phone</string>
-    <string name="website">www.xxxxx.com</string>
+    <string name="website">www.google.com</string>
     <string name="website_header">Website</string>
     <string name="email_header">Email</string>
 
