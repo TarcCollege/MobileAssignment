@@ -5,7 +5,6 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_trees"
     tools:context=".Help_Module.Contact_Email">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -34,7 +33,7 @@
             android:drawableLeft="@drawable/ic_envelope"
             android:ems="10"
 
-            android:hint="E-mail"
+            android:hint="@string/missingEmail"
             android:inputType="textEmailAddress"
             android:paddingLeft="30dp"
             android:textSize="16sp" />
@@ -111,7 +110,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#2196F3"
-        android:text="Send"
+        android:text="@string/send"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
