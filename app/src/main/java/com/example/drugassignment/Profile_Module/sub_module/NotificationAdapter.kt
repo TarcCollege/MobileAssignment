@@ -44,6 +44,8 @@ class NotificationAdapter  constructor(context: Activity) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: Notification = data[position]
 
+
+
         holder.date.text = SimpleDateFormat("dd/MM/yyyy").format(item.date)
         holder.content.text = item.content
 
