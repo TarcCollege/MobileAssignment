@@ -32,9 +32,17 @@
 
     //used in donate_fund
     <string name="other_amt"></string>
-    <string name="missing_FirstName">First Name</string>
+    <string name="missing_FirstName">Name</string>
     <string name="missing_LastName">Last Name</string>
     <string name="missingPhone">Phone</string>
+    <string name="missingEmail">E-Mail</string>
+    <string name="otheramt">Other Amount</string>
+    <string name="specifyamt">Specify Amount</string>
+    <string name="next">Next</string>
+    <string name="send">Send</string>
+    <string name="venue_size">Venue Size (sqft)</string>
+    <string name="venue_location">Venue Location</string>
+    <string name="contact_num">Contact Number</string>
 
     <string name="desc">Description</string>
     <string name="effect">Side Effect</string>

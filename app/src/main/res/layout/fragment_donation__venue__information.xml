@@ -2,27 +2,29 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:theme="@style/AppTheme2"
-        tools:context=".Donation_Module.Donation_Venue_Information" >
+        tools:context=".Donation_Module.Donation_Venue_Information">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editRegisterEmailLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginTop="32dp"
             android:padding="-11dp"
             app:endIconMode="clear_text"
             app:helperText="Please Enter Your Email"
             app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/editAddressLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextContact">
+            app:layout_constraintTop_toBottomOf="@+id/editDisplayNameLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRegisterEmail"
@@ -30,44 +32,22 @@
                 android:layout_height="55dp"
                 android:drawableLeft="@drawable/ic_envelope"
                 android:ems="10"
-                android:hint="Email : "
+                android:hint="@string/missingEmail"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editAddressLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginTop="32dp"
-            app:endIconMode="clear_text"
-            app:helperText="Please Enter Your Address"
-            app:helperTextEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editRegisterEmailLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editSearch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_noun_address_2340040"
-                android:ems="10"
-                android:hint="Venue Location"
-                android:inputType="textPostalAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editDisplayNameLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             app:helperText="Please Enter Your Display Name"
             app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/editRegisterEmailLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -77,7 +57,7 @@
                 android:layout_height="55dp"
                 android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                 android:ems="10"
-                android:hint="Display Name : "
+                android:hint="@string/missing_FirstName"
                 android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -94,30 +74,113 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/editTextContact"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:drawableLeft="@drawable/phone_icon"
-            android:ems="10"
-            android:hint="Contact Number"
-            android:inputType="phone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editDisplayNameLayout" />
+        <!--        <EditText-->
+        <!--            android:id="@+id/editTextContact"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="32dp"-->
+        <!--            android:drawableLeft="@drawable/phone_icon"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="Contact Number"-->
+        <!--            android:inputType="phone"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/editDisplayNameLayout" />-->
 
-        <EditText
-            android:id="@+id/editTextSize"
-            android:layout_width="0dp"
+        <!--        <EditText-->
+        <!--            android:id="@+id/editTextSize"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:ems="10"-->
+        <!--            android:hint="@string/venue_size"-->
+        <!--            android:inputType="textPersonName"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            tools:layout_editor_absoluteY="448dp" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editPhoneLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="411dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="#FFFFFF"
             android:ems="10"
-            android:hint="Venue Size (sqft)"
-            android:inputType="textPersonName"
+            android:hint="@string/missingPhone"
+            android:inputType="phone"
+            app:endIconMode="clear_text"
+            app:helperText="Please Enter Your Phone Number"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@android:color/tab_indicator_text"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editAddressLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/editSizeLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="411dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/phone_icon"
+                android:ems="10"
+                android:hint="@string/missingPhone"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editAddressLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textColorHint="#86FFFFFF"
+            app:endIconMode="clear_text"
+            app:helperText="Please Enter Your Address"
+            app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/editSizeLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editRegisterEmailLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_noun_address_2340040"
+                android:ems="10"
+                android:hint="@string/venue_location"
+                android:inputType="textPostalAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editSizeLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            app:endIconMode="clear_text"
+            app:helperText="Please Enter The Venue Size"
+            app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/editPhoneLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editAddressLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/venue_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="448dp"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
