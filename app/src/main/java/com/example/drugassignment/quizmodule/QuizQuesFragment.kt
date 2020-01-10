@@ -82,7 +82,7 @@ class QuizQuesFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = 6
+    private val numQuestions = 1
     private lateinit var binding: FragmentQuizQuesBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
