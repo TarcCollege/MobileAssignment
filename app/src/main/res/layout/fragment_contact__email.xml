@@ -15,7 +15,7 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="@string/email2"
+        android:hint="@string/email_header"
         android:inputType="textEmailAddress"
         app:endIconMode="clear_text"
         app:helperText="Please Enter Your Email"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_envelope"
             android:ems="10"
-            android:hint="@string/missingEmail"
+            android:hint="@string/email_header"
             android:inputType="textEmailAddress"
             android:textSize="16sp" />
 
@@ -70,7 +70,7 @@
         android:layout_width="237dp"
         android:layout_height="47dp"
         android:layout_marginTop="24dp"
-        android:text="Have a Question ? "
+        android:text="@string/havequestion"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -100,7 +100,7 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="@string/missingPhone"
+        android:hint="@string/contactNum"
         android:inputType="phone"
         app:endIconMode="clear_text"
         app:helperText="Please Enter Your Phone Number"
@@ -112,6 +112,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editEmailLayout">
 
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="@string/message"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmailLayout"
+        app:layout_constraintVertical_bias="0.036" />
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextMessage"
             android:layout_width="match_parent"

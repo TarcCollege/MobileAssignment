@@ -7,6 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    //navigation bar
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Information</string>
     <string name="menu_slideshow">Quiz</string>
@@ -17,6 +18,12 @@
     <string name="message">Message</string>
     <string name="title_activity_maps">Map</string>
 
+    //main
+    <string name="title">DRUG DETOX</string>
+
+    //information
+    <string name="search">Search : </string>
+
     //used in contact us
     <string name="contact_header">Contact Us</string>
     <string name="email">drug_prevention@gmail.com</string>
@@ -26,6 +33,9 @@
     <string name="website">www.google.com</string>
     <string name="website_header">Website</string>
     <string name="email_header">Email</string>
+    <string name="havequestion">Have a Question ?</string>
+    <string name="contactNum">Contact Number</string>
+    <string name="send">Send</string>
 
     //used in donate
     <string name="fund">Fund us</string>
@@ -33,27 +43,29 @@
 
     //used in donate_fund
     <string name="other_amt"></string>
-    <string name="missing_FirstName">Name</string>
+    <string name="missing_FirstName">First Name</string>
     <string name="missing_LastName">Last Name</string>
     <string name="missingPhone">Phone</string>
-    <string name="missingEmail">E-Mail</string>
-    <string name="otheramt">Other Amount</string>
-    <string name="specifyamt">Specify Amount</string>
+    <string name="rm">RM </string>
+    <string name="amount">Amount</string>
+    <string name="rm200">RM 200</string>
+    <string name="rm100">RM 100</string>
+    <string name="specify_Amount">Specify Amount</string>
+    <string name="other_Amount">Other Amount</string>
     <string name="next">Next</string>
-    <string name="send">Send</string>
-    <string name="venue_size">Venue Size (sqft)</string>
-    <string name="venue_location">Venue Location</string>
-    <string name="contact_num">Contact Number</string>
 
+    //Login
     <string name="desc">Description</string>
     <string name="effect">Side Effect</string>
     <string name="text">textView</string>
+    <string name="loginTitle">Login</string>
+    <string name="account">Don\'t have an account?</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="reset">Reset Password</string>
     <string name="register">Register</string>
     <string name="password">Password</string>
     <!--    <string name="hello_blank_fragment">Empty</string>-->
-    <string name="email2">Email</string>
 
     <string name="Mentee">Mentee</string>
     <string name="Mentor">Mentor</string>
@@ -73,25 +85,16 @@
     <string name="EndTime">End Time :</string>
     <string name="participate">Participate</string>
 
-    <string name="evenName">Even Name</string>
-    <string name="helpertextEvent">Please Enter Event Name</string>
-    <string name="eventLocation">Event Location</string>
-    <string name="helperLocation">Please Enter Event Location</string>
-    <string name="eventDescription">Event Description</string>
-    <string name="helperDescription">Please Enter Event Description</string>
-    <string name="eventCity">Event City</string>
-    <string name="helperCity">Please Enter Event City</string>
-    <string name="date">Date</string>
-    <string name="helperDate">Please Select Event Date</string>
-    <string name="startTIme">Start TIme</string>
-    <string name="endTime">End Time</string>
-    <string name="helperStartTime">Please Select Start Time</string>
-    <string name="helperEndTime">Please Select End Time</string>
-    <string name="confirm">Confirm</string>
-    <string name="resetEvent">Reset</string>
+    //donate_thankyou_page
+    <string name="returrns">Return</string>
+    <string name="textThanks">Thank you for donating to us !</string>
 
+    //fund_payment
+    <string name="master_Card">Master Card</string>
+    <string name="visa">Visa</string>
+    <string name="textHint">Credit Card/Debit Card Number</string>
 
-
+    //Quiz
     <string name="quiz_title">Drug Quiz</string>
     <string name="quiz">Drug Quiz (%1$d/%2$d)</string>
     <string name="summary">There are several questions on this page to test your knowledge and understanding of drugs.
@@ -108,7 +111,24 @@
     <string name="fail">Work Hard!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="textView">123</string>
-    <string name="something">something</string>
 
+    //create event
+    <string name="Event_Name">Event Name</string>
+    <string name="Event_Location">Event Location</string>
+    <string name="Event_Description">Event Description</string>
+    <string name="Event_City">Event City</string>
+    <string name="date">Date</string>
+    <string name="start_Time">Start Time</string>
+    <string name="end_Time">End Time</string>
+    <string name="confirm">Confirm</string>
+    <string name="reset_Event">Reset</string>
+
+    <string name="textView">TextView</string>
+
+    <string name="clear">Clear</string>
+    <string name="view_Details">View Details</string>
+    <string name="applier">Apply</string>
+
+    //event list layout
+    <string name="viewMore">View More</string>
 </resources>
