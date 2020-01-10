@@ -128,7 +128,7 @@ class QuizQuesFragment : Fragment() {
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
                     view.findNavController()
-                        .navigate(R.id.action_quizQuesFragment_to_gameOverFragment2)
+                        .navigate(R.id.action_quizQuesFragment_to_gameOverFragment22)
                 }
             }
         }

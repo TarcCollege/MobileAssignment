@@ -24,7 +24,7 @@ class GameOverFragment : Fragment() {
 
         binding.tryAgainButton.setOnClickListener { view : View ->
             view.findNavController()
-                .navigate(R.id.action_gameOverFragment2_to_quizQuesFragment)
+                .navigate(R.id.action_gameOverFragment2_to_quiz_Main)
         }
 
 

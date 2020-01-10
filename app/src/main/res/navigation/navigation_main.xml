@@ -59,7 +59,9 @@
         android:label="Quiz">
         <action
             android:id="@+id/action_quiz_Main_to_quizQuesFragment"
-            app:destination="@+id/quizQuesFragment" />
+            app:destination="@+id/quizQuesFragment"
+            app:popUpTo="@+id/mainActivity"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/information_Main"
@@ -190,15 +192,13 @@
         android:label="fragment_quiz_ques"
         tools:layout="@layout/fragment_quiz_ques" >
         <action
-            android:id="@+id/action_quizQuesFragment_to_gameOverFragment2"
-            app:destination="@id/gameOverFragment2"
-            app:popUpTo="@+id/quiz_Main"
-            app:popUpToInclusive="false" />
-        <action
             android:id="@+id/action_quizQuesFragment_to_gameWonFragment"
             app:destination="@id/gameWonFragment"
-            app:popUpTo="@+id/quiz_Main"
+            app:popUpTo="@+id/mainActivity"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_quizQuesFragment_to_gameOverFragment22"
+            app:destination="@id/gameOverFragment2" />
     </fragment>
     <fragment
         android:id="@+id/gameOverFragment2"
@@ -206,16 +206,20 @@
         android:label="fragment_game_over"
         tools:layout="@layout/fragment_game_over" >
         <action
-            android:id="@+id/action_gameOverFragment2_to_quizQuesFragment"
-            app:destination="@id/quizQuesFragment"
-            app:popUpTo="@+id/quiz_Main"
+            android:id="@+id/action_gameOverFragment2_to_quiz_Main"
+            app:destination="@id/quiz_Main"
+            app:popUpTo="@+id/mainActivity"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/gameWonFragment"
         android:name="com.example.drugassignment.quizmodule.GameWonFragment"
         android:label="fragment_game_won"
-        tools:layout="@layout/fragment_game_won" />
+        tools:layout="@layout/fragment_game_won" >
+        <action
+            android:id="@+id/action_gameWonFragment_to_quiz_Main"
+            app:destination="@id/quiz_Main" />
+    </fragment>
     <fragment
         android:id="@+id/eventMain"
         android:name="com.example.drugassignment.Map_Module.EventMain"
