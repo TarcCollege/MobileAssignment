@@ -7,6 +7,9 @@
     <color name="colorPrimary2">#32C9F9</color>
     <color name="colorBlue">#5486d6</color>
     <color name="colorDarkBlue">#1e5bbd</color>
+    <color name="gameOverBackground">#f8bbd0</color>
+    <color name="youWinBackground">#B7F8C9</color>
+    <color name="youWinDark">#35A571</color>
     <color name="white">#FFFFFF</color>
 
 
