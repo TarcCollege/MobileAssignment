@@ -48,7 +48,7 @@ class Login : Fragment() {
     }
 
     private lateinit var viewModel: ProfileViewModel
-    private val viewModel2 by viewModels<LoginViewModel>()
+    private lateinit var loginModel : LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +59,8 @@ class Login : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, com.example.drugassignment.R.layout.fragment_login, container, false
         )
+
+        loginModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
 //        val fab: FloatingActionButton? = activity?.findViewById(com.example.drugassignment.R.id.fab2)
 //        fab?.isVisible = false
@@ -165,7 +167,8 @@ class Login : Fragment() {
                                     activity, "Welcome, Directing To Profile Page..",
                             Toast.LENGTH_SHORT
                             ).show()
-                            viewModel2.login = true
+                            loginModel.login = true
+                            loginModel.setCurrentUser()
                             setUpUser(email)
 
                         }

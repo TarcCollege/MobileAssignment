@@ -119,6 +119,9 @@ class MainActivity : AppCompatActivity() {
                         navigateProfile()
                     }
                 } else {
+                    headerView.textViewDisplayName.text = "Drug Detox"
+                    headerView.textViewHeaderEmail.text = ""
+
                     headerView.setOnClickListener {
                         drawerLayout.closeDrawer(Gravity.LEFT, false)
                         navController.navigate(R.id.action_homeFragment_to_login)

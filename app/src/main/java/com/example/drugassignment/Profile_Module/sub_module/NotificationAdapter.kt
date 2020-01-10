@@ -19,10 +19,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import java.text.SimpleDateFormat
 
-
-
-
-
 class NotificationAdapter  constructor(context: Activity) : RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
     var context = context
     var data = listOf<Notification>()

@@ -46,6 +46,11 @@ class EventDetail : Fragment() {
     }
 
     private fun setUpUi() {
+
+        if (!viewModel2.login) {
+            binding.btnparticipate.isEnabled = false
+        }
+
         binding.textDisplayEventName.text = viewModel.detail.eventName
         binding.textDisplayCityDetail.text = viewModel.detail.eventCity
         binding.textDisplayDateDetail.text =
@@ -106,7 +111,7 @@ class EventDetail : Fragment() {
                             // display Snackbar that let user undo
                             Snackbar.make(
                                 binding.btnparticipate,
-                                "Item Added",
+                                "Event Registered",
                                 Snackbar.LENGTH_LONG
                             ).setAction("Undo") {
                                 db.collection("User")
