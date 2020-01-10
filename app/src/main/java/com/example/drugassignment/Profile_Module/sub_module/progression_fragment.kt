@@ -1,6 +1,8 @@
 package com.example.drugassignment.Profile_Module.sub_module
 
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,11 +14,17 @@ import androidx.databinding.DataBindingUtil
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentProgressionFragmentBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.util.*
+
+
+
 
 /**
  * A simple [Fragment] subclass.
  */
 class progression_fragment : Fragment() {
+
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +40,22 @@ class progression_fragment : Fragment() {
         val btn : Button = activity!!.findViewById(R.id.buttonOtherUser)
         btn.isVisible = false
 
-        return inflater.inflate(R.layout.fragment_progression_fragment, container, false)
+        sharedPreferences = activity!!.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+
+        val date = sharedPreferences.getString(getString(R.string.passDate),"123")
+        val date2 = Date(date)
+        val date3 = Date()
+
+        val diff = date3.time - date2.time
+        val seconds = diff / 1000
+        val minutes = seconds / 60
+        val hours = minutes / 60
+        val days = hours / 24
+
+        binding.textView7.text = "You have Join For $days days"
+
+
+        return binding.root
     }
 
 

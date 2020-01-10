@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_nav_header2.view.*
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_profile.view.*
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.text.Typography.times
@@ -80,6 +81,8 @@ class HomeFragment : Fragment() {
            disableButton()
         }
 
+//        loadData()
+
 
 
 //        binding.button2.setOnClickListener {
@@ -127,6 +130,24 @@ class HomeFragment : Fragment() {
 
 
     }
+
+//    fun loadData() {
+//        for (i in 11 .. 20) {
+//            val role = "Mentor"
+//            val email = "kuekyb$i@gmail.com  $role"
+//            val name = "Kuek Yong Boon $i"
+//            val registerDate = SimpleDateFormat("dd/MM/yyyy").format(Date().time)
+//            val address = "Klang"
+//            val availability = true
+//            val user = CurrentUser(name,email,address,role,registerDate,availability)
+//
+//            val db = FirebaseFirestore.getInstance()
+//
+//            db.collection("User")
+//                .document(email)
+//                .set(user)
+//        }
+//    }
 
 
 
