@@ -27,6 +27,11 @@ class Donation_Fund_Payment : Fragment() {
         val binding : FragmentDonationFundPaymentBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_donation_fund_payment, container, false
         )
+        val navController = activity!!.findNavController(R.id.nav_host_fragment)
+
+        binding.buttonNext2.setOnClickListener {
+            navController.navigate(R.id.action_donation_Fund_Payment_to_donation_Thankyou)
+        }
 
 
 
