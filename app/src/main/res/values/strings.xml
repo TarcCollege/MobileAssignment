@@ -55,5 +55,13 @@
     <string name="passAvailable">Available</string>
     <string name="passAddress">Address</string>
     <string name="passDate">Date</string>
+    <string name="Creator">Event Organizer :</string>
+    <string name="Location">Location :</string>
+    <string name="City">City :</string>
+    <string name="StartDate">Start Date :</string>
+    <string name="EndDate">End Date :</string>
+    <string name="StartTime">Start Time :</string>
+    <string name="EndTime">End Time :</string>
+    <string name="participate">Participate</string>
 
 </resources>

@@ -185,6 +185,16 @@
         android:id="@+id/eventMain"
         android:name="com.example.drugassignment.Map_Module.EventMain"
         android:label="fragment_event_main"
-        tools:layout="@layout/fragment_event_main" />
+        tools:layout="@layout/fragment_event_main" >
+        <action
+            android:id="@+id/action_eventMain_to_eventDetail"
+            app:destination="@id/eventDetail"
+            app:popUpTo="@+id/eventMain"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetail"
+        android:name="com.example.drugassignment.Map_Module.EventDetail"
+        android:label="EventDetail" />
 
 </navigation>

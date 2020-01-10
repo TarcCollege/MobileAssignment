@@ -33,7 +33,7 @@ class DrugInfo : Fragment() {
             inflater, R.layout.fragment_drug_info, container, false
         )
         val args = DrugInfoArgs.fromBundle(arguments!!)
-        binding.textView.text = args.name
+        binding.textName.text = args.name
         binding.txtDrugInfo.text = args.info
         binding.txtDrugSideEffect.text = args.sideEffect
 

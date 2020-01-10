@@ -70,7 +70,6 @@ class notification_fragment : Fragment() {
                     return@addSnapshotListener
                 }
                 if (snapshot != null && !snapshot.isEmpty) {
-                    Log.d("123", "Current data: ${snapshot.toObjects(SubUser::class.java)}")
                     val adapter = snapshot.toObjects(Notification::class.java)
 
                     val adapter2 = NotificationAdapter(this.activity!!)

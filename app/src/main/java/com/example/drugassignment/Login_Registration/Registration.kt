@@ -203,13 +203,6 @@ class Registration : Fragment() {
             .collection("Notification")
             .document(createTime.toString())
             .set(notification)
-            .addOnCompleteListener {
-                Toast.makeText(
-                    context, "Successfully Add Noti",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
     }
 
     private fun getRole() : String{

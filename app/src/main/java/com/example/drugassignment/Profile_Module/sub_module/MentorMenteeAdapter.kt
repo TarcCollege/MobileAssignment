@@ -73,6 +73,11 @@ class MentorMenteeAdapter constructor(context: Activity) :
             val mentorUser = SubUser(item.displayName, item.email, item.registerDate, item.address)
             val currentUser = SubUser()
 
+            Toast.makeText(
+                context, "Adding.. Please Wait",
+                Toast.LENGTH_SHORT
+            ).show()
+
             if (!availability && role == "Mentee") {
                 Toast.makeText(
                     context, "You Can Only Apply For 1 Mentor",
@@ -145,12 +150,6 @@ class MentorMenteeAdapter constructor(context: Activity) :
                                 .collection("Notification")
                                 .document(createTime.toString())
                                 .set(notification)
-                                .addOnCompleteListener {
-                                    Toast.makeText(
-                                        context, "Successfully Add Noti",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
 
                             // update current user sharedPreferences
                             sharedPreferences.edit()

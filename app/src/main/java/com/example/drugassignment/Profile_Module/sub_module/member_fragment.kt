@@ -28,7 +28,6 @@ class member_fragment : Fragment() {
 
     private lateinit var mFirestore: FirebaseFirestore
     private lateinit var mQuery: Query
-
     private lateinit var binding: FragmentMemberFragmentBinding
     private lateinit var profileViewModel: ProfileViewModel2
     private val viewModel by viewModels<ProfileViewModel2>()
@@ -61,7 +60,6 @@ class member_fragment : Fragment() {
         // Get the 50 highest rated restaurants
         mQuery = mFirestore
             .collection("User")
-
     }
 
     private fun initRecyclerView() {
