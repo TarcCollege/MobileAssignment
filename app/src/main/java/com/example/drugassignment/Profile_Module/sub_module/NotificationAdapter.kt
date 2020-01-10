@@ -67,10 +67,7 @@ class NotificationAdapter  constructor(context: Activity) : RecyclerView.Adapter
                 .document(item.date.toString())
                 .update("view", true)
                 .addOnCompleteListener {
-                    Toast.makeText(
-                        context, "Successfully Change status",
-                        Toast.LENGTH_SHORT
-                    ).show()
+
 
                     holder.wrapper.setCardBackgroundColor(Color.WHITE)
                 }
