@@ -17,7 +17,7 @@
         android:layout_marginTop="32dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="@string/email2"
+        android:hint="@string/email_header"
         android:inputType="textEmailAddress"
         app:endIconMode="clear_text"
         app:helperText="Please Enter Your Email"
