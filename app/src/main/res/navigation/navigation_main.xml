@@ -146,15 +146,7 @@
         android:name="com.example.drugassignment.Donation_Module.Donation_Fund"
         android:label="Donation_Fund">
         <action
-            android:id="@+id/action_donation_Fund_to_donation_Fund_Payment"
-            app:destination="@id/donation_Fund_Payment" />
-    </fragment>
-    <fragment
-        android:id="@+id/donation_Fund_Payment"
-        android:name="com.example.drugassignment.Donation_Module.Donation_Fund_Payment"
-        android:label="Donation_Fund_Payment" >
-        <action
-            android:id="@+id/action_donation_Fund_Payment_to_donation_Thankyou"
+            android:id="@+id/action_donation_Fund_to_donation_Thankyou"
             app:destination="@id/donation_Thankyou" />
     </fragment>
     <fragment
@@ -172,6 +164,9 @@
             app:destination="@id/donation_Main"
             app:popUpTo="@+id/donation_Main"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_donation_Thankyou_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/donation_Venue_Information"

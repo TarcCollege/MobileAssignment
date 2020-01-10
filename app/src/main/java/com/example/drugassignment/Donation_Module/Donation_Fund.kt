@@ -94,7 +94,9 @@ class Donation_Fund : Fragment() {
         val navController = activity!!.findNavController(R.id.nav_host_fragment)
 
         binding.buttonNext.setOnClickListener {
-            navController.navigate(R.id.action_donation_Fund_to_donation_Fund_Payment)
+            if (validation()) {
+                navController.navigate(R.id.action_donation_Fund_to_donation_Thankyou)
+            }
         }
 
         return binding.root
@@ -160,6 +162,34 @@ class Donation_Fund : Fragment() {
 
 
 
+    }
+
+    private fun validation() :Boolean {
+        if (binding.editDisplayFirstName.text.isNullOrBlank() || binding.editRegisterEmail.text.isNullOrBlank() || binding.editTextPhone.text.isNullOrBlank()
+            || binding.editTextCardNum.text.isNullOrBlank() || (binding.editAmount.text.equals(0.00)) || binding.editAmount.text.isNullOrBlank()) {
+            if (binding.editDisplayFirstName.text.isNullOrBlank()) {
+                binding.editDisplayFirstNameLayout.error = "No Blank"
+            } else {
+                binding.editDisplayFirstNameLayout.isErrorEnabled = false
+            }
+            if (binding.editRegisterEmail.text.isNullOrBlank()) {
+                binding.editEmailLayout.error = "No Blank"
+            } else {
+                binding.editEmailLayout.isErrorEnabled = false
+            }
+            if (binding.editTextPhone.text.isNullOrBlank()) {
+                binding.editPhoneLayout.error = "No Blank"
+            } else {
+                binding.editPhoneLayout.isErrorEnabled = false
+            }
+            if (binding.editTextCardNum.text.isNullOrBlank()) {
+                binding.editTextCardNumLayout.error = "No Blank"
+            } else {
+                binding.editTextCardNumLayout.isErrorEnabled = false
+            }
+            return false
+        }
+        return true
     }
 
 

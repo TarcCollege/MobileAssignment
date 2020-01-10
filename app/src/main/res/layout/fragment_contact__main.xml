@@ -1,192 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Help_Module.ContactMain">
-
-    <ScrollView
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".Help_Module.ContactMain">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="409dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="24dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintBottom_toTopOf="@+id/imageWebsite"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageEmail" />
+            android:layout_height="match_parent">
 
-            <View
-                android:id="@+id/divider3"
-                android:layout_width="409dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="1dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageWebsite" />
-
-            <ImageView
-                android:id="@+id/imagePhone"
-                android:layout_width="66dp"
-                android:layout_height="66dp"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="384dp"
-                android:contentDescription="TODO"
-                app:srcCompat="@drawable/phone_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-            <View
-                android:id="@+id/divider"
-                android:layout_width="409dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintBottom_toTopOf="@+id/imageEmail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagePhone"
-                app:layout_constraintVertical_bias="0.548" />
-
-            <ImageView
-                android:id="@+id/imageEmail"
-                android:layout_width="66dp"
-                android:layout_height="66dp"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="60dp"
-                app:srcCompat="@drawable/contact_email"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagePhone" />
-
-            <ImageView
-                android:id="@+id/imageWebsite"
-                android:layout_width="66dp"
-                android:layout_height="66dp"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="60dp"
-                app:srcCompat="@drawable/contact_website"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageEmail" />
-
-            <TextView
-                android:id="@+id/textWebsite"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/website"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageWebsite"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.092"
-                app:layout_constraintStart_toEndOf="@+id/imageWebsite"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                android:orientation="vertical">
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toTopOf="@+id/imageWebsite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageEmail" />
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/website_header"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/textWebsite"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.072"
-                app:layout_constraintStart_toEndOf="@+id/imageWebsite"
-                app:layout_constraintTop_toTopOf="@+id/imageWebsite"
-                app:layout_constraintVertical_chainStyle="spread_inside" />
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageWebsite" />
 
-            <TextView
-                android:id="@+id/textPhoneHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/contact_number_header"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/textPhone1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.072"
-                app:layout_constraintStart_toEndOf="@+id/imagePhone"
-                app:layout_constraintTop_toTopOf="@+id/imagePhone"
-                app:layout_constraintVertical_chainStyle="spread" />
+                <ImageView
+                    android:id="@+id/imagePhone"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="384dp"
+                    android:contentDescription="TODO"
+                    app:srcCompat="@drawable/phone_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-            <TextView
-                android:id="@+id/textPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/phone1"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imagePhone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.084"
-                app:layout_constraintStart_toEndOf="@+id/imagePhone"
-                app:layout_constraintTop_toBottomOf="@+id/textPhone1" />
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="409dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toTopOf="@+id/imageEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagePhone"
+                    app:layout_constraintVertical_bias="0.548" />
 
-            <TextView
-                android:id="@+id/textPhone1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/phone1"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/textPhone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.084"
-                app:layout_constraintStart_toEndOf="@+id/imagePhone"
-                app:layout_constraintTop_toBottomOf="@+id/textPhoneHeader" />
+                <ImageView
+                    android:id="@+id/imageEmail"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="60dp"
+                    app:srcCompat="@drawable/contact_email"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagePhone" />
 
-            <TextView
-                android:id="@+id/textEmailHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email_header"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/textEmail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.069"
-                app:layout_constraintStart_toEndOf="@+id/imageEmail"
-                app:layout_constraintTop_toTopOf="@+id/imageEmail"
-                app:layout_constraintVertical_chainStyle="spread_inside" />
+                <ImageView
+                    android:id="@+id/imageWebsite"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="60dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageEmail"
+                    app:layout_constraintVertical_bias="0.03"
+                    app:srcCompat="@drawable/contact_website" />
 
-            <TextView
-                android:id="@+id/textEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageEmail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.145"
-                app:layout_constraintStart_toEndOf="@+id/imageEmail"
-                app:layout_constraintTop_toBottomOf="@+id/textEmailHeader" />
+                <TextView
+                    android:id="@+id/textWebsite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/website"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWebsite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.092"
+                    app:layout_constraintStart_toEndOf="@+id/imageWebsite"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="240dp"
-                android:layout_marginStart="1dp"
-                app:srcCompat="@drawable/ic_contact_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="TODO" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/website_header"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textWebsite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toEndOf="@+id/imageWebsite"
+                    app:layout_constraintTop_toTopOf="@+id/imageWebsite"
+                    app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                <TextView
+                    android:id="@+id/textPhoneHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact_number_header"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textPhone1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toEndOf="@+id/imagePhone"
+                    app:layout_constraintTop_toTopOf="@+id/imagePhone"
+                    app:layout_constraintVertical_chainStyle="spread" />
+
+                <TextView
+                    android:id="@+id/textPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePhone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.084"
+                    app:layout_constraintStart_toEndOf="@+id/imagePhone"
+                    app:layout_constraintTop_toBottomOf="@+id/textPhone1" />
+
+                <TextView
+                    android:id="@+id/textPhone1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone1"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textPhone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.084"
+                    app:layout_constraintStart_toEndOf="@+id/imagePhone"
+                    app:layout_constraintTop_toBottomOf="@+id/textPhoneHeader" />
+
+                <TextView
+                    android:id="@+id/textEmailHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_header"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.069"
+                    app:layout_constraintStart_toEndOf="@+id/imageEmail"
+                    app:layout_constraintTop_toTopOf="@+id/imageEmail"
+                    app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                <TextView
+                    android:id="@+id/textEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.145"
+                    app:layout_constraintStart_toEndOf="@+id/imageEmail"
+                    app:layout_constraintTop_toBottomOf="@+id/textEmailHeader" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="240dp"
+                    android:layout_marginStart="1dp"
+                    app:srcCompat="@drawable/ic_contact_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="TODO" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

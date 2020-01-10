@@ -134,6 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:hint="@string/venue_location"
             android:textColorHint="#86FFFFFF"
             app:endIconMode="clear_text"
             app:helperText="Please Enter Your Address"
@@ -173,13 +174,14 @@
                 android:id="@+id/editTextSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_venue_size"
                 android:ems="10"
                 android:hint="@string/venue_size"
+                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="448dp"
-                android:inputType="textPersonName" />
+                tools:layout_editor_absoluteY="448dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
