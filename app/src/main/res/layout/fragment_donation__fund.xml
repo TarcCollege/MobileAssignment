@@ -176,14 +176,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editTextCardNumLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:textColorHint="#3F51B5"
             app:helperText="Please Enter Your Credit Card/ Debit Card Number"
             app:layout_constraintBottom_toTopOf="@+id/buttonNext"
-            app:layout_constraintTop_toBottomOf="@+id/editPhoneLayout"
-            tools:layout_editor_absoluteX="3dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editPhoneLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextCardNum"
@@ -226,37 +227,6 @@
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editEmailLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            app:endIconMode="clear_text"
-            app:helperText="Please Enter Your Email"
-            app:helperTextEnabled="true"
-            app:helperTextTextColor="#F44336"
-            app:layout_constraintBottom_toTopOf="@+id/editPhoneLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editDisplayFirstNameLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editRegisterEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_envelope"
-                android:ems="10"
-                android:hint="@string/email_header"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="30dp"
-                android:textSize="16sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
     
 
