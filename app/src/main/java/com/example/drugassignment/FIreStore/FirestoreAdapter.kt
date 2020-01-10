@@ -40,7 +40,7 @@ abstract class FirestoreAdapter<VH : RecyclerView.ViewHolder?>(private var mQuer
     }
 
     protected fun getSnapshot(index: Int): DocumentSnapshot {
-       // Log.i("Size",mSnapshots.size.toString() )
+//        Log.i("Size",mSnapshots.size.toString() )
         return mSnapshots[index]
     }
 

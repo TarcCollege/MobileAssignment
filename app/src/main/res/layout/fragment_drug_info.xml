@@ -11,32 +11,90 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/text"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="20dp"
+            android:background="@drawable/layout_design"/>
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:drawableRight="@drawable/ic_exclamation"
+            android:padding="10dp"
+            android:text="@string/desc"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtDrugInfo"
-            android:layout_width="wrap_content"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="116dp"
-            android:layout_marginEnd="176dp"
-            android:text="TextView"
+            android:layout_gravity="left"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="12dp"
+            android:justificationMode="inter_word"
+            android:padding="10dp"
+            android:text="@string/text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
-            android:id="@+id/txtDrugSideEffect"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
-            android:layout_marginEnd="180dp"
-            android:text="TextView"
+            android:layout_marginTop="312dp"
+            android:drawableRight="@drawable/ic_exclamation"
+            android:padding="10dp"
+            android:text="@string/effect"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDrugSideEffect"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="12dp"
+            android:justificationMode="inter_word"
+            android:padding="10dp"
+            android:text="@string/text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDrugInfo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="409dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="70dp"
+                android:background="@color/colorDark" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="230dp"
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

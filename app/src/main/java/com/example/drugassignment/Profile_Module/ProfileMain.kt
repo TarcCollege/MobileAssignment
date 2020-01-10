@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentProfileMainBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
  * A simple [Fragment] subclass.
@@ -30,18 +32,6 @@ class ProfileMain : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_profile_main, container, false
         )
-
-//        binding.btnLogout.setOnClickListener {
-//            AuthUI.getInstance().signOut(requireContext()).addOnCompleteListener {
-//                if (it.isComplete) {
-//                    findNavController().navigate(R.id.action_profileMain_to_mainActivity)
-//                }
-//            }
-//        }
-
-
-
-
 
         return binding.root
     }

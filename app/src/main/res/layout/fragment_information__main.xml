@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="#00FC0909"
+            android:background="@color/colorPrimary"
             android:translationZ="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +65,9 @@
             app:layout_constraintTop_toBottomOf="@id/editSearchLayout"
             app:layout_constraintVertical_bias="0.026"
             app:tabGravity="fill"
+            app:tabIconTint="#FFFFFF"
+            app:tabIndicatorColor="#FFFFFF"
+            app:tabSelectedTextColor="#FFFFFF"
             app:tabIndicatorHeight="3dp"
             app:tabMode="scrollable" />
 
@@ -73,7 +76,6 @@
             android:layout_width="match_parent"
             android:layout_height="500dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoTabLayout" />

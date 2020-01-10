@@ -27,32 +27,17 @@ class InfoAdapter: RecyclerView.Adapter<InfoAdapter.ViewHolder>() {
 
         return ViewHolder(view)
     }
-
     override fun getItemCount(): Int {
         //Log.i("size", data.size.toString())
         return data.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        val item : OtherUser = data[position]
-
-       // holder.index.text = position.toString()
         holder.infoMain.text = data[position]
-
-//        holder.ItemHolder.setOnClickListener{
-//            Log.i("something", holder.index.text.toString())
-//        }
-
         holder.itemView.setOnClickListener {
-//            Toast.makeText(
-//                v.context,
-//                position.toString() + "",
-//                Toast.LENGTH_SHORT
-//            ).show()
             it.findNavController().navigate(R.id.action_information_Main_to_drugInfo)
         }
     }
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
        // val index: TextView = itemView.findViewById(com.example.drugassignment.R.id.infoIndex)

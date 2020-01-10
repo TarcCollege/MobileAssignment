@@ -17,6 +17,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.drugassignment.Class.DrugDetail
 import com.example.drugassignment.Class.DrugTitle
+import com.example.drugassignment.Login_Registration.LoginViewModel
 import com.example.drugassignment.R
 import com.example.drugassignment.databinding.FragmentInformationMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -38,7 +39,7 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
     private lateinit var binding : FragmentInformationMainBinding
     private val viewModel by viewModels<InfoViewModel>()
-
+    private lateinit var loginViewModel: LoginViewModel
     private lateinit var mFirestore: FirebaseFirestore
     private lateinit var mQuery: Query
     private lateinit var mAdapter: DrugDetailAdapter
@@ -90,27 +91,9 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             }
         })
 
-//        binding.button.setOnClickListener {
-//        }
-
         binding.editSearchLayout.setEndIconOnClickListener{
             searchItem()
         }
-
-//        binding.editAddress.addTextChangedListener(object : TextWatcher {
-//            override fun afterTextChanged(s: Editable?) {
-//
-//            }
-//
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//
-//            }
-//
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                searchItem()
-//            }
-//
-//        })
 
         return binding.root
     }
@@ -128,10 +111,7 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
     private fun initRecyclerView() {
         mAdapter = object : DrugDetailAdapter(mQuery, this@Information_Main) {
-            override fun onError(e: FirebaseFirestoreException?) { // Show a snackbar on errors
-                Snackbar.make(view!!.findViewById(android.R.id.content),
-                    "Error: check logs for info.", Snackbar.LENGTH_LONG).show()
-            }
+
         }
         binding.infoMainRecycleView.layoutManager = LinearLayoutManager(activity)
         binding.infoMainRecycleView.adapter = mAdapter
@@ -158,10 +138,6 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
             }
 
         }
-
-//        tabLayout.addTab(tabLayout.newTab().setText("All"))
-//        tabLayout.addTab(tabLayout.newTab().setText("empathogen"))
-//        tabLayout.addTab(tabLayout.newTab().setText("psychedelic"))
     }
 
     companion object {
@@ -172,19 +148,12 @@ class Information_Main : Fragment(), DrugDetailAdapter.OnRestaurantSelectedListe
 
     private fun searchItem() {
         hideKeyboard()
-
         val query: Query
-
-        val searchItem = binding.editAddress.text.toString()
-
-
-
+        val searchItem = binding.editAddress.text.toString().capitalize()
         query = mFirestore
                 .collection("DrugInfo")
                 .whereEqualTo("drugName", searchItem)
-
             mQuery = query
-
             mAdapter.setQuery(mQuery)
 
     }

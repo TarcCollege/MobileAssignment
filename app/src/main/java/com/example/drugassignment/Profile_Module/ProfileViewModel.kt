@@ -10,3 +10,4 @@ class ProfileViewModel : ViewModel() {
         get() = _title
 
     fun updateActionBarTitle(title: String) = _title.postValue(title) }
+

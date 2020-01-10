@@ -23,7 +23,7 @@
                 app:collapsedTitleGravity="top"
                 app:contentScrim="?attr/colorPrimary"
                 app:expandedTitleGravity="center"
-                app:expandedTitleMargin="32dp"
+                app:expandedTitleMargin="75dp"
                 app:expandedTitleMarginTop="100dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:title="something">
@@ -62,20 +62,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:background="#000000"
+                    android:alwaysDrawnWithCache="false"
+                    android:background="@color/colorPrimary"
                     android:translationZ="14dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/toolbar"
                     app:tabGravity="fill"
                     app:tabIndicatorHeight="3dp"
-                    app:tabMode="scrollable" />
+                    app:tabMode="scrollable"
+                    app:tabUnboundedRipple="true" />
 
                 <TextView
                     android:id="@+id/progressionText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="-80dp"
+                    android:layout_marginBottom="-50dp"
                     android:text="TextView"
                     android:textColor="@color/fui_bgGoogle"
                     android:textSize="24sp"
@@ -107,7 +109,9 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tabLayout"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </androidx.viewpager2.widget.ViewPager2>
 
 
 <!--        <fragment-->
@@ -131,6 +135,12 @@
             android:layout_margin="@dimen/fab_margin"
             app:srcCompat="@drawable/ic_send_white_24dp" />
 
+        <Button
+            android:id="@+id/buttonOtherUser"
+            android:layout_gravity="bottom|end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

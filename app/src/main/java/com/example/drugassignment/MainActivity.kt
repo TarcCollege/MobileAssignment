@@ -1,8 +1,11 @@
 package com.example.drugassignment
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.Gravity
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -12,16 +15,16 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
 import com.example.drugassignment.Login_Registration.LoginViewModel
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_nav_header2.view.*
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val viewModel by viewModels<LoginViewModel>()
-    private lateinit var navController : NavController
-
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = this.findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-
-//        val fab: FloatingActionButton = findViewById(R.id.fab)
-//
-//        fab.isVisible = false
-//
-//        fab.setOnClickListener { view ->
-//
-//        }
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -60,6 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         //addHeaderView()
         observeAuthenticationState()
+
     }
 
 
@@ -74,43 +69,16 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        val navController = findNavController(R.id.nav_host_fragment)
-//        Log.v("Game", item.itemId.toString())
-//
-//        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
-//    }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.login -> {
-            // User chose the "Settings" item, show the app settings UI...
-//            viewModel.authenticationState?.observe(this, Observer { authenticationState ->
-//                when (authenticationState) {
-//                    LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-//
-//                        navController.navigate(R.id.profile_Activity)
-//                    }
-//                    else -> {
-//                        Log.i("Navigat", "fail")
-//                        item.onNavDestinationSelected(navController)
-//                    }
-//
-//                }
-//            })
-//            true
-
-//
-//
-//
-//
             if (!viewModel.login) {
                 //item.onNavDestinationSelected(navController)
                 item.onNavDestinationSelected(navController)
                 true
 
             } else {
-                Log.i("Navigat", "fail")
-                navController.navigate(R.id.profile_Activity)
+                navigateProfile()
                 true
             }
         }
@@ -123,61 +91,94 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     // when the authentication change, the Nav View Header will change according
     // to what the state of the user
-    private fun observeAuthenticationState(){
+    private fun observeAuthenticationState() {
         // get the Nav view from the layout
-        val navView : NavigationView = findViewById(R.id.nav_view)
-        // get the header view
-//        val headerView  =
-//            LayoutInflater.from(this).inflate(R.layout.activity_nav_header2, null)
+        val navView: NavigationView = findViewById(R.id.nav_view)
 
         val headerView = navView.getHeaderView(0)
-        val drawerLayout : DrawerLayout = findViewById(R.id.drawer_layout)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        var user = FirebaseAuth.getInstance().currentUser
 
         viewModel.authenticationState?.observe(this, Observer { authenticationState ->
-            when (authenticationState) {
-                LoginViewModel.AuthenticationState.AUTHENTICATED -> {
-                    //navView.removeHeaderView(headerView)
-                    headerView.textViewDisplayName.text = viewModel.user.displayName
-                    headerView.textViewHeaderEmail.text = viewModel.user.email
-                    headerView.setOnClickListener {
+            if (authenticationState == LoginViewModel.AuthenticationState.AUTHENTICATED) {
+                viewModel.setCurrentUser()
+            }
+        })
 
+        viewModel.currentUser.observe(this, Observer {
+            if (it != null) {
+                headerView.textViewDisplayName.text = it.displayName
+                headerView.textViewHeaderEmail.text = it.email
+                if (viewModel.login) {
+                    headerView.setOnClickListener {
                         // closing with animation
                         // rawerLayout.closeDrawers()
-
                         drawerLayout.closeDrawer(Gravity.LEFT, false)
-                        navController.navigate(R.id.action_homeFragment_to_profile_Activity)
+                        navigateProfile()
                     }
-
-
-                    //navView.addHeaderView(headerView)
-                }
-                else -> {
-                   // navView.removeHeaderView(headerView)
-                    headerView.textViewDisplayName.text = "Name"
-                    headerView.textViewHeaderEmail.text = "Email"
+                } else {
                     headerView.setOnClickListener {
                         drawerLayout.closeDrawer(Gravity.LEFT, false)
                         navController.navigate(R.id.action_homeFragment_to_login)
                     }
-
-                  //  navView.addHeaderView(headerView)
                 }
-
+            } else {
+                headerView.textViewDisplayName.text = "Name"
+                headerView.textViewHeaderEmail.text = "Email"
+                if (viewModel.login) {
+                    headerView.setOnClickListener {
+                        // closing with animation
+                        // rawerLayout.closeDrawers()
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navigateProfile()
+                    }
+                } else {
+                    headerView.setOnClickListener {
+                        drawerLayout.closeDrawer(Gravity.LEFT, false)
+                        navController.navigate(R.id.action_homeFragment_to_login)
+                    }
+                }
             }
         })
     }
 
-    private fun addHeaderView() {
-        // get the Nav view from the layout
-        val navView : NavigationView = findViewById(R.id.nav_view)
-        // get the header view
-        val headerView  =
-            LayoutInflater.from(this).inflate(R.layout.activity_nav_header2, null)
-        navView.addHeaderView(headerView)
+
+    fun navigateProfile() {
+        val sharedPref = getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+
+        with(sharedPref.edit()) {
+            putString(
+                getString(com.example.drugassignment.R.string.passEmail),
+                viewModel.currentUser.value?.email
+            )
+            putString(
+                getString(com.example.drugassignment.R.string.passAddress),
+                viewModel.currentUser.value?.address
+            )
+            putBoolean(
+                getString(com.example.drugassignment.R.string.passAvailable),
+                viewModel.currentUser.value?.availability ?: false
+            )
+            putString(
+                getString(com.example.drugassignment.R.string.passRole),
+                viewModel.currentUser.value?.role
+            )
+            putString(
+                getString(com.example.drugassignment.R.string.passDisplayName),
+                viewModel.currentUser.value?.displayName
+            )
+            putString(
+                getString(com.example.drugassignment.R.string.passDate),
+                viewModel.currentUser.value?.registerDate
+            )
+            apply()
+        }
+        Log.i("Share", sharedPref.getString(getString(R.string.passEmail), "123"))
+        navController.navigate(R.id.profile_Activity)
     }
+
 }
 
 

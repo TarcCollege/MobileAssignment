@@ -30,7 +30,7 @@ android {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
         applicationId "com.example.drugassignment"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 29
         multiDexEnabled true
         versionCode 1
@@ -46,7 +46,7 @@ android {
 }
 
 dependencies {
-   // def nav_version = "2.1.0"
+    // def nav_version = "2.1.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

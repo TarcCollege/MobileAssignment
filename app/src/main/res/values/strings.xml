@@ -17,12 +17,51 @@
     <string name="message">Message</string>
     <string name="title_activity_maps">Map</string>
 
-    <string name="reset">Forgot Password ?</string>
-    <string name="email">Email:</string>
-    <string name="password">Password:</string>
-    <string name="login">Login</string>
-    <string name="register">Register here</string>
+    //used in contact us
+    <string name="contact_header">Contact Us</string>
+    <string name="email">temp_email@gmail.com</string>
+    <string name="phone1">011-321 5708</string>
+    <string name="contact_number_header">Phone</string>
+    <string name="website">www.xxxxx.com</string>
+    <string name="website_header">Website</string>
+    <string name="email_header">Email</string>
 
+    //used in donate
+    <string name="fund">Fund us</string>
+    <string name="donate_venue">Donate a venue for helding event</string>
+
+    //used in donate_fund
+    <string name="other_amt"></string>
+    <string name="missing_FirstName">Name</string>
+    <string name="missing_LastName">Last Name</string>
+    <string name="missingPhone">Phone</string>
+    <string name="missingEmail">E-Mail</string>
+    <string name="otheramt">Other Amount</string>
+    <string name="specifyamt">Specify Amount</string>
+    <string name="next">Next</string>
+    <string name="send">Send</string>
+    <string name="venue_size">Venue Size (sqft)</string>
+    <string name="venue_location">Venue Location</string>
+    <string name="contact_num">Contact Number</string>
+
+    <string name="desc">Description</string>
+    <string name="effect">Side Effect</string>
+    <string name="text">textView</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reset">Reset Password</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="hello_blank_fragment">Empty</string>
+    <string name="email2">Email</string>
+
+    <string name="Mentee">Mentee</string>
+    <string name="Mentor">Mentor</string>
+
+    <string name="passEmail">Email</string>
+    <string name="passDisplayName">DisplayName</string>
+    <string name="passRole">Role</string>
+    <string name="passAvailable">Available</string>
+    <string name="passAddress">Address</string>
+    <string name="passDate">Date</string>
+
 </resources>

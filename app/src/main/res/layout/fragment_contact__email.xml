@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Help_Module.Contact_Email">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editEmailLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="32dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="@string/email2"
+        android:inputType="textEmailAddress"
+        app:endIconMode="clear_text"
+        app:helperText="Please Enter Your Email"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editRegisterEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_envelope"
+            android:ems="10"
+
+            android:hint="@string/missingEmail"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="30dp"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editDisplayNameLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="32dp"
+        android:background="#FFFFFF"
+        app:helperText="Please Enter Your Display Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeader"
+        app:layout_constraintVertical_chainStyle="spread">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editDisplayName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+            android:ems="10"
+            android:hint="@string/missing_FirstName"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="237dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:text="Have a Question ? "
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Contact Number"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDisplayNameLayout" />
+
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Message"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmailLayout"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <Button
+        android:id="@+id/buttonSend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
+        android:text="@string/send"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
