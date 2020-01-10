@@ -25,7 +25,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:background="@drawable/layout_design"/>
 
 
@@ -47,7 +47,7 @@
                 android:drawableRight="@drawable/ic_exclamation"
                 android:padding="10dp"
                 android:text="@string/desc"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.143"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
                 android:id="@+id/txtDrugInfo"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:layout_marginTop="16dp"
                 android:justificationMode="inter_word"
                 android:padding="10dp"
@@ -112,7 +112,7 @@
                 android:drawableRight="@drawable/ic_exclamation"
                 android:padding="10dp"
                 android:text="@string/Location"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDrugSideEffect"
                 app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
@@ -143,7 +143,7 @@
                 android:drawableRight="@drawable/ic_exclamation"
                 android:padding="10dp"
                 android:text="@string/City"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDrugSideEffect"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -175,7 +175,7 @@
                 android:drawableRight="@drawable/ic_exclamation"
                 android:padding="10dp"
                 android:text="@string/StartDate"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDrugSideEffect"
                 app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
@@ -206,7 +206,7 @@
                 android:drawableRight="@drawable/ic_exclamation"
                 android:padding="10dp"
                 android:text="@string/StartTime"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDrugSideEffect"
                 app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
@@ -237,7 +237,7 @@
                 android:drawableRight="@drawable/ic_exclamation"
                 android:padding="10dp"
                 android:text="@string/EndTime"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/txtDrugSideEffect"
                 app:layout_constraintTop_toBottomOf="@+id/divider7" />
 

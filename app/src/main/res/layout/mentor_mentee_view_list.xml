@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
-                android:text="View Details"
+                android:text="@string/view_Details"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.531"
@@ -45,7 +45,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="56dp"
 
-                android:text="Name"
+                android:text="@string/nav_header_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="44dp"
-                android:text="TextView"
+                android:text="@string/textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="19dp"
                 android:layout_marginEnd="36dp"
-                android:text="TextView"
+                android:text="@string/textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="144dp"
-                android:text="Apply"
+                android:text="@string/applier"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/buttonViewMore"
                 app:layout_constraintTop_toTopOf="parent" />

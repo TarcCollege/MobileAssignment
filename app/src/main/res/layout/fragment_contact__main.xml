@@ -50,7 +50,7 @@
                 android:layout_marginTop="60dp"
                 android:layout_marginBottom="384dp"
                 android:contentDescription="TODO"
-                android:src="@drawable/phone_icon"
+                android:srcCompact="@drawable/phone_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -74,7 +74,7 @@
                 android:layout_height="66dp"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="60dp"
-                android:src="@drawable/contact_email"
+                android:srcCompact="@drawable/contact_email"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imagePhone" />
 
@@ -84,7 +84,7 @@
                 android:layout_height="66dp"
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="60dp"
-                android:src="@drawable/contact_website"
+                android:srcCompact="@drawable/contact_website"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageEmail" />

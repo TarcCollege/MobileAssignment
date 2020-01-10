@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:layout_marginTop="20dp"
-                    android:text="Login"
+                    android:text="@string/loginTitle"
                     android:textSize="25sp"
                     android:textColor="#000503"/>
 
@@ -57,7 +57,7 @@
                     android:layout_marginTop="40dp"
                     android:background="#FFFFFF"
                     android:ems="10"
-                    android:hint="@string/email2"
+                    android:hint="@string/email_header"
                     android:inputType="textEmailAddress"
                     app:endIconMode="clear_text"
                     app:helperText="Please Enter Your Email"
@@ -67,10 +67,10 @@
                         android:id="@+id/editRegisterEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_envelope"
+                        android:drawableStart="@drawable/ic_envelope"
 
                         android:inputType="textEmailAddress"
-                        android:paddingLeft="30dp"
+                        android:paddingStart="30dp"
                         android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +120,7 @@
                     android:layout_height="45dp"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:layout_marginTop="30dp"
-                    android:text="Login"
+                    android:text="@string/loginTitle"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:theme="@style/AppTheme3"
                     android:textColor="#FFFFFF"
@@ -149,11 +149,11 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
-                    android:layout_gravity="right"
+                    android:layout_gravity="end"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="16dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="6dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="6dp"
                     android:text="@string/register"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp" />
@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="-33dp"
-                    android:text="Don't have an account?"
+                    android:text="@string/account"
                     android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
 
