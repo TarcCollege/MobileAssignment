@@ -81,5 +81,7 @@
     <string name="confirm">Confirm</string>
     <string name="resetEvent">Reset</string>
 
+    <string name="textView">TextView</string>
+    <string name="something">something</string>
 
 </resources>
