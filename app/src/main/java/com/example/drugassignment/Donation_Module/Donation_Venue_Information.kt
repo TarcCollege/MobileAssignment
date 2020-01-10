@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 
 import com.example.drugassignment.R
-import com.example.drugassignment.databinding.FragmentDonationFundPaymentBinding
 import com.example.drugassignment.databinding.FragmentDonationVenueInformationBinding
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -43,7 +42,7 @@ class Donation_Venue_Information : Fragment() {
 
     private fun validation() :Boolean {
         if (binding.editAddress.text.isNullOrBlank() || binding.editDisplayName.text.isNullOrBlank()
-            ||binding.editRegisterEmail.text.isNullOrBlank()) {
+            ||binding.editRegisterEmail.text.isNullOrBlank() ||binding.editTextSize.text.isNullOrBlank() || binding.editTextPhone.text.isNullOrBlank()) {
             if (binding.editAddress.text.isNullOrBlank()) {
                 binding.editAddressLayout.error = "No Blank"
             } else {
@@ -55,12 +54,24 @@ class Donation_Venue_Information : Fragment() {
             } else {
                 binding.editDisplayNameLayout.isErrorEnabled = false
             }
+            if (binding.editTextSize.text.isNullOrBlank()) {
+                binding.editSizeLayout.error = "No Blank"
+            } else {
+                binding.editSizeLayout.isErrorEnabled = false
+            }
+            if (binding.editTextPhone.text.isNullOrBlank()) {
+                binding.editPhoneLayout.error = "No Blank"
+            } else {
+                binding.editPhoneLayout.isErrorEnabled = false
+            }
 
             if (binding.editRegisterEmail.text.isNullOrBlank()) {
                 binding.editRegisterEmailLayout.error = "No Blank"
-            } else {
+            } else{
                 binding.editRegisterEmailLayout.isErrorEnabled = false
             }
+
+
 
             return false
         }

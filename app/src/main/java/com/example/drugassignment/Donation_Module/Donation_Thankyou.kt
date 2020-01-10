@@ -30,7 +30,7 @@ class Donation_Thankyou : Fragment() {
         val navController = activity!!.findNavController(R.id.nav_host_fragment)
 
         binding.buttonReturn.setOnClickListener {
-            navController.navigate(R.id.action_donation_Thankyou_to_donation_Main)
+            navController.navigate(R.id.action_donation_Thankyou_to_homeFragment)
         }
 
         return binding.root

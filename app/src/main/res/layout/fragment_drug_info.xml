@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:background="@drawable/layout_design"/>
 
 
@@ -31,7 +31,7 @@
             android:drawableRight="@drawable/ic_exclamation"
             android:padding="10dp"
             android:text="@string/desc"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.116"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
             android:id="@+id/txtDrugInfo"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="12dp"
             android:justificationMode="inter_word"
@@ -58,7 +58,7 @@
             android:drawableRight="@drawable/ic_exclamation"
             android:padding="10dp"
             android:text="@string/effect"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.116"
             app:layout_constraintStart_toStartOf="parent"

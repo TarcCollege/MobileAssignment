@@ -53,6 +53,7 @@
             app:helperTextTextColor="#F44336"
             app:layout_constraintBottom_toTopOf="@+id/editEmailLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewSpecifyAmount">
 
@@ -105,7 +106,7 @@
             android:layout_marginBottom="32dp"
             android:background="#9C9C9C"
             android:enabled="false"
-            android:text="@string/specifyamt"
+            android:text="@string/specify_Amount"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:visibility="visible"
@@ -149,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:background="#3F51B5"
-            android:text="@string/otheramt"
+            android:text="@string/other_Amount"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/textViewSpecifyAmount"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,31 +158,43 @@
             app:layout_constraintStart_toEndOf="@+id/btn200"
             app:layout_constraintTop_toBottomOf="@+id/textAmount" />
 
-        <!--        <EditText-->
-        <!--            android:id="@+id/editTextPhone"-->
-        <!--            android:layout_width="411dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginBottom="64dp"-->
-        <!--            android:ems="10"-->
-        <!--            android:hint="@string/missingPhone"-->
-        <!--            android:inputType="phone"-->
-        <!--            app:layout_constraintBottom_toTopOf="@+id/buttonNext"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.0"-->
-        <!--            app:layout_constraintStart_toStartOf="parent" />-->
+        
 
         <Button
             android:id="@+id/buttonNext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#03A9F4"
-            android:text="@string/next"
+            android:text="@string/submit_button"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextCardNumLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textColorHint="#3F51B5"
+            app:helperText="Please Enter Your Credit Card/ Debit Card Number"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNext"
+            app:layout_constraintTop_toBottomOf="@+id/editPhoneLayout"
+            tools:layout_editor_absoluteX="3dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextCardNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_credit_card"
+                android:ems="10"
+                android:hint="Credit Card/Debit Card Number"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPhoneLayout"
@@ -197,23 +210,11 @@
             app:helperText="Please Enter Your Phone Number"
             app:helperTextEnabled="true"
             app:helperTextTextColor="#F44336"
-            app:layout_constraintBottom_toTopOf="@+id/buttonNext"
+            app:layout_constraintBottom_toTopOf="@+id/editTextCardNumLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editEmailLayout">
-
-            <!--            <com.google.android.material.textfield.TextInputEditText-->
-            <!--                android:id="@+id/editTextPhone"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--        android:layout_marginBottom="64dp"-->
-            <!--                android:drawableLeft="@drawable/ic_envelope"-->
-            <!--                android:ems="10"-->
-
-            <!--                android:hint="E-mail"-->
-            <!--                android:inputType="textEmailAddress"-->
-            <!--                android:paddingLeft="30dp"-->
-            <!--                android:textSize="16sp" />-->
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPhone"
@@ -225,18 +226,39 @@
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--        <EditText-->
-        <!--            android:id="@+id/editTextPhone"-->
-        <!--            android:layout_width="411dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginBottom="224dp"-->
-        <!--            android:ems="10"-->
-        <!--            android:hint="@string/missingPhone"-->
-        <!--            android:inputType="phone"-->
-        <!--            app:layout_constraintBottom_toTopOf="@+id/buttonNext"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.0"-->
-        <!--            app:layout_constraintStart_toStartOf="parent" />-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editEmailLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            app:endIconMode="clear_text"
+            app:helperText="Please Enter Your Email"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#F44336"
+            app:layout_constraintBottom_toTopOf="@+id/editPhoneLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editDisplayFirstNameLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editRegisterEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_envelope"
+                android:ems="10"
+                android:hint="@string/email_header"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="30dp"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
