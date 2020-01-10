@@ -107,25 +107,7 @@
     <string name="fail">Work Hard!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="textView">TextView</string>
+    <string name="textView">123</string>
     <string name="something">something</string>
-
-
-    <string name="quiz_title">Drug Quiz</string>
-    <string name="quiz">Drug Quiz (%1$d/%2$d)</string>
-    <string name="summary">There are several questions on this page to test your knowledge and understanding of drugs.
-        The relevant answers can be found in the information office.</string>
-    <string name="rules">Select the answer from the options given. Each time you get an answer correct,
-    you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to
-        the title screen using up or back from within the game screen, and this will also end your game.</string>
-    <string name="quiz_button">Get Start!</string>
-    <string name="title_activity_quiz_main">activity_quiz_main</string>
-    <string name="submit_button">Submit</string>
-    <string name="try_again">Try Again</string>
-    <string name="next_Match">Next Match</string>
-    <string name="pass">Congratulations!</string>
-    <string name="fail">Work Hard!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

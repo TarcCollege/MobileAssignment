@@ -37,7 +37,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/shape"
                     android:scaleType="fitXY"
-                    android:contentDescription="@string/textView"
+                    android:contentDescription="123"
                     app:layout_collapseMode="parallax"
                     app:srcCompat="@drawable/ic_account_circle_black_24dp" />
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="-50dp"
-                android:text="@string/textView"
+                android:text="123"
                 android:textColor="@color/fui_bgGoogle"
                 android:textSize="24sp"
                 app:layout_collapseMode="parallax" />
