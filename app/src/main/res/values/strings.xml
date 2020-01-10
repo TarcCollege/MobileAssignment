@@ -72,6 +72,24 @@
     <string name="EndTime">End Time :</string>
     <string name="participate">Participate</string>
 
+    <string name="evenName">Even Name</string>
+    <string name="helpertextEvent">Please Enter Event Name</string>
+    <string name="eventLocation">Event Location</string>
+    <string name="helperLocation">Please Enter Event Location</string>
+    <string name="eventDescription">Event Description</string>
+    <string name="helperDescription">Please Enter Event Description</string>
+    <string name="eventCity">Event City</string>
+    <string name="helperCity">Please Enter Event City</string>
+    <string name="date">Date</string>
+    <string name="helperDate">Please Select Event Date</string>
+    <string name="startTIme">Start TIme</string>
+    <string name="endTime">End Time</string>
+    <string name="helperStartTime">Please Select Start Time</string>
+    <string name="helperEndTime">Please Select End Time</string>
+    <string name="confirm">Confirm</string>
+    <string name="resetEvent">Reset</string>
+
+
 
     <string name="quiz_title">Drug Quiz</string>
     <string name="quiz">Drug Quiz (%1$d/%2$d)</string>
