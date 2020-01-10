@@ -13,7 +13,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editRegisterEmailLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="411dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:padding="-11dp"
@@ -28,8 +28,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRegisterEmail"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="55dp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:drawableLeft="@drawable/ic_envelope"
                 android:ems="10"
                 android:hint="@string/missingEmail"
@@ -40,7 +41,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editDisplayNameLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="411dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             app:helperText="Please Enter Your Display Name"
@@ -53,8 +54,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editDisplayName"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="55dp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                 android:ems="10"
                 android:hint="@string/missing_FirstName"
@@ -64,7 +66,7 @@
 
         <Button
             android:id="@+id/buttonSubmit"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#03A9F4"
             android:text="Submit"
@@ -102,7 +104,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPhoneLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="411dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:background="#FFFFFF"
@@ -120,8 +122,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPhone"
-                android:layout_width="411dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:drawableLeft="@drawable/phone_icon"
                 android:ems="10"
                 android:hint="@string/missingPhone"
@@ -131,7 +134,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editAddressLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:textColorHint="#86FFFFFF"
@@ -146,8 +149,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editAddress"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:drawableLeft="@drawable/ic_noun_address_2340040"
                 android:ems="10"
                 android:hint="@string/venue_location"
@@ -157,7 +161,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editSizeLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             app:endIconMode="clear_text"
@@ -171,8 +175,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextSize"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:ems="10"
                 android:hint="@string/venue_size"
                 app:layout_constraintEnd_toEndOf="parent"
