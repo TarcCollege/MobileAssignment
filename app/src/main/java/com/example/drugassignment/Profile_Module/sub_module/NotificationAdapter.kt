@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.Class.SubUser
@@ -19,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import java.text.SimpleDateFormat
 
-class NotificationAdapter  constructor(context: Activity) : RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
+class NotificationAdapter  constructor(context: FragmentActivity?) : RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
     var context = context
     var data = listOf<Notification>()
         set(value) {
@@ -55,8 +56,8 @@ class NotificationAdapter  constructor(context: Activity) : RecyclerView.Adapter
 
         holder.wrapper.setOnClickListener {
             val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-            val sharedPreferences = context.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
-            val email = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passEmail), "123")
+            val sharedPreferences = context?.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+            val email = sharedPreferences?.getString(context?.getString(com.example.drugassignment.R.string.passEmail), "123")
 
 
             db.collection("User")

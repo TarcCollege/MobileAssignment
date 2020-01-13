@@ -26,54 +26,54 @@ class QuizQuesFragment : Fragment() {
     // resources so we could internationalize. (Or better yet, don't define the questions in code...)
     private val questions: MutableList<Question> = mutableListOf(
         Question(
-            text = "Who is Kuek Yong Boon?",
-            answers = listOf("All of these", "Leng Zai", "Fei Fei", "Others")
+            text = "Ecstasy will provide side effect except",
+            answers = listOf("Slowed Reaction", "Anxiety", "Stroke", "Seizures")
         ),
         Question(
-            text = "What is the base class for layouts?",
-            answers = listOf("ViewGroup", "ViewSet", "ViewCollection", "ViewRoot")
+            text = "Which of the following is not drug",
+            answers = listOf("Saliva", "Glue", "LSD", "Paint")
         ),
         Question(
-            text = "What layout do you use for complex screens?",
-            answers = listOf("ConstraintLayout", "GridLayout", "LinearLayout", "FrameLayout")
+            text = "Salvia is also refered as _________ by the Mazatec Indians",
+            answers = listOf("Herb of Mary", "Herb of Happiness", "Herb of June", "Herb of Zenith")
         ),
         Question(
-            text = "What do you use to push structured data into a layout?",
-            answers = listOf("Data binding", "Data pushing", "Set text", "An OnClick method")
+            text = "What is the side effect of Morphine?",
+            answers = listOf("Nausea", "Depression", "Heart Failure", "Anxiety")
         ),
         Question(
-            text = "What method do you use to inflate layouts in fragments?",
+            text = "Which of the following is not a type of drug?",
             answers = listOf(
-                "onCreateView()",
-                "onActivityCreated()",
-                "onCreateLayout()",
-                "onInflateLayout()"
+                "Chocolate",
+                "Opioids",
+                "Stimulants",
+                "All"
             )
         ),
         Question(
-            text = "What's the build system for Android?",
-            answers = listOf("Gradle", "Graddle", "Grodle", "Groyle")
+            text = "What drug is a central nervous system (CNS) stimulant of the methylxanthine class?",
+            answers = listOf("Caffeine", "Rohypnol", "Heroin", "Aerosol sprays")
         ),
         Question(
-            text = "Which class do you use to create a vector drawable?",
+            text = "Which one is NOT a side effect of Dexedrine?",
             answers = listOf(
-                "VectorDrawable",
-                "AndroidVectorDrawable",
-                "DrawableVector",
-                "AndroidVector"
+                "Heart failure",
+                "Unpleasant taste",
+                "Dry mouth",
+                "Insomnia"
             )
         ),
         Question(
-            text = "Which one of these is an Android navigation component?",
-            answers = listOf("NavController", "NavCentral", "NavMaster", "NavSwitcher")
+            text = "Drug interactions may occur with caffeine, except.",
+            answers = listOf("Lexapro ", "Duloxetine", "Rasagiline", "Quinolones(ie. ciprofloxacin)")
         ),
         Question(
-            text = "Which XML element lets you register an activity with the launcher activity?",
-            answers = listOf("intent-filter", "app-registry", "launcher-registry", "app-launcher")
+            text = "Which of the following drugs does it belong to Depressants drug type?",
+            answers = listOf("Adderall ", "Rohypnol", "Valium", "Xanax")
         ),
         Question(
-            text = "What do you use to mark a layout for data binding?",
-            answers = listOf("<layout>", "<binding>", "<data-binding>", "<dbinding>")
+            text = "LSD, Peyote, Psilocybin and Salvia are belongs to what drug type?",
+            answers = listOf("Hallucinogens ", "Dissociatives", "Cannabis", "Inhalants ")
         )
     )
 
@@ -82,7 +82,7 @@ class QuizQuesFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = 1
+    private val numQuestions = 4
     private lateinit var binding: FragmentQuizQuesBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -152,10 +152,12 @@ class QuizQuesFragment : Fragment() {
         answers.shuffle()
 
         binding.questionText.text = currentQuestion.text
-        binding.firstAnswerRadioButton.text = currentQuestion.answers[0]
-        binding.secondAnswerRadioButton.text = currentQuestion.answers[1]
-        binding.thirdAnswerRadioButton.text = currentQuestion.answers[2]
-        binding.fourthAnswerRadioButton.text = currentQuestion.answers[3]
+        binding.firstAnswerRadioButton.text = answers[0]
+        binding.secondAnswerRadioButton.text = answers[1]
+        binding.thirdAnswerRadioButton.text = answers[2]
+        binding.fourthAnswerRadioButton.text = answers[3]
+
+
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.quiz, questionIndex + 1, numQuestions)
     }

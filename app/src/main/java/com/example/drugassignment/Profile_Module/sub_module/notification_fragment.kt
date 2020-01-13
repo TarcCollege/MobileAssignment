@@ -72,7 +72,7 @@ class notification_fragment : Fragment() {
                 if (snapshot != null && !snapshot.isEmpty) {
                     val adapter = snapshot.toObjects(Notification::class.java)
 
-                    val adapter2 = NotificationAdapter(this.activity!!)
+                    val adapter2 = NotificationAdapter(this.activity)
                     binding.recyclerViewNotification.layoutManager = LinearLayoutManager(activity)
                     binding.recyclerViewNotification.adapter = adapter2
                     adapter2.data = adapter

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.CreateDrugEvent
 import com.example.drugassignment.Class.CurrentUser
@@ -21,7 +22,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class ReminderAdapter constructor(context: Activity) :
+class ReminderAdapter constructor(context: FragmentActivity?) :
     RecyclerView.Adapter<ReminderAdapter.ViewHolder>() {
 
     var context = context

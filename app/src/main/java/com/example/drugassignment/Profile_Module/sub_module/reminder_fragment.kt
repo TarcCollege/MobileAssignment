@@ -69,8 +69,8 @@ class reminder_fragment : Fragment() {
                 }
                 if (snapshot != null && !snapshot.isEmpty) {
                     val adapter = snapshot.toObjects(CreateDrugEvent::class.java)
-
-                    val adapter2 = ReminderAdapter(this.activity!!)
+                    Log.i("ACtivity", this.activity.toString())
+                    val adapter2 = ReminderAdapter(this.activity)
 
                     Log.i("123456", adapter2.context.toString())
                     Log.i("123456", adapter.size.toString())

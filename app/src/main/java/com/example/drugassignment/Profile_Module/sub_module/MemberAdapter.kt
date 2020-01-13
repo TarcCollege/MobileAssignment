@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drugassignment.Class.Notification
 import com.example.drugassignment.Class.SubUser
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_profile.*
 import java.util.*
 
 
-class MemberAdapter constructor(context: Activity) :
+class MemberAdapter constructor(context: FragmentActivity?) :
     RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
     var context = context
 
@@ -62,10 +63,10 @@ class MemberAdapter constructor(context: Activity) :
         // unsolveable for removing item cause it getting data from cache
         // the cache data will still be around for some time
         holder.buttonApply.setOnClickListener {
-            val sharedPreferences = context.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+            val sharedPreferences = context?.getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
             val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-            val role = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passRole),"123")
-            val email = sharedPreferences.getString(context.getString(com.example.drugassignment.R.string.passEmail), "123")
+            val role = sharedPreferences?.getString(context?.getString(com.example.drugassignment.R.string.passRole),"123")
+            val email = sharedPreferences?.getString(context?.getString(com.example.drugassignment.R.string.passEmail), "123")
             val targetEmail = item.email!!
 
             // delete the SubUser from currentUser
@@ -77,7 +78,7 @@ class MemberAdapter constructor(context: Activity) :
                 .addOnSuccessListener {
                     sharedPreferences.edit()
                             // update the availanility of current user on sharedPreference
-                        .putBoolean(context.getString(com.example.drugassignment.R.string.passAvailable), true)
+                        .putBoolean(context?.getString(com.example.drugassignment.R.string.passAvailable), true)
                         .apply()
                     Toast.makeText(
                         context, "Successfully Deleted",
@@ -124,7 +125,7 @@ class MemberAdapter constructor(context: Activity) :
                             ).show()
                         }
                 }
-            context.buttonOtherUser.isVisible = true
+            context?.buttonOtherUser?.isVisible = true
             holder.buttonApply.isEnabled = false
             holder.buttonbuttonViewMore.isEnabled = false
 
