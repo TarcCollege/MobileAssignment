@@ -218,7 +218,7 @@
     <fragment
         android:id="@+id/eventMain"
         android:name="com.example.drugassignment.Map_Module.EventMain"
-        android:label="fragment_event_main"
+        android:label="Event"
         tools:layout="@layout/fragment_event_main" >
         <action
             android:id="@+id/action_eventMain_to_eventDetail"

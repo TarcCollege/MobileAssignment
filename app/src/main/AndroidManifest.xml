@@ -23,7 +23,8 @@
         <activity android:name=".Profile_Module.sub_module.ProfileDetail" />
         <activity
             android:name=".Profile_Module.sub_module.MemberList"
-            android:parentActivityName=".Profile_Module.Profile_Activity" />
+            android:parentActivityName=".Profile_Module.Profile_Activity"
+            android:label="Member List"/>
         <activity android:name=".nav_header2" />
         <activity
             android:name=".Profile_Module.Profile_Activity"
